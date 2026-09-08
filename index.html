@@ -41,7 +41,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
     body { margin: 0; color: var(--text); background: var(--cream); font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
@@ -52,26 +52,65 @@
     svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
     [hidden] { display: none !important; }
 
+    .skip-link { position: fixed; top: 8px; left: 24px; z-index: 100; padding: 14px 20px; background: var(--forest); color: var(--cream); transform: translateY(-160%); }
+    .skip-link:focus { transform: none; }
+    /* Keep clipping on the glass surface so the mobile panel and focus rings remain visible. */
+    .site-nav {
+      position: fixed; top: 16px; left: 50%; z-index: 90;
+      width: min(calc(100% - 32px), 1320px); min-height: 66px;
+      display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center; gap: 24px; padding: 4px 12px 4px 18px;
+      color: var(--text); transform: translateX(-50%); isolation: isolate;
+      box-shadow: 0 12px 40px rgba(13,35,12,.06);
+      transition: top 220ms ease, box-shadow 220ms ease;
+    }
+    .site-nav::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: rgba(252,254,250,.72); border: 1px solid rgba(213,223,206,.76);
+      backdrop-filter: blur(20px) saturate(130%); -webkit-backdrop-filter: blur(20px) saturate(130%);
+      clip-path: polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+      transition: background 220ms ease, border-color 220ms ease;
+    }
+    .site-nav.nav-enter { animation: nav-entrance 850ms var(--ease) backwards; }
+    .site-nav.is-scrolled { top: 8px; box-shadow: 0 18px 52px rgba(13,35,12,.11); }
+    .site-nav.is-scrolled::before { background: rgba(252,254,250,.93); border-color: rgba(213,223,206,.95); }
+    .brand-lockup { display: inline-flex; width: fit-content; align-items: center; text-decoration: none; }
+    .brand-logo-frame { display: flex; width: 124px; height: 56px; align-items: center; justify-content: center; }
+    .brand-logo { width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 8px 2px; color: var(--text-soft); font-size: 12px; font-weight: 600; line-height: 1.5; text-decoration: none; transition: color 220ms ease; }
+    .nav-link::after { content: ""; position: absolute; left: 2px; right: calc(100% - 2px); bottom: 6px; height: 1px; background: var(--green); transition: right 220ms ease; }
+    .nav-link:hover, .nav-link:focus-visible, .nav-link.is-active { color: var(--text); }
+    .nav-link:hover::after, .nav-link:focus-visible::after, .nav-link.is-active::after { right: 2px; }
+    .nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+    .nav-context { color: var(--text-soft); font: 500 9px/1.5 var(--mono); letter-spacing: .08em; white-space: nowrap; }
+    .nav-cta { position: relative; isolation: isolate; display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; color: var(--cream); font-size: 11px; font-weight: 650; line-height: 1.5; letter-spacing: .03em; text-decoration: none; transition: transform 180ms ease; }
+    .nav-cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--forest); clip-path: polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px); transition: background 180ms ease; }
+    .nav-cta svg { width: 16px; height: 16px; transition: transform 180ms ease; }
+    .nav-cta:hover { transform: translateY(-2px); }
+    .nav-cta:hover::before { background: var(--forest-deep); }
+    .nav-cta:hover svg { transform: translate(2px,-2px); }
+    .nav-cta:active { transform: scale(.98); }
+    .mobile-menu-btn { display: none; width: 44px; height: 44px; padding: 0; place-items: center; color: var(--text); background: transparent; border: 1px solid var(--line); cursor: pointer; transition: background 180ms ease, border-color 180ms ease; }
+    .mobile-menu-btn:hover { background: var(--cream-deep); border-color: var(--accent); }
+    .mobile-menu-btn:active { background: var(--line); }
+    .menu-icon { position: relative; width: 18px; height: 14px; }
+    .menu-icon span { position: absolute; left: 0; width: 18px; height: 1px; background: currentColor; transition: transform 220ms var(--ease), opacity 180ms ease; }
+    .menu-icon span:nth-child(1) { top: 0; }
+    .menu-icon span:nth-child(2) { top: 6px; }
+    .menu-icon span:nth-child(3) { top: 12px; }
+    .menu-open .menu-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-open .menu-icon span:nth-child(2) { opacity: 0; }
+    .menu-open .menu-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    @keyframes nav-entrance { from { opacity: 0; transform: translate(-50%,18px); filter: blur(6px); } to { opacity: 1; transform: translate(-50%,0); } }
+
     .hero {
       position: relative;
       isolation: isolate;
       min-height: 100svh;
-      padding: 0 30px 28px;
+      padding: 110px 30px 28px;
       background: radial-gradient(ellipse at 5% 5%, rgba(106,170,4,.075), transparent 40%), linear-gradient(180deg, var(--cream), #edf3e7);
     }
-    .identity {
-      max-width: 1260px;
-      min-height: 110px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding-block: 14px;
-    }
-    .identity-logo { display: block; width: 157px; height: auto; }
-    .identity-note { margin: 0; color: var(--text-soft); font: 500 10px/1.7 var(--mono); letter-spacing: .1em; text-align: right; text-transform: uppercase; }
-    .identity-note span { color: var(--green); }
     .hero-shell { max-width: 1380px; margin: auto; position: relative; filter: drop-shadow(0 24px 38px rgba(13,35,12,.09)); }
     /* Only decorative surfaces are clipped: content and focus rings stay intact. */
     .hero-panel { position: relative; isolation: isolate; }
@@ -133,7 +172,7 @@
     .card-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
     .card-kicker { color: var(--lime-bright); font: 500 10px/1.6 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
     .card-symbol { width: 27px; height: 27px; color: var(--lime-bright); }
-    .institution-card h2 { margin: 0 0 14px; font-size: 27px; font-weight: 450; line-height: 1.15; letter-spacing: -.035em; scroll-margin-block: 70px; }
+    .institution-card h2 { margin: 0 0 14px; font-size: 27px; font-weight: 450; line-height: 1.15; letter-spacing: -.035em; scroll-margin-block: 24px; }
     .institution-card h2:focus { outline: 2px solid var(--lime-bright); outline-offset: 7px; }
     .card-description { margin: 0; color: #dde8d6; font-size: 14px; line-height: 1.65; }
     .institution-name { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid rgba(245,248,241,.16); color: #c8d6c1; font-size: 13px; line-height: 1.65; }
@@ -182,7 +221,9 @@
       .orbital-system { right: -20px; width: 370px; height: 370px; }
     }
     @media (max-width: 1024px) {
-      .identity { min-height: 100px; padding-inline: 12px; }
+      .hero { padding-top: 100px; }
+      .nav-links { gap: 18px; }
+      .nav-context { display: none; }
       .hero-layout { width: auto; margin: 0; min-height: auto; display: flex; flex-direction: column; gap: 0; padding: 56px 36px 78px; }
       .hero-copy { width: 100%; max-width: 640px; align-self: flex-start; padding: 0; }
       h1 { font-size: clamp(3.5rem, 8.1vw, 5rem); }
@@ -197,11 +238,23 @@
       .hero-baseline { margin-top: -60px; }
       .grid-lines { opacity: .5; }
     }
+    @media (max-width: 820px) {
+      .site-nav { grid-template-columns: minmax(0,1fr) auto; }
+      .nav-actions { display: none; }
+      .mobile-menu-btn { grid-column: 2; grid-row: 1; }
+      .nav-enhanced .mobile-menu-btn { display: grid; }
+      .nav-links { position: absolute; top: calc(100% + 8px); left: 0; right: 0; display: grid; gap: 0; padding: 14px; isolation: isolate; max-height: calc(100svh - 108px); overflow-y: auto; overscroll-behavior: contain; box-shadow: 0 12px 32px rgba(13,35,12,.08); }
+      .nav-links::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(252,254,250,.97); border: 1px solid var(--line); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); clip-path: polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px); }
+      .nav-link { padding: 13px; min-height: 48px; }
+      .nav-link::after { left: 13px; right: calc(100% - 13px); bottom: 7px; }
+      .nav-link:hover::after, .nav-link:focus-visible::after, .nav-link.is-active::after { right: 13px; }
+      .nav-enhanced .nav-links { visibility: hidden; opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 220ms ease, transform 260ms var(--ease), visibility 0s 260ms; }
+      .nav-enhanced.menu-open .nav-links { visibility: visible; opacity: 1; transform: none; pointer-events: auto; transition-delay: 0s; }
+      .site-nav:not(.nav-enhanced) .nav-links { position: relative; top: auto; grid-column: 1 / -1; box-shadow: none; }
+      body:has(.site-nav:not(.nav-enhanced)) .hero { padding-top: 250px; }
+    }
     @media (max-width: 767px) {
-      .hero { padding: 0 12px 20px; }
-      .identity { min-height: 91px; padding: 13px 8px; }
-      .identity-logo { width: 135px; }
-      .identity-note { font-size: 8px; letter-spacing: .06em; }
+      .hero { padding: 100px 12px 20px; }
       :root { --cut: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px); }
       .hero-layout { padding: 44px 24px 78px; }
       .eyebrow { font-size: 9px; letter-spacing: .1em; margin-bottom: 24px; gap: 10px; }
@@ -216,6 +269,9 @@
       .corner.bottom { right: 15px; bottom: 15px; width: 16px; height: 16px; }
     }
     @media (max-width: 560px) {
+      .site-nav { top: 8px; width: calc(100% - 16px); padding-left: 14px; }
+      .brand-logo-frame { width: 108px; height: 51px; }
+      .hero { padding-top: 91px; }
       .hero-layout { padding-inline: 20px; }
       .hero-photo { width: calc(100% + 40px); margin-inline: -20px; }
       .hero-visual { margin-top: 0; }
@@ -225,14 +281,11 @@
       .institution-card { padding: 24px; animation: none; }
       .institution-card h2 { font-size: 25px; }
       .hero-baseline { width: calc(100% - 40px); }
-      .identity-note { max-width: 120px; }
     }
     @media (max-width: 360px) {
       .hero-layout { padding-inline: 16px; }
       .hero-photo { width: calc(100% + 32px); margin-inline: -16px; }
       h1 { font-size: 2.5rem; letter-spacing: -.07em; }
-      .identity-logo { width: 117px; }
-      .identity-note { max-width: 105px; font-size: 7px; }
       .eyebrow { font-size: 8px; letter-spacing: .06em; }
       .institution-card { padding: 22px 20px; }
       .hero-baseline { width: calc(100% - 32px); }
@@ -242,6 +295,7 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .hero-photo img, .primary-cta, .primary-cta svg { transform: none !important; }
+      .nav-cta, .nav-cta svg { transform: none !important; }
       .motion-toggle { display: none !important; }
     }
     @media (forced-colors: active) {
@@ -250,17 +304,32 @@
       .institution-card, .card-description, .institution-name, .card-kicker { color: CanvasText; }
       .card-surface { background: Canvas; }
       .orbital-system, .decorations { display: none; }
+      .site-nav::before, .nav-links::before { background: Canvas; border-color: CanvasText; }
+      .nav-cta { color: LinkText; border: 1px solid LinkText; }
+      .nav-link.is-active { text-decoration: underline; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#hero-title">Ir para o conteúdo</a>
+  <nav class="site-nav nav-enter" id="navbar" aria-label="Navegação principal">
+    <a class="brand-lockup" href="#inicio" aria-label="FAG — início">
+      <span class="brand-logo-frame"><img class="brand-logo" src="assets/raw_files/Logo.png" alt="FAG" width="1828" height="860"></span>
+    </a>
+    <button class="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link is-active" href="#inicio" aria-current="location">Início</a>
+      <a class="nav-link" href="#sobre-a-fag">Nossa atuação</a>
+    </div>
+    <div class="nav-actions">
+      <span class="nav-context">TANGUÁ · RJ</span>
+      <a class="nav-cta" href="#sobre-a-fag">Conhecer a FAG <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+    </div>
+  </nav>
   <main>
-    <section class="hero" aria-labelledby="hero-title" data-paused="true">
-      <div class="identity">
-        <img class="identity-logo" src="assets/raw_files/Logo.png" alt="FAG" width="1828" height="860">
-        <p class="identity-note">Conhecimento. Pessoas.<br><span>Possibilidades.</span></p>
-      </div>
-
+    <section class="hero" id="inicio" aria-labelledby="hero-title" data-paused="true">
       <div class="hero-shell">
         <div class="hero-panel">
           <div class="panel-surface" aria-hidden="true"></div>
@@ -275,7 +344,7 @@
           <div class="hero-layout">
             <div class="hero-copy">
               <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>FAG · Educação e desenvolvimento</p>
-              <h1 id="hero-title"><span class="title-line">Educação que</span> <span class="title-line">conecta</span> <span class="title-line title-accent">oportunidades.</span></h1>
+              <h1 id="hero-title" tabindex="-1"><span class="title-line">Educação que</span> <span class="title-line">conecta</span> <span class="title-line title-accent">oportunidades.</span></h1>
               <p class="description">A FAG conecta pessoas à educação profissional, à tecnologia e à pesquisa para fortalecer o desenvolvimento social e econômico de Tanguá.</p>
               <div class="hero-actions">
                 <a class="primary-cta" href="#sobre-a-fag">
@@ -321,6 +390,85 @@
     </section>
   </main>
   <script>
+    (() => {
+      const navbar = document.getElementById('navbar');
+      const menuButton = navbar.querySelector('.mobile-menu-btn');
+      const menu = document.getElementById('nav-links');
+      const links = [...menu.querySelectorAll('.nav-link')];
+      const mobile = window.matchMedia('(max-width: 820px)');
+      const about = document.getElementById('sobre-a-fag');
+      navbar.classList.add('nav-enhanced');
+
+      function setMenu(open, returnFocus = false) {
+        const expanded = open && mobile.matches;
+        navbar.classList.toggle('menu-open', expanded);
+        menuButton.setAttribute('aria-expanded', String(expanded));
+        menuButton.setAttribute('aria-label', expanded ? 'Fechar menu' : 'Abrir menu');
+        // Inert prevents keyboard access during the closing transition.
+        menu.inert = mobile.matches && !expanded;
+        if (returnFocus) menuButton.focus({ preventScroll: true });
+      }
+      function setActive(hash) {
+        links.forEach(link => {
+          const active = link.getAttribute('href') === hash;
+          link.classList.toggle('is-active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      }
+      function updateNavigation() {
+        navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+        const bounds = about.getBoundingClientRect();
+        const canScroll = document.documentElement.scrollHeight > window.innerHeight + 1;
+        const atAbout = (window.scrollY > 24 || (!canScroll && location.hash === '#sobre-a-fag')) && bounds.top < window.innerHeight * .7 && bounds.bottom > navbar.getBoundingClientRect().bottom;
+        setActive(atAbout ? '#sobre-a-fag' : '#inicio');
+      }
+      let scrollFrame = 0;
+      window.addEventListener('scroll', () => {
+        if (scrollFrame) return;
+        scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; updateNavigation(); });
+      }, { passive: true });
+      window.addEventListener('resize', updateNavigation);
+      window.addEventListener('hashchange', updateNavigation);
+      if ('IntersectionObserver' in window) {
+        const activeObserver = new IntersectionObserver(updateNavigation, { rootMargin: '-15% 0px -30% 0px', threshold: [0, 1] });
+        activeObserver.observe(document.getElementById('hero-title'));
+        activeObserver.observe(about);
+      }
+      menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && navbar.classList.contains('menu-open')) {
+          event.preventDefault();
+          setMenu(false, true);
+        }
+      });
+      document.addEventListener('pointerdown', event => {
+        if (!navbar.contains(event.target) && navbar.classList.contains('menu-open')) setMenu(false, menu.contains(document.activeElement));
+      });
+      document.addEventListener('focusin', event => {
+        if (!navbar.contains(event.target) && navbar.classList.contains('menu-open')) setMenu(false);
+      });
+      mobile.addEventListener('change', () => {
+        const focusInMenu = menu.contains(document.activeElement);
+        const focusOnToggle = document.activeElement === menuButton;
+        setMenu(false);
+        if (mobile.matches && focusInMenu) menuButton.focus({ preventScroll: true });
+        else if (!mobile.matches && focusOnToggle) navbar.querySelector('.brand-lockup').focus({ preventScroll: true });
+        updateNavigation();
+      });
+      navbar.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          const hash = link.getAttribute('href');
+          const target = hash === '#inicio' ? document.getElementById('hero-title') : about;
+          setMenu(false);
+          target.focus({ preventScroll: true });
+          setActive(hash);
+        });
+      });
+      setMenu(false);
+      updateNavigation();
+    })();
     (() => {
       const hero = document.querySelector('.hero');
       const toggle = document.querySelector('.motion-toggle');
