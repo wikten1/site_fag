@@ -37,11 +37,13 @@
       --ease: cubic-bezier(.16, 1, .3, 1);
       --reveal-ease: cubic-bezier(.22, 1, .36, 1);
       --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+      --utility-height: 44px;
+      --header-offset: 140px;
       --cut: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-offset); }
     body { margin: 0; color: var(--text); background: var(--cream); font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
@@ -52,11 +54,43 @@
     svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
     [hidden] { display: none !important; }
 
-    .skip-link { position: fixed; top: 8px; left: 24px; z-index: 100; padding: 14px 20px; background: var(--forest); color: var(--cream); transform: translateY(-160%); }
+    .skip-link { position: fixed; top: 8px; left: 16px; z-index: 200; max-width: calc(100% - 32px); padding: 14px 20px; background: var(--forest); color: var(--cream); transform: translateY(-160%); }
     .skip-link:focus { transform: none; }
+    .utility-bar { position: fixed; inset: 0 0 auto; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--line); }
+    .utility-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 24px; width: min(calc(100% - 32px), 1320px); margin: auto; }
+    .utility-tools, .utility-social { display: flex; align-items: center; flex-wrap: wrap; gap: 0 20px; }
+    .utility-item { min-width: 0; }
+    .utility-trigger, .social-link { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; padding: 8px 2px; color: var(--text-soft); font: 500 11px/1.5 Inter, system-ui, sans-serif; cursor: pointer; text-decoration: none; list-style: none; transition: color 180ms ease; }
+    .utility-trigger::-webkit-details-marker { display: none; }
+    .utility-trigger::marker { content: ""; }
+    .utility-trigger svg, .social-link svg { width: 15px; height: 15px; }
+    .utility-trigger:hover, .utility-item[open] .utility-trigger, .social-link:hover { color: var(--green); text-decoration: underline; text-underline-offset: 4px; }
+    .utility-trigger:focus-visible, .social-link:focus-visible { outline-offset: 1px; }
+    .utility-panel { position: fixed; top: calc(var(--utility-height) + 8px); left: max(16px, calc((100% - 1320px) / 2)); width: min(420px, calc(100% - 32px)); max-height: calc(100svh - var(--utility-height) - 24px); overflow-y: auto; overscroll-behavior: contain; padding: 24px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 18px 52px rgba(13,35,12,.14); }
+    .utility-panel h2 { margin: 0 0 12px; font-size: 20px; line-height: 1.3; font-weight: 500; letter-spacing: -.025em; }
+    .utility-panel p { color: var(--text-soft); font-size: 13px; line-height: 1.65; }
+    .utility-panel .utility-intro { margin: 0 0 20px; }
+    .utility-check { display: flex; align-items: center; gap: 12px; min-height: 48px; font-size: 14px; line-height: 1.5; cursor: pointer; }
+    .utility-check input { width: 20px; height: 20px; margin: 0; accent-color: var(--green); flex: 0 0 auto; }
+    .utility-help { margin: 12px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+    .utility-panel kbd { font: 500 11px/1.6 var(--mono); color: var(--text); background: var(--cream-deep); padding: 2px 5px; border: 1px solid var(--line); border-radius: 3px; }
+    .utility-close { display: inline-flex; min-height: 44px; align-items: center; margin-top: 12px; padding: 8px 0; border: 0; background: transparent; color: var(--green); font-size: 12px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .utility-search label { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+    .search-field { display: flex; gap: 8px; }
+    .search-field input { width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--line); background: var(--cream); color: var(--text); font: inherit; font-size: 16px; border-radius: 0; }
+    .search-field input:focus-visible { border-color: var(--green); }
+    .search-submit { min-height: 48px; padding: 10px 16px; border: 0; background: var(--forest); color: var(--cream); font-size: 12px; font-weight: 600; cursor: pointer; }
+    .search-submit:hover { background: var(--forest-deep); }
+    .search-status { margin: 16px 0 0; }
+    .search-results { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .search-result { display: block; padding: 12px; min-height: 44px; border: 1px solid var(--line); color: var(--green); font-size: 14px; line-height: 1.5; text-underline-offset: 3px; }
+    .search-result:hover { background: var(--cream-deep); }
+    @media (prefers-reduced-motion: no-preference) {
+      .utility-item[open] .utility-panel { animation: reveal 220ms var(--ease) both; }
+    }
     /* Keep clipping on the glass surface so the mobile panel and focus rings remain visible. */
     .site-nav {
-      position: fixed; top: 16px; left: 50%; z-index: 90;
+      position: fixed; top: calc(var(--utility-height) + 16px); left: 50%; z-index: 90;
       width: min(calc(100% - 32px), 1320px); min-height: 66px;
       display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
       align-items: center; gap: 24px; padding: 4px 12px 4px 18px;
@@ -72,7 +106,7 @@
       transition: background 220ms ease, border-color 220ms ease;
     }
     .site-nav.nav-enter { animation: nav-entrance 850ms var(--ease) backwards; }
-    .site-nav.is-scrolled { top: 8px; box-shadow: 0 18px 52px rgba(13,35,12,.11); }
+    .site-nav.is-scrolled { top: calc(var(--utility-height) + 8px); box-shadow: 0 18px 52px rgba(13,35,12,.11); }
     .site-nav.is-scrolled::before { background: rgba(252,254,250,.93); border-color: rgba(213,223,206,.95); }
     .brand-lockup { display: inline-flex; width: fit-content; align-items: center; text-decoration: none; }
     .brand-logo-frame { display: flex; width: 124px; height: 56px; align-items: center; justify-content: center; }
@@ -108,7 +142,7 @@
       position: relative;
       isolation: isolate;
       min-height: 100svh;
-      padding: 110px 30px 28px;
+      padding: calc(110px + var(--utility-height)) 30px 28px;
       background: radial-gradient(ellipse at 5% 5%, rgba(106,170,4,.075), transparent 40%), linear-gradient(180deg, var(--cream), #edf3e7);
     }
     .hero-shell { max-width: 1380px; margin: auto; position: relative; filter: drop-shadow(0 24px 38px rgba(13,35,12,.09)); }
@@ -130,7 +164,7 @@
     .hero-layout {
       width: calc(100% - 120px);
       max-width: 1260px;
-      min-height: min(780px, calc(100svh - 138px));
+      min-height: min(780px, calc(100svh - 138px - var(--utility-height)));
       margin: auto;
       padding-block: 68px 82px;
       display: grid;
@@ -221,7 +255,7 @@
       .orbital-system { right: -20px; width: 370px; height: 370px; }
     }
     @media (max-width: 1024px) {
-      .hero { padding-top: 100px; }
+      .hero { padding-top: calc(100px + var(--utility-height)); }
       .nav-links { gap: 18px; }
       .nav-context { display: none; }
       .hero-layout { width: auto; margin: 0; min-height: auto; display: flex; flex-direction: column; gap: 0; padding: 56px 36px 78px; }
@@ -243,7 +277,7 @@
       .nav-actions { display: none; }
       .mobile-menu-btn { grid-column: 2; grid-row: 1; }
       .nav-enhanced .mobile-menu-btn { display: grid; }
-      .nav-links { position: absolute; top: calc(100% + 8px); left: 0; right: 0; display: grid; gap: 0; padding: 14px; isolation: isolate; max-height: calc(100svh - 108px); overflow-y: auto; overscroll-behavior: contain; box-shadow: 0 12px 32px rgba(13,35,12,.08); }
+      .nav-links { position: absolute; top: calc(100% + 8px); left: 0; right: 0; display: grid; gap: 0; padding: 14px; isolation: isolate; max-height: calc(100svh - 108px - var(--utility-height)); overflow-y: auto; overscroll-behavior: contain; box-shadow: 0 12px 32px rgba(13,35,12,.08); }
       .nav-links::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(252,254,250,.97); border: 1px solid var(--line); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); clip-path: polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px); }
       .nav-link { padding: 13px; min-height: 48px; }
       .nav-link::after { left: 13px; right: calc(100% - 13px); bottom: 7px; }
@@ -251,10 +285,10 @@
       .nav-enhanced .nav-links { visibility: hidden; opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 220ms ease, transform 260ms var(--ease), visibility 0s 260ms; }
       .nav-enhanced.menu-open .nav-links { visibility: visible; opacity: 1; transform: none; pointer-events: auto; transition-delay: 0s; }
       .site-nav:not(.nav-enhanced) .nav-links { position: relative; top: auto; grid-column: 1 / -1; box-shadow: none; }
-      body:has(.site-nav:not(.nav-enhanced)) .hero { padding-top: 250px; }
+      body:has(.site-nav:not(.nav-enhanced)) .hero { padding-top: calc(250px + var(--utility-height)); }
     }
     @media (max-width: 767px) {
-      .hero { padding: 100px 12px 20px; }
+      .hero { padding: calc(100px + var(--utility-height)) 12px 20px; }
       :root { --cut: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px); }
       .hero-layout { padding: 44px 24px 78px; }
       .eyebrow { font-size: 9px; letter-spacing: .1em; margin-bottom: 24px; gap: 10px; }
@@ -269,9 +303,12 @@
       .corner.bottom { right: 15px; bottom: 15px; width: 16px; height: 16px; }
     }
     @media (max-width: 560px) {
-      .site-nav { top: 8px; width: calc(100% - 16px); padding-left: 14px; }
+      .site-nav { top: calc(var(--utility-height) + 8px); width: calc(100% - 16px); padding-left: 14px; }
       .brand-logo-frame { width: 108px; height: 51px; }
-      .hero { padding-top: 91px; }
+      .hero { padding-top: calc(91px + var(--utility-height)); }
+      .utility-inner { column-gap: 16px; }
+      .utility-tools, .utility-social { column-gap: 16px; }
+      .utility-panel { padding: 20px; }
       .hero-layout { padding-inline: 20px; }
       .hero-photo { width: calc(100% + 40px); margin-inline: -20px; }
       .hero-visual { margin-top: 0; }
@@ -298,6 +335,10 @@
       .nav-cta, .nav-cta svg { transform: none !important; }
       .motion-toggle { display: none !important; }
     }
+    html[data-motion-paused="true"] { scroll-behavior: auto; }
+    .entrance-complete { animation: none !important; }
+    html[data-motion-paused="true"] *, html[data-motion-paused="true"] *::before, html[data-motion-paused="true"] *::after { animation: none !important; transition: none !important; }
+    html[data-motion-paused="true"] :is(.primary-cta, .primary-cta svg, .nav-cta, .nav-cta svg, .hero-photo img) { transform: none !important; }
     @media (forced-colors: active) {
       .primary-cta, .institution-card { border: 1px solid CanvasText; }
       .primary-cta { color: LinkText; }
@@ -307,11 +348,47 @@
       .site-nav::before, .nav-links::before { background: Canvas; border-color: CanvasText; }
       .nav-cta { color: LinkText; border: 1px solid LinkText; }
       .nav-link.is-active { text-decoration: underline; }
+      .utility-bar, .utility-panel { background: Canvas; border-color: CanvasText; }
+      .utility-trigger, .social-link, .search-result { color: LinkText; }
+      .search-submit { border: 1px solid ButtonText; color: ButtonText; background: ButtonFace; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#hero-title">Ir para o conteúdo</a>
+  <div class="utility-bar" aria-label="Ferramentas e redes sociais" role="region">
+    <div class="utility-inner">
+      <div class="utility-tools">
+        <details class="utility-item" id="accessibility-tools">
+          <summary class="utility-trigger"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7"/></svg>Acessibilidade</summary>
+          <div class="utility-panel">
+            <h2>Recursos de acessibilidade</h2>
+            <p class="utility-intro">Personalize o movimento e navegue com o teclado.</p>
+            <label class="utility-check" hidden><input id="utility-motion" type="checkbox" aria-describedby="motion-preference-note">Pausar animações</label>
+            <p id="motion-preference-note" hidden>A preferência de movimento reduzido do seu dispositivo está ativa.</p>
+            <p class="utility-help">Use <kbd>Tab</kbd> para percorrer os controles, <kbd>Enter</kbd> para ativar links e <kbd>Esc</kbd> para fechar os painéis.</p>
+            <p>Para ampliar o conteúdo, use a opção de zoom do seu navegador. O site acompanha a preferência de movimento reduzido do dispositivo.</p>
+            <button class="utility-close" type="button" data-utility-close hidden>Fechar acessibilidade</button>
+          </div>
+        </details>
+        <details class="utility-item" id="page-search">
+          <summary class="utility-trigger"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>Busca</summary>
+          <div class="utility-panel">
+            <form class="utility-search" role="search" hidden>
+              <label for="page-search-input">Buscar nesta página</label>
+              <div class="search-field"><input type="search" id="page-search-input" name="q" placeholder="O que você procura?" maxlength="120" required enterkeyhint="search"><button class="search-submit" type="submit">Buscar</button></div>
+              <p class="search-status" role="status" aria-live="polite" aria-atomic="true">Pesquise sobre educação, pesquisa ou a atuação da FAG.</p>
+              <ul class="search-results" aria-label="Resultados da busca"></ul>
+            </form>
+            <noscript><p>Para buscar nesta página, use a opção “Localizar” do seu navegador.</p></noscript>
+            <button class="utility-close" type="button" data-utility-close hidden>Fechar busca</button>
+          </div>
+        </details>
+      </div>
+      <!-- Add only confirmed official profiles. Each link must keep a visible network name. -->
+      <nav class="utility-social" aria-label="Redes sociais da FAG" hidden></nav>
+    </div>
+  </div>
   <nav class="site-nav nav-enter" id="navbar" aria-label="Navegação principal">
     <a class="brand-lockup" href="#inicio" aria-label="FAG — início">
       <span class="brand-logo-frame"><img class="brand-logo" src="assets/raw_files/Logo.png" alt="FAG" width="1828" height="860"></span>
@@ -390,6 +467,91 @@
     </section>
   </main>
   <script>
+    (() => {
+      const utilityBar = document.querySelector('.utility-bar');
+      const navbar = document.getElementById('navbar');
+      const panels = [...utilityBar.querySelectorAll('details')];
+      const searchForm = utilityBar.querySelector('.utility-search');
+      const searchInput = document.getElementById('page-search-input');
+      const status = utilityBar.querySelector('.search-status');
+      const results = utilityBar.querySelector('.search-results');
+      const root = document.documentElement;
+      function updateHeaderSize() {
+        root.style.setProperty('--utility-height', utilityBar.getBoundingClientRect().height + 'px');
+        root.style.setProperty('--header-offset', (navbar.getBoundingClientRect().bottom + 16) + 'px');
+      }
+      updateHeaderSize();
+      if ('ResizeObserver' in window) {
+        const sizes = new ResizeObserver(updateHeaderSize);
+        sizes.observe(utilityBar);
+        sizes.observe(navbar);
+      }
+      window.addEventListener('resize', updateHeaderSize);
+      navbar.addEventListener('transitionend', updateHeaderSize);
+      panels.forEach(panel => {
+        panel.addEventListener('toggle', () => {
+          if (!panel.open) return;
+          panels.forEach(other => { if (other !== panel) other.open = false; });
+          const menuButton = navbar.querySelector('.mobile-menu-btn');
+          if (menuButton.getAttribute('aria-expanded') === 'true') menuButton.click();
+          if (panel.id === 'page-search') searchInput.focus({ preventScroll: true });
+        });
+        panel.querySelector('[data-utility-close]').hidden = false;
+        panel.querySelector('[data-utility-close]').addEventListener('click', () => {
+          panel.open = false;
+          panel.querySelector('summary').focus({ preventScroll: true });
+        });
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        const opened = panels.find(panel => panel.open);
+        if (!opened) return;
+        event.preventDefault();
+        opened.open = false;
+        opened.querySelector('summary').focus({ preventScroll: true });
+      });
+      document.addEventListener('pointerdown', event => {
+        panels.forEach(panel => {
+          if (!panel.open || panel.contains(event.target)) return;
+          const hadFocus = panel.contains(document.activeElement);
+          panel.open = false;
+          if (hadFocus) panel.querySelector('summary').focus({ preventScroll: true });
+        });
+      });
+      document.addEventListener('focusin', event => {
+        panels.forEach(panel => { if (panel.open && !panel.contains(event.target)) panel.open = false; });
+      });
+      searchForm.hidden = false;
+      const entries = [
+        { target: document.getElementById('hero-title'), content: document.querySelector('.hero-copy') },
+        { target: document.getElementById('sobre-a-fag'), content: document.querySelector('.institution-card') }
+      ];
+      const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
+      searchForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const query = searchInput.value.trim();
+        results.replaceChildren();
+        if (!query) { status.textContent = 'Digite um termo para buscar.'; searchInput.focus(); return; }
+        const terms = normalize(query).split(/\s+/);
+        const matches = entries.filter(entry => terms.every(term => normalize(entry.content.textContent).includes(term)));
+        status.textContent = matches.length ? matches.length + (matches.length === 1 ? ' resultado encontrado.' : ' resultados encontrados.') : 'Nenhum resultado encontrado. Tente outro termo.';
+        matches.forEach(entry => {
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.className = 'search-result';
+          link.href = '#' + entry.target.id;
+          link.textContent = entry.target.textContent.trim().replace(/\s+/g, ' ');
+          link.addEventListener('click', event => {
+            if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+            document.getElementById('page-search').open = false;
+            entry.target.focus({ preventScroll: true });
+          });
+          item.append(link);
+          results.append(item);
+        });
+      });
+      document.querySelector('.skip-link').addEventListener('click', () => document.getElementById('hero-title').focus({ preventScroll: true }));
+    })();
     (() => {
       const navbar = document.getElementById('navbar');
       const menuButton = navbar.querySelector('.mobile-menu-btn');
@@ -475,15 +637,29 @@
       const label = toggle.querySelector('.motion-label');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       const compactLayout = window.matchMedia('(max-width: 560px)');
+      const utilityMotion = document.getElementById('utility-motion');
       const storageKey = 'fag-hero-motion-paused';
       let userPaused = false;
       try { userPaused = sessionStorage.getItem(storageKey) === 'true'; } catch { /* Local file / private browsing: preference stays in memory. */ }
 
       function syncMotion() {
+        document.documentElement.dataset.motionPaused = String(userPaused);
+        if (userPaused || reducedMotion.matches) {
+          document.querySelectorAll('.nav-enter, .eyebrow, .title-line, .description, .hero-actions, .location, .card-entrance, .orbital-system, .corner').forEach(element => element.classList.add('entrance-complete'));
+        }
         hero.dataset.paused = String(userPaused || reducedMotion.matches || compactLayout.matches);
         toggle.hidden = reducedMotion.matches || compactLayout.matches;
         label.textContent = userPaused ? 'Retomar animações' : 'Pausar animações';
+        utilityMotion.checked = userPaused || reducedMotion.matches;
+        utilityMotion.disabled = reducedMotion.matches;
+        utilityMotion.closest('label').hidden = false;
+        document.getElementById('motion-preference-note').hidden = !reducedMotion.matches;
       }
+      utilityMotion.addEventListener('change', () => {
+        userPaused = utilityMotion.checked;
+        try { sessionStorage.setItem(storageKey, String(userPaused)); } catch { /* Storage is optional. */ }
+        syncMotion();
+      });
       toggle.addEventListener('click', () => {
         userPaused = !userPaused;
         try { sessionStorage.setItem(storageKey, String(userPaused)); } catch { /* Storage is optional. */ }
