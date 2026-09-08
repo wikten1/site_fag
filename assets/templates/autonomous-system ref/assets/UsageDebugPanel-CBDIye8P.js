@@ -1,0 +1,1 @@
+import{u as s,r as e}from"./index-CkOaPDnt.js";const o=({className:u})=>{const{user:t}=s();return e.useState(null),e.useState(null),e.useState(null),e.useState(!1),e.useState(!1),e.useEffect(()=>{},[t==null?void 0:t.id,!1]),null};export{o as default};

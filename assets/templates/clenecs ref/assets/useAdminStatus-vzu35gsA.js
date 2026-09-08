@@ -1,0 +1,1 @@
+import{r as a,W as i}from"./index-CkOaPDnt.js";function d(s){const[n,t]=a.useState(!1),[c,r]=a.useState(!0);return a.useEffect(()=>{(async()=>{r(!0);try{if(s){const e=await i(s);t(e)}else t(!1)}catch(e){console.error("Error checking admin status:",e),t(!1)}finally{r(!1)}})()},[s]),{isUserAdmin:n,loading:c}}export{d as u};

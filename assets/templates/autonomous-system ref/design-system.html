@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Systems Design System</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="assets/c7d998c6e53a7902_css2.css" rel="stylesheet">
+  <script src="assets/851bed7af266f96a_iconify-icon.min.js"></script>
+  <script src="assets/efc85c7eb1418197_gsap.min.js"></script>
+  <script src="assets/65f6c13748b0c8d8_ScrollTrigger.min.js"></script>
+  <style>
+    .font-sans { font-family: 'Inter', system-ui, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .reveal-word { transform: translateY(120%); }
+    html { scroll-behavior: smooth; }
+  </style>
+  <style>
+    .aura-view-reveal {
+      opacity: 0;
+      transform: translate3d(var(--aura-x, 0), var(--aura-y, 24px), 0);
+      filter: blur(10px);
+      transition: opacity 780ms cubic-bezier(0.22, 1, 0.36, 1), transform 780ms cubic-bezier(0.22, 1, 0.36, 1), filter 780ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--aura-delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+    .aura-view-reveal.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      filter: blur(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .aura-view-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+  <script src="assets/176e894661aa9cdc_3.4.17"></script>
+</head>
+<body class="bg-[#F6F3EC] text-[#111827] font-sans antialiased overflow-x-hidden selection:bg-[#2B3624] selection:text-[#F6F3EC]">
+  <div class="fixed inset-0 pointer-events-none z-50 flex justify-center">
+    <div class="w-full max-w-[1400px] h-full border-x border-[#2B3624]/[0.06] relative">
+      <div class="absolute top-0 -left-[3px] w-1.5 h-1.5 border border-[#2B3624]/20 bg-[#F6F3EC]"></div>
+      <div class="absolute top-[88px] -left-[3px] w-1.5 h-1.5 border border-[#2B3624]/20 bg-[#F6F3EC]"></div>
+      <div class="absolute top-0 -right-[3px] w-1.5 h-1.5 border border-[#2B3624]/20 bg-[#F6F3EC]"></div>
+      <div class="absolute top-[88px] -right-[3px] w-1.5 h-1.5 border border-[#2B3624]/20 bg-[#F6F3EC]"></div>
+      <div class="absolute bottom-0 -left-[3px] w-1.5 h-1.5 border border-[#2B3624]/20 bg-[#F6F3EC]"></div>
+      <div class="absolute bottom-0 -right-[3px] w-1.5 h-1.5 border border-[#2B3624]/20 bg-[#F6F3EC]"></div>
+    </div>
+  </div>
+
+  <div class="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-24 flex flex-col min-h-screen">
+    <header class="flex items-center justify-between py-8 border-b border-[#2B3624]/[0.06] relative z-10">
+      <div class="flex items-center gap-2">
+        <iconify-icon height="40" icon="solar:code-linear" style="color: #2B3624; stroke-width: 1.5;" width="40"></iconify-icon>
+      </div>
+      <nav class="hidden md:flex items-center gap-10 text-sm text-[#4B5563] font-medium tracking-wide" aria-label="Design system sections">
+        <a class="hover:text-[#2B3624] transition-colors" href="#typography">Typography</a>
+        <a class="hover:text-[#2B3624] transition-colors" href="#colors">Colors</a>
+        <a class="hover:text-[#2B3624] transition-colors" href="#components">Components</a>
+        <a class="hover:text-[#2B3624] transition-colors" href="#layout">Layout</a>
+        <a class="hover:text-[#2B3624] transition-colors" href="#motion">Motion</a>
+        <a class="hover:text-[#2B3624] transition-colors" href="#icons">Icons</a>
+      </nav>
+      <div class="flex items-center gap-6">
+        <a class="hidden sm:block text-sm text-[#4B5563] font-medium hover:text-[#2B3624] transition-colors" href="#hero">Overview</a>
+        <a class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-5 py-2.5 rounded-md hover:bg-[#1f281a] transition-colors tracking-wide" href="#components">Explore System</a>
+      </div>
+    </header>
+
+    <!-- Exact hero composition from the reference, with design-system text only. -->
+    <main id="hero" class="flex-1 flex flex-col lg:flex-row items-center pt-16 lg:pt-24 pb-20 gap-16 lg:gap-24 relative z-10">
+      <div class="w-full lg:w-1/2 flex flex-col items-start pt-8 lg:pt-0">
+        <span class="text-sm text-[#6A7165] font-medium tracking-wide mb-6 uppercase aura-view-reveal" style="--aura-delay: 0ms;">Autonomous Systems</span>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-[84px] leading-[1.05] text-[#2B3624] mb-8 font-light tracking-tighter aura-view-reveal" id="hero-headline" style="--aura-delay: 55ms;">A living design system</h1>
+        <p class="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-lg mb-10 font-normal aura-view-reveal" style="--aura-delay: 110ms;">The visual language for systems that perceive, reason, and execute. Reusable foundations, interface patterns, and behavior built for reliable product work.</p>
+        <a class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-6 py-3 rounded-md hover:bg-[#1f281a] transition-colors shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] aura-view-reveal" href="#typography" style="--aura-delay: 220ms;">Explore Foundations</a>
+      </div>
+      <div class="w-full lg:w-1/2 flex flex-col items-center aura-view-reveal" style="--aura-delay: 275ms; --aura-x: 16px; --aura-y: 0px;">
+        <div class="bg-[#EBE6DA] p-4 sm:p-5 lg:p-6 rounded-sm w-full max-w-[600px] relative">
+          <div class="relative w-full aspect-square bg-gray-200 rounded-sm overflow-hidden">
+            <canvas class="absolute inset-0 w-full h-full object-cover" height="460" id="mesh-canvas" style="filter: hue-rotate(35deg) saturate(0.75) brightness(0.95);" width="460"></canvas>
+            <div class="absolute inset-6 sm:inset-10 lg:inset-12 bg-white rounded-md p-6 sm:p-8 flex flex-col justify-between shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+              <div class="flex flex-col h-full">
+                <div class="flex gap-1.5 mb-6"><div class="w-2 h-2 bg-[#2B3624] rounded-full"></div><div class="w-2 h-2 bg-[#2B3624] rounded-full"></div><div class="w-2 h-2 bg-[#2B3624] rounded-full"></div></div>
+                <pre class="text-[10px] sm:text-xs text-[#4B5563] font-mono whitespace-pre-wrap leading-[1.6] flex-1 overflow-hidden"><span class="text-[#8B9285]">// Core Execution Processor - Async</span>
+<span class="text-[#2B3624]">async function</span> <span class="text-[#8A7A3C]">evaluateState</span>({ telemetry }) {
+  <span class="text-[#2B3624]">if</span> (!telemetry) <span class="text-[#2B3624]">return</span> null;
+
+  <span class="text-[#2B3624]">const</span> [state] = <span class="text-[#2B3624]">await</span> dbQuery`
+    INSERT INTO active_states (metrics)
+    VALUES (${telemetry})
+    RETURNING id, metrics, timestamp
+  `;
+
+  <span class="text-[#2B3624]">const</span> trajectory = <span class="text-[#2B3624]">await</span> dbQuery`
+    SELECT id, vectors, timestamp
+    FROM historical_states
+    ORDER BY timestamp DESC
+  `;
+
+  <span class="text-[#2B3624]">return</span> { state, trajectory };
+}</pre>
+                <div class="flex justify-end mt-4"><button class="bg-[#5B6856] text-white text-[11px] font-medium px-4 py-1.5 rounded uppercase tracking-wider hover:bg-[#2B3624] transition-colors">Execute</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-[#8B9285] font-medium tracking-widest uppercase mt-8 text-center aura-view-reveal" style="--aura-delay: 165ms;">DIAGRAM 01 - DESIGN SYSTEM INITIALIZATION</p>
+      </div>
+    </main>
+
+    <section id="typography" class="py-16 sm:py-24 border-t border-[#2B3624]/[0.06]">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-12">
+          <h2 class="text-4xl sm:text-5xl font-light tracking-tighter text-[#2B3624] mb-5">Typography</h2>
+          <p class="text-[#6A7165] text-lg sm:text-xl max-w-2xl">The type scale used throughout Autonomous Systems Engine.</p>
+        </div>
+        <div class="border-t border-[#2B3624]/10">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Heading 1</div>
+            <h1 class="md:col-span-8 text-5xl sm:text-6xl lg:text-7xl xl:text-[84px] leading-[1.05] text-[#2B3624] font-light tracking-tighter">Intelligent cores</h1>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">84px / 88px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Heading 2</div>
+            <h2 class="md:col-span-8 text-4xl sm:text-5xl font-light tracking-tighter text-[#2B3624]">Questions before deployment?</h2>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">48px / 48px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Heading 3</div>
+            <h3 class="md:col-span-8 text-2xl font-semibold text-[#10140E] tracking-tight">Start Building Now</h3>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">24px / 32px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Bold L</div>
+            <div class="md:col-span-8 text-lg font-medium text-[#2B3624] leading-snug">Enable systems to quickly map complex environments.</div>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">18px / 28px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Bold M</div>
+            <div class="md:col-span-8 text-sm text-[#4B5563] font-medium tracking-wide">Reliable execution at scale</div>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">14px / 20px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Bold S</div>
+            <div class="md:col-span-8 text-xs font-semibold uppercase tracking-widest text-[#10140E]">Version 2.0 stable</div>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">12px / 16px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Paragraph</div>
+            <p class="md:col-span-8 text-base sm:text-lg text-[#4B5563] leading-relaxed font-normal">The fundamental infrastructure for systems that perceive, reason, and execute without intervention.</p>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">18px / 28px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Regular L</div>
+            <p class="md:col-span-8 text-[#6A7165] text-lg sm:text-xl">The engine supports all types of autonomous applications.</p>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">20px / 28px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Regular M</div>
+            <p class="md:col-span-8 text-base text-[#4B5563] leading-relaxed font-normal">Built for reliability at scale.</p>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">16px / 24px</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-6 border-b border-[#2B3624]/10">
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-medium">Regular S</div>
+            <p class="md:col-span-8 text-sm text-[#4B5563]">No hand-holding, no context loss, no hallucinated APIs.</p>
+            <div class="md:col-span-2 text-sm text-[#6A7165] font-mono md:text-right">14px / 20px</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="colors" class="pt-20 pb-16 border-t border-[#2B3624]/10 bg-[#1D2718] -mx-6 sm:-mx-12 lg:-mx-24 px-6 sm:px-12 lg:px-24 text-[#F6F3EC]">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-light tracking-tighter text-[#F6F3EC] mb-4">Colors &amp; Surfaces</h2>
+        <p class="text-[#D8D0B8] mb-12 max-w-2xl leading-relaxed">The page, panels, borders, overlays, and deployment gradient used in the reference interface.</p>
+        <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <div class="bg-[#F6F3EC] rounded-2xl p-6 shadow-sm text-[#2B3624]"><div class="w-10 h-10 rounded-full border border-[#2B3624]/10 flex items-center justify-center mb-6 bg-white"><iconify-icon height="20" icon="solar:code-linear" style="color: #2B3624;" width="20"></iconify-icon></div><h3 class="font-medium mb-2 text-lg">Page / #F6F3EC</h3><p class="text-[#4B5563] text-sm leading-relaxed">Primary page and nested light surface.</p></div>
+          <div class="bg-[#EBE6DA] rounded-2xl p-6 border border-[#2B3624]/[0.03] text-[#2B3624]"><div class="w-10 h-10 rounded-full border border-[#2B3624]/10 flex items-center justify-center mb-6 bg-white/60"><iconify-icon height="20" icon="lucide:target" style="color: #2B3624;" width="20"></iconify-icon></div><h3 class="font-medium mb-2 text-lg">Card / #EBE6DA</h3><p class="text-[#4B5563] text-sm leading-relaxed">Cream panel for product examples.</p></div>
+          <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 shadow-sm"><div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6 bg-white/[0.08]"><iconify-icon height="20" icon="lucide:zap" style="color: #E8EE9B;" width="20"></iconify-icon></div><h3 class="font-medium text-[#F6F3EC] mb-2 text-lg">Overlay / White 4%</h3><p class="text-[#D8D0B8] text-sm leading-relaxed">Translucent card on the dark section surface.</p></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-[#0F170D]/35 backdrop-blur-sm border border-[#D8D0B8]/15 rounded-xl p-6 sm:p-8 shadow-2xl"><div class="text-[11px] font-semibold text-[#D8D0B8] uppercase tracking-wider mb-3">Glass / dark overlay</div><p class="text-[#F6F3EC] text-lg font-medium leading-snug">Backdrop blur with a fine warm border.</p></div>
+          <div class="py-16 sm:py-20 px-6 sm:px-10 lg:px-14 rounded-2xl border border-[#D8D0B8]/15 overflow-hidden text-[#F6F3EC] relative" style="background: radial-gradient(circle at 88% 18%, rgba(124,141,82,0.9) 0%, rgba(124,141,82,0.42) 28%, transparent 45%), linear-gradient(135deg, #1D2718 0%, #35452A 55%, #12180F 100%);"><div class="text-[11px] font-semibold text-[#D8D0B8] uppercase tracking-wider mb-3">Deployment gradient</div><p class="text-[#F6F3EC] text-lg font-medium leading-snug">Used as the contact and conversion surface.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="components" class="py-16 sm:py-24 border-t border-[#2B3624]/[0.06]">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-12"><h2 class="text-4xl sm:text-5xl font-light tracking-tighter text-[#2B3624] mb-5">UI Components</h2><p class="text-[#6A7165] text-lg sm:text-xl max-w-2xl">Interactive specimens retain their native hover, focus, active, and disabled behavior.</p></div>
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-[#EBE6DA] p-8 rounded-2xl flex flex-col border border-[#2B3624]/[0.03]"><div class="text-sm text-[#6A7165] mb-2 font-medium">Primary action states</div><div class="flex flex-wrap gap-3 mt-4"><a class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-5 py-2.5 rounded-md hover:bg-[#1f281a] transition-colors tracking-wide" href="#components">Default</a><a class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-5 py-2.5 rounded-md hover:bg-[#1f281a] transition-colors tracking-wide" href="#components">Hover</a><button class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-5 py-2.5 rounded-md hover:bg-[#1f281a] transition-colors tracking-wide">Active</button><button class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-5 py-2.5 rounded-md hover:bg-[#1f281a] transition-colors tracking-wide">Focus</button><button class="bg-[#2B3624] text-[#F6F3EC] text-sm font-medium px-5 py-2.5 rounded-md hover:bg-[#1f281a] transition-colors tracking-wide" disabled>Disabled</button></div></div>
+          <div class="bg-[#1D2718] p-8 rounded-2xl flex flex-col"><div class="text-sm text-[#D8D0B8] mb-2 font-medium">Outline action states</div><div class="flex flex-wrap gap-3 mt-4"><a class="inline-flex items-center gap-2 border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-6 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors" href="#components">Default <iconify-icon class="text-sm" icon="lucide:arrow-up-right"></iconify-icon></a><a class="inline-flex items-center gap-2 border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-6 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors" href="#components">Hover</a><button class="border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-6 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors">Active</button><button class="border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-6 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors">Focus</button><button class="border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-6 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors" disabled>Disabled</button></div></div>
+        </div>
+        <div class="my-12 py-16 sm:py-20 px-6 sm:px-10 lg:px-14 rounded-2xl border border-[#D8D0B8]/15 overflow-hidden text-[#F6F3EC] relative" style="background: radial-gradient(circle at 88% 18%, rgba(124,141,82,0.9) 0%, rgba(124,141,82,0.42) 28%, transparent 45%), linear-gradient(135deg, #1D2718 0%, #35452A 55%, #12180F 100%);">
+          <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"><div><h3 class="text-4xl font-light tracking-tighter text-[#F6F3EC] mb-6">Form controls</h3><p class="text-[#D8D0B8] max-w-md leading-relaxed">The same rounded field treatment used by the deployment contact form.</p></div><div class="bg-[#0F170D]/35 backdrop-blur-sm border border-[#D8D0B8]/15 rounded-xl p-6 sm:p-8 shadow-2xl"><form class="grid sm:grid-cols-2 gap-4"><input class="w-full bg-white/5 border border-white/35 px-4 py-3 text-sm rounded-full text-[#F6F3EC] placeholder:text-white/55 focus:outline-none focus:border-[#E8EE9B]/70" placeholder="Default field" type="text"><input class="w-full bg-white/5 border border-white/35 px-4 py-3 text-sm rounded-full text-[#F6F3EC] placeholder:text-white/55 focus:outline-none focus:border-[#E8EE9B]/70" placeholder="Focus field" type="email"><textarea class="sm:col-span-2 w-full bg-white/5 border border-white/35 px-4 py-3 text-sm rounded-2xl text-[#F6F3EC] placeholder:text-white/55 focus:outline-none focus:border-[#E8EE9B]/70 h-28" placeholder="Message field"></textarea><button class="sm:col-span-2 justify-self-center border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-12 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors">Submit</button></form></div></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/[0.04] border border-[#2B3624]/10 rounded-2xl p-6 shadow-sm text-[#2B3624]"><div class="w-10 h-10 rounded-full border border-[#2B3624]/10 flex items-center justify-center mb-6 bg-[#EBE6DA]"><iconify-icon height="20" icon="lucide:zap" style="color: #2B3624;" width="20"></iconify-icon></div><h3 class="font-medium mb-2 text-lg">Feature card</h3><p class="text-[#4B5563] text-sm leading-relaxed">Compact icon, title, and supporting copy.</p></div>
+          <div class="bg-[#EBE6DA] p-8 rounded-2xl flex flex-col border border-[#2B3624]/[0.03]"><div class="text-sm text-[#6A7165] mb-2 font-medium">Use-case card</div><div class="text-lg font-medium text-[#2B3624] leading-snug mb-8">A light surface with a nested operational interface.</div><div class="bg-[#F6F3EC] rounded-xl p-4 mt-auto border border-[#2B3624]/[0.04]"><div class="px-2.5 py-1.5 bg-white rounded-md text-xs font-medium text-[#4B5563] shadow-sm border border-black/5 flex items-center gap-1.5 w-fit"><iconify-icon icon="solar:hashtag-linear"></iconify-icon> lidar</div></div></div>
+          <div class="bg-[#C9D68A] p-8 relative overflow-hidden group transform hover:-translate-y-2 transition-transform duration-500 rounded-sm"><iconify-icon class="absolute -right-4 -top-4 text-black/10 text-[8rem] rotate-12" icon="lucide:code-2"></iconify-icon><div class="relative z-10"><h3 class="text-2xl font-semibold text-[#10140E] mb-4 tracking-tight">Conversion card</h3><p class="text-[#10140E]/70 text-sm font-medium leading-relaxed">The bright closing CTA used in the footer.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="layout" class="py-16 sm:py-24 border-t border-[#2B3624]/[0.06]">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-12"><h2 class="text-4xl sm:text-5xl font-light tracking-tighter text-[#2B3624] mb-5">Layout &amp; Spacing</h2><p class="text-[#6A7165] text-lg sm:text-xl max-w-2xl">Real responsive layouts from the reference: split hero, three-column features, and paired conversion content.</p></div>
+        <div class="space-y-6">
+          <div class="bg-[#EBE6DA] p-8 rounded-2xl border border-[#2B3624]/[0.03]"><div class="text-sm text-[#6A7165] mb-6 font-medium">Hero split: flex column, then two equal columns at lg</div><div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24"><div class="w-full lg:w-1/2"><div class="text-2xl font-semibold text-[#2B3624] tracking-tight mb-4">Content column</div><p class="text-[#4B5563] leading-relaxed">The primary narrative aligns left and expands into half the container.</p></div><div class="w-full lg:w-1/2 bg-[#F6F3EC] rounded-xl p-6 border border-[#2B3624]/[0.04]"><div class="aspect-square bg-white rounded-md border border-[#2B3624]/[0.04]"></div></div></div></div>
+          <div class="bg-[#1D2718] rounded-2xl p-6 sm:p-8"><div class="text-sm text-[#D8D0B8] mb-6 font-medium">Feature grid: one column, three columns at md</div><div class="grid md:grid-cols-3 gap-6"><div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 shadow-sm"><div class="text-lg font-medium text-[#F6F3EC]">Column one</div></div><div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 shadow-sm"><div class="text-lg font-medium text-[#F6F3EC]">Column two</div></div><div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 shadow-sm"><div class="text-lg font-medium text-[#F6F3EC]">Column three</div></div></div></div>
+          <div class="my-12 py-16 sm:py-20 px-6 sm:px-10 lg:px-14 rounded-2xl border border-[#D8D0B8]/15 overflow-hidden text-[#F6F3EC] relative" style="background: radial-gradient(circle at 88% 18%, rgba(124,141,82,0.9) 0%, rgba(124,141,82,0.42) 28%, transparent 45%), linear-gradient(135deg, #1D2718 0%, #35452A 55%, #12180F 100%);"><div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"><div><div class="text-4xl font-light tracking-tighter text-[#F6F3EC] mb-6">Conversion split</div><p class="text-[#D8D0B8] max-w-md leading-relaxed">Paired message and glass panel with a twelve-unit gap.</p></div><div class="bg-[#0F170D]/35 backdrop-blur-sm border border-[#D8D0B8]/15 rounded-xl p-6 sm:p-8 shadow-2xl"><div class="h-28 rounded-2xl bg-white/5 border border-white/35"></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="motion" class="pt-20 pb-16 border-t border-[#2B3624]/10 bg-[#1D2718] -mx-6 sm:-mx-12 lg:-mx-24 px-6 sm:px-12 lg:px-24 text-[#F6F3EC]">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-light tracking-tighter text-[#F6F3EC] mb-4">Motion &amp; Interaction</h2>
+        <p class="text-[#D8D0B8] mb-12 max-w-2xl leading-relaxed">Scroll to trigger the viewport reveal specimens. Hover the action and conversion card to use the original transitions.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 shadow-sm aura-view-reveal" style="--aura-delay: 0ms; --aura-x: -16px; --aura-y: 0px;"><div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6 bg-white/[0.08]"><iconify-icon height="20" icon="lucide:arrow-right" style="color: #E8EE9B;" width="20"></iconify-icon></div><h3 class="font-medium text-[#F6F3EC] mb-2 text-lg">Viewport reveal</h3><p class="text-[#D8D0B8] text-sm leading-relaxed">780ms blur, opacity, and translation with the original easing curve.</p></div>
+          <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 shadow-sm"><div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6 bg-white/[0.08]"><iconify-icon height="20" icon="lucide:external-link" style="color: #E8EE9B;" width="20"></iconify-icon></div><h3 class="font-medium text-[#F6F3EC] mb-4 text-lg">Color transition</h3><a class="inline-flex items-center gap-2 border border-[#C9D68A]/60 text-[#C9D68A] text-sm font-medium px-6 py-3 rounded-full hover:bg-[#C9D68A] hover:text-[#1D2718] transition-colors" href="#motion">Hover action <iconify-icon class="text-sm" icon="lucide:arrow-up-right"></iconify-icon></a></div>
+          <div class="bg-[#C9D68A] p-6 relative overflow-hidden group transform hover:-translate-y-2 transition-transform duration-500 rounded-sm"><iconify-icon class="absolute -right-4 -top-4 text-black/10 text-[8rem] rotate-12" icon="lucide:code-2"></iconify-icon><div class="relative z-10"><h3 class="text-2xl font-semibold text-[#10140E] mb-4 tracking-tight">Hover lift</h3><p class="text-[#10140E]/70 text-sm font-medium leading-relaxed">A 500ms upward translation on the conversion card.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="icons" class="py-16 sm:py-24 border-t border-[#2B3624]/[0.06]">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-12"><h2 class="text-4xl sm:text-5xl font-light tracking-tighter text-[#2B3624] mb-5">Icons</h2><p class="text-[#6A7165] text-lg sm:text-xl max-w-2xl">Iconify renders the Solar and Lucide glyphs used throughout the reference.</p></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-[#EBE6DA] p-8 rounded-2xl flex flex-col items-center justify-center border border-[#2B3624]/[0.03]"><iconify-icon height="20" icon="solar:code-linear" style="color: #2B3624;" width="20"></iconify-icon><div class="text-xs text-[#6A7165] font-medium mt-4">20px Solar</div></div>
+          <div class="bg-[#EBE6DA] p-8 rounded-2xl flex flex-col items-center justify-center border border-[#2B3624]/[0.03]"><iconify-icon class="text-2xl text-[#2B3624]" icon="lucide:zap"></iconify-icon><div class="text-xs text-[#6A7165] font-medium mt-4">24px Lucide</div></div>
+          <div class="bg-[#EBE6DA] p-8 rounded-2xl flex flex-col items-center justify-center border border-[#2B3624]/[0.03]"><iconify-icon height="40" icon="solar:code-linear" style="color: #2B3624; stroke-width: 1.5;" width="40"></iconify-icon><div class="text-xs text-[#6A7165] font-medium mt-4">40px Brand</div></div>
+          <div class="bg-[#1D2718] p-8 rounded-2xl flex flex-col items-center justify-center border border-white/10"><iconify-icon class="text-xl text-[#C9D68A]" icon="lucide:arrow-up-right"></iconify-icon><div class="text-xs text-[#D8D0B8] font-medium mt-4">Inherited color</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+      const headline = document.getElementById('hero-headline');
+      if (headline) {
+        const words = headline.innerText.trim().split(/\s+/);
+        headline.innerHTML = '';
+        words.forEach((word) => {
+          const wordContainer = document.createElement('span');
+          wordContainer.className = 'inline-block overflow-hidden align-top leading-[1.05] pb-[0.1em] -mb-[0.1em] mr-[0.25em]';
+          const innerWord = document.createElement('span');
+          innerWord.className = 'inline-block reveal-word will-change-transform';
+          innerWord.innerText = word;
+          wordContainer.appendChild(innerWord);
+          headline.appendChild(wordContainer);
+        });
+        gsap.to('.reveal-word', { y: 0, duration: 1.2, stagger: 0.04, ease: 'power4.out', scrollTrigger: { trigger: headline, start: 'top 85%' } });
+      }
+
+      const canvas = document.getElementById('mesh-canvas');
+      const gl = canvas.getContext('webgl');
+      if (gl) {
+        const resizeCanvas = () => {
+          const rect = canvas.parentElement.getBoundingClientRect();
+          canvas.width = rect.width * window.devicePixelRatio;
+          canvas.height = rect.height * window.devicePixelRatio;
+          gl.viewport(0, 0, canvas.width, canvas.height);
+        };
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        const vsSource = 'attribute vec2 position; varying vec2 vUv; void main() { vUv = position * 0.5 + 0.5; gl_Position = vec4(position, 0.0, 1.0); }';
+        const fsSource = 'precision highp float; varying vec2 vUv; uniform float uTime; float random(vec2 st) { return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123); } float noise(vec2 st) { vec2 i = floor(st); vec2 f = fract(st); float a = random(i); float b = random(i + vec2(1.0, 0.0)); float c = random(i + vec2(0.0, 1.0)); float d = random(i + vec2(1.0, 1.0)); vec2 u = f * f * (3.0 - 2.0 * f); return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y; } void main() { vec2 uv = vUv; vec2 pos = vec2(uv * 1.5); float n1 = noise(pos + uTime * 0.2); float n2 = noise(pos + vec2(n1, n1) - uTime * 0.15); float n3 = noise(pos + vec2(n2, n2) + uTime * 0.1); vec3 color1 = vec3(0.18, 0.24, 0.17); vec3 color2 = vec3(0.83, 0.55, 0.36); vec3 color3 = vec3(0.29, 0.54, 0.54); vec3 color4 = vec3(0.92, 0.90, 0.85); vec3 finalColor = mix(color4, color3, n1); finalColor = mix(finalColor, color2, smoothstep(0.3, 0.7, n2)); finalColor = mix(finalColor, color1, smoothstep(0.5, 1.0, n3)); gl_FragColor = vec4(finalColor, 1.0); }';
+        const compileShader = (type, source) => { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader; };
+        const program = gl.createProgram();
+        gl.attachShader(program, compileShader(gl.VERTEX_SHADER, vsSource));
+        gl.attachShader(program, compileShader(gl.FRAGMENT_SHADER, fsSource));
+        gl.linkProgram(program);
+        gl.useProgram(program);
+        const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+        const positionLocation = gl.getAttribLocation(program, 'position');
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+        const timeLocation = gl.getUniformLocation(program, 'uTime');
+        const startTime = performance.now();
+        const render = (time) => { gl.uniform1f(timeLocation, (time - startTime) * 0.001); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(render); };
+        requestAnimationFrame(render);
+      }
+    });
+
+    (() => {
+      const initViewObserver = () => {
+        const targets = Array.from(document.querySelectorAll('.aura-view-reveal'));
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+          targets.forEach((element) => element.classList.add('is-visible'));
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        targets.forEach((element) => observer.observe(element));
+      };
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initViewObserver);
+      else initViewObserver();
+    })();
+  </script>
+</body>
+</html>
