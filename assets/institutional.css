@@ -21,6 +21,14 @@
 .foundation-cta:focus-visible svg { transform: translateX(4px); }
 .foundation-cta:focus-visible .button-surface::after { animation-duration: 240ms; }
 
+.foundation-photo { width: 100%; margin: 38px 0 0; }
+.foundation-photo-frame { position: relative; isolation: isolate; aspect-ratio: 1.95; overflow: hidden; background: var(--cream-deep); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px); }
+/* Crop the photograph's empty left side while keeping the people in view. */
+.foundation-photo img { position: absolute; top: -20%; right: 0; display: block; width: 150%; max-width: none; height: 150%; object-fit: cover; object-position: right center; }
+.foundation-photo-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px rgba(65,110,1,.12); background: linear-gradient(0deg, rgba(3,33,10,.08), transparent 35%); }
+.foundation-photo figcaption { display: flex; align-items: center; gap: 10px; margin-top: 13px; color: #637456; font: 400 9px/1.7 var(--mono); letter-spacing: .02em; }
+.foundation-photo-line { flex: 0 0 22px; height: 1px; background: var(--green); }
+
 .foundation-visual { position: relative; min-width: 0; isolation: isolate; padding-top: 28px; }
 /* Clip only the decoration, leaving the modules' focus outlines unobstructed. */
 .foundation-atmosphere { position: absolute; inset: -76px -52px -40px -44px; overflow: hidden; z-index: -1; pointer-events: none; }
@@ -78,10 +86,11 @@
 
 /* Progressive enhancement: without JS, everything remains visible. */
 .foundation.reveal-ready [data-foundation-reveal] { opacity: 0; transform: translate3d(0, 28px, 0); filter: blur(10px); transition: opacity 780ms var(--reveal-ease), transform 780ms var(--reveal-ease), filter 780ms var(--reveal-ease); transition-delay: var(--foundation-delay, 0ms); }
-.foundation.reveal-ready [data-foundation-reveal="eyebrow"] { transform: translateY(12px); filter: none; }
+.foundation.reveal-ready [data-foundation-reveal="eyebrow"] { transform: translateY(6px); filter: none; transition-duration: 280ms; }
 .foundation [data-foundation-reveal="title"] { --foundation-delay: 80ms; }
 .foundation [data-foundation-reveal="description"] { --foundation-delay: 140ms; }
 .foundation [data-foundation-reveal="action"] { --foundation-delay: 200ms; }
+.foundation [data-foundation-reveal="photo"] { --foundation-delay: 240ms; }
 .foundation.reveal-ready [data-foundation-reveal="panel"] { transform: translateX(24px); filter: blur(8px); --foundation-delay: 140ms; }
 .foundation [data-foundation-reveal="vision"] { --foundation-delay: 80ms; }
 .foundation [data-foundation-reveal="values"] { --foundation-delay: 160ms; }
@@ -112,6 +121,7 @@
   .foundation { padding-inline: 36px; }
   .foundation-layout { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   .foundation-copy { max-width: 640px; padding: 0; }
+  .foundation-photo { max-width: 560px; }
   .foundation-title { font-size: clamp(42px, 6.4vw, 58px); }
   .foundation-description { max-width: 56ch; }
   .foundation-visual { width: min(100%, 620px); justify-self: end; padding-top: 0; }
@@ -129,6 +139,10 @@
   .foundation-title { font-size: clamp(30px, 7.8vw, 44px); line-height: 1.12; letter-spacing: -.05em; }
   .foundation-description { margin-top: 24px; font-size: 16px; line-height: 1.8; }
   .foundation-cta { display: inline-flex; width: auto; min-width: 218px; }
+  .foundation-photo { margin-top: 30px; }
+  .foundation-photo-frame { aspect-ratio: 1.55; }
+  .foundation-photo img { width: 135%; height: 135%; top: -12%; }
+  .foundation-photo figcaption { font-size: 8px; }
   .foundation-layout { gap: 44px; }
   .foundation-mosaic { grid-template-columns: minmax(0, 1fr); }
   .foundation-module-mission { grid-column: auto; }
@@ -144,6 +158,7 @@
   .foundation-concepts { gap: 12px 18px; }
   .foundation-concepts li { gap: 8px; font-size: 8px; }
   .foundation.reveal-ready [data-foundation-reveal], .foundation.reveal-ready [data-foundation-reveal="panel"] { transform: translateY(16px); filter: none; }
+  .foundation.reveal-ready [data-foundation-reveal="eyebrow"] { transform: translateY(6px); }
   .foundation.reveal-ready [data-foundation-reveal].is-visible { transform: none; }
 }
 @media (max-width: 360px) {
