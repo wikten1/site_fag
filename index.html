@@ -363,6 +363,7 @@
   </style>
   <link rel="stylesheet" href="assets/institutional.css">
   <link rel="stylesheet" href="assets/courses.css">
+  <link rel="stylesheet" href="assets/programs.css">
 </head>
 <body>
   <a class="skip-link" href="#hero-title">Ir para o conteúdo</a>
@@ -410,6 +411,7 @@
       <a class="nav-link is-active" href="#inicio" aria-current="location">Início</a>
       <a class="nav-link" href="#sobre-a-fag">A Fundação</a>
       <a class="nav-link" href="#cursos-e-oportunidades">Cursos e oportunidades</a>
+      <a class="nav-link" href="#programas-e-projetos">Programas e Projetos</a>
     </div>
     <div class="nav-actions">
       <span class="nav-context">TANGUÁ · RJ</span>
@@ -632,6 +634,69 @@
         </div>
       </div>
     </section>
+    <section class="programs" id="programas-e-projetos" aria-labelledby="programs-title" tabindex="-1">
+      <div class="programs-shell">
+        <header class="programs-head">
+          <p class="programs-eyebrow"><span class="programs-marker" aria-hidden="true"></span>Programas e projetos<span class="programs-rule" aria-hidden="true"></span></p>
+          <div class="programs-opening">
+            <h2 class="programs-title" id="programs-title" tabindex="-1">Programas que transformam oportunidades em <span>desenvolvimento</span></h2>
+            <p class="programs-intro">A formação é um começo. A transformação vai além. Conheça as iniciativas da FAG que conectam educação profissional, inclusão e desenvolvimento social à geração de oportunidades.</p>
+          </div>
+        </header>
+
+        <!-- Reusable editorial component: duplicate a li with its article, supplying
+             image/alt, category, unique title/id, description and CTA. All cards
+             have equal visual weight, regardless of their position or identity.
+             Optional: set data-featured="true" on ANY article.program-card to
+             reveal its "Em destaque" label and accented border. Remove the
+             attribute (or set it to "false") to restore the default appearance.
+             No ordering or grid changes are needed. The CSS adapts to any item
+             count without JavaScript. When a destination is confirmed,
+             replace details with <a class="program-link" href="URL">CTA + SVG</a>.
+             Native disclosures keep the current CTAs useful without invented URLs. -->
+        <ul class="programs-grid" role="list">
+          <li>
+            <article class="program-card" aria-labelledby="programa-mulheres-mil">
+              <div class="program-media">
+                <img src="assets/raw_files/programa_mulheres_mil.png" alt="Mulheres de diferentes idades compartilhando uma atividade de aprendizagem, com cadernos e um notebook." width="1672" height="941" loading="lazy" decoding="async">
+              </div>
+              <div class="program-body">
+                <p class="program-category"><span class="program-category-marker" aria-hidden="true"></span>Programa institucional<span class="program-featured-label">Em destaque</span></p>
+                <h3 class="program-title" id="programa-mulheres-mil" tabindex="-1">Programa Mulheres Mil</h3>
+                <p class="program-description">Capacitação que fortalece a autonomia, a autoconfiança e as oportunidades das mulheres, com atenção especial àquelas em situação de vulnerabilidade social.</p>
+                <details class="program-details">
+                  <summary class="program-link"><span>Conhecer o Programa Mulheres Mil</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></summary>
+                  <div class="program-more">
+                    <p>O Programa Mulheres Mil oferece cursos e ações de capacitação voltados ao público feminino, unindo formação profissional e desenvolvimento pessoal. É uma oportunidade para adquirir novas habilidades, explorar interesses e ampliar possibilidades na vida e no trabalho.</p>
+                    <p>Com foco na inclusão e na solidariedade, o programa busca reduzir barreiras de acesso à educação, especialmente para mulheres que enfrentam desafios socioeconômicos. Ao valorizar suas capacidades e fortalecer sua autonomia, contribui para a construção de uma sociedade mais justa e igualitária.</p>
+                    <p>Para orientações sobre participação, consulte os canais institucionais da Fundação. Esta página não disponibiliza inscrições ou calendário do programa.</p>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="program-card" aria-labelledby="outros-programas-e-projetos">
+              <div class="program-media">
+                <img src="assets/raw_files/outros_projetos.png" alt="Grupo reunido em torno de um notebook e de um pequeno projeto de robótica, em um ambiente de aprendizagem colaborativa." width="1672" height="941" loading="lazy" decoding="async">
+              </div>
+              <div class="program-body">
+                <p class="program-category"><span class="program-category-marker" aria-hidden="true"></span>Iniciativas da FAG<span class="program-featured-label">Em destaque</span></p>
+                <h3 class="program-title" id="outros-programas-e-projetos">Outros Programas e Projetos</h3>
+                <p class="program-description">Um espaço para conhecer a atuação da Fundação em educação, inclusão e desenvolvimento social, e descobrir outras iniciativas à medida que forem apresentadas.</p>
+                <details class="program-details">
+                  <summary class="program-link"><span>Explorar esta área</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></summary>
+                  <div class="program-more">
+                    <p>Atualmente, o Programa Mulheres Mil é a iniciativa apresentada nesta área. Outros programas e projetos poderão ser reunidos aqui, conforme sua divulgação institucional.</p>
+                    <a href="#programa-mulheres-mil">Explorar o Programa Mulheres Mil<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
   <script>
     (() => {
@@ -730,6 +795,7 @@
       const mobile = window.matchMedia('(max-width: 820px)');
       const about = document.getElementById('sobre-a-fag');
       const courses = document.getElementById('cursos-e-oportunidades');
+      const programs = document.getElementById('programas-e-projetos');
       navbar.classList.add('nav-enhanced');
 
       function setMenu(open, returnFocus = false) {
@@ -755,7 +821,8 @@
         const canScroll = document.documentElement.scrollHeight > window.innerHeight + 1;
         const atAbout = (window.scrollY > 24 || (!canScroll && location.hash === '#sobre-a-fag')) && bounds.top < window.innerHeight * .7 && bounds.bottom > navbar.getBoundingClientRect().bottom;
         const atCourses = courses.getBoundingClientRect().top < window.innerHeight * .7;
-        setActive(atCourses ? '#cursos-e-oportunidades' : atAbout ? '#sobre-a-fag' : '#inicio');
+        const atPrograms = programs.getBoundingClientRect().top < window.innerHeight * .7;
+        setActive(atPrograms ? '#programas-e-projetos' : atCourses ? '#cursos-e-oportunidades' : atAbout ? '#sobre-a-fag' : '#inicio');
       }
       let scrollFrame = 0;
       window.addEventListener('scroll', () => {
@@ -769,6 +836,7 @@
         activeObserver.observe(document.getElementById('hero-title'));
         activeObserver.observe(about);
         activeObserver.observe(courses);
+        activeObserver.observe(programs);
       }
       menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
       document.addEventListener('keydown', event => {

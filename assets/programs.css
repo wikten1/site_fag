@@ -1,0 +1,97 @@
+/* 5.6 — Programas e Projetos. Scoped to this section; shared FAG tokens. */
+.programs {
+  --program-cut: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  padding: 112px 32px 120px;
+  border-top: 1px solid var(--line);
+  background: var(--cream-deep);
+  background: color-mix(in srgb, var(--cream-deep) 45%, var(--cream));
+}
+.programs-shell { max-width: 1240px; margin-inline: auto; }
+.programs-head { margin-bottom: 64px; }
+.programs-eyebrow { display: flex; align-items: center; gap: 14px; margin: 0 0 32px; color: var(--green); font: 600 .6875rem/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.programs-marker { position: relative; width: 28px; height: 1px; flex: 0 0 28px; background: var(--green); }
+.programs-marker::before { content: ''; position: absolute; top: -3px; left: 0; width: 7px; height: 7px; border: 1px solid var(--green); border-radius: 50%; background: var(--cream); }
+.programs-rule { position: relative; flex: 1; height: 1px; margin-left: 14px; background: var(--line); }
+.programs-rule::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border: 1px solid var(--line); background: var(--cream); transform: rotate(45deg); }
+.programs-opening { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); align-items: end; gap: 80px; }
+.programs-title { margin: 0; color: var(--text); font-size: clamp(2.25rem, 4.1vw, 3.5rem); font-weight: 350; line-height: 1.08; letter-spacing: -.05em; text-wrap: balance; overflow-wrap: anywhere; }
+.programs-title span { color: var(--green); font-weight: 450; }
+.programs-intro { max-width: 40ch; margin: 0 0 4px; color: var(--text-soft); font-size: 1rem; line-height: 1.8; }
+/* Large editorial modules: at most two columns within the 1240px container.
+   Odd final rows keep the same card width. DOM, reading and keyboard order agree.
+   Neither identity nor position controls prominence; data-featured is optional. */
+/* Each card keeps its natural height when another card opens its details. */
+.programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr)); align-items: start; gap: 40px 32px; margin: 0; padding: 0; list-style: none; }
+.programs-grid > li { display: flex; min-width: 0; }
+.program-card { position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-width: 0; filter: drop-shadow(0 5px 9px rgba(13,35,12,.025)); transition: transform 280ms var(--ease), filter 280ms var(--ease); }
+/* Only decorative surfaces are clipped, preserving focus outlines and selection. */
+.program-card::before, .program-card::after { content: ''; position: absolute; pointer-events: none; z-index: -1; clip-path: var(--program-cut); }
+.program-card::before { inset: 0; background: var(--line); transition: background 280ms ease; }
+.program-card::after { inset: 1px; background: var(--surface); }
+.program-media { margin: 1px 1px 0; aspect-ratio: 1672 / 941; overflow: hidden; clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px); background: var(--cream-deep); }
+.program-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 320ms var(--ease); }
+.program-body { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: 30px 32px 22px; }
+.program-category { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 16px; color: var(--green); font: 500 .625rem/1.6 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.program-category-marker { width: 6px; height: 6px; flex: 0 0 6px; background: var(--accent); }
+.program-featured-label { display: none; padding: 4px 8px; border: 1px solid var(--green); color: var(--forest); background: var(--cream-deep); letter-spacing: .06em; }
+/* Any card can be featured, including several at once, without displacing others.
+   The visible label communicates prominence without relying solely on color. */
+.program-card[data-featured="true"]::before { background: var(--green); }
+.program-card[data-featured="true"] .program-featured-label { display: inline-block; }
+.program-title { margin: 0 0 16px; color: var(--text); font-size: clamp(1.875rem, 2.6vw, 2.25rem); font-weight: 450; letter-spacing: -.04em; line-height: 1.15; overflow-wrap: anywhere; text-wrap: balance; }
+.program-description { max-width: 55ch; margin: 0 0 24px; color: var(--text-soft); font-size: .9375rem; line-height: 1.75; }
+.program-details, .program-body > .program-link { margin-top: auto; }
+.program-link { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 56px; padding-block: 14px 8px; border-top: 1px solid var(--line); color: var(--green); font-size: .875rem; font-weight: 600; line-height: 1.6; text-decoration: none; list-style: none; cursor: pointer; }
+.program-link::-webkit-details-marker { display: none; }
+.program-link::marker { content: ''; }
+.program-link svg { width: 20px; height: 20px; flex: 0 0 20px; transition: transform 280ms var(--ease); }
+.program-link:focus-visible, .program-more a:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+.program-link:hover > span, .program-link:focus-visible > span { text-decoration: underline; text-underline-offset: 4px; }
+.program-details[open] > .program-link svg { transform: rotate(90deg); }
+.program-more { margin-top: 16px; padding: 0 0 8px 16px; border-left: 2px solid var(--line); color: var(--text-soft); font-size: .875rem; line-height: 1.75; }
+.program-more p { margin: 0 0 12px; }
+.program-more p:last-child { margin-bottom: 0; }
+.program-more a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--green); text-underline-offset: 4px; }
+.program-more a svg { width: 16px; height: 16px; }
+/* A single available item uses the width without implying a featured status. */
+@media (min-width: 1051px) {
+  .programs-grid > li:only-child .program-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; }
+  .programs-grid > li:only-child .program-media { margin: 1px; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .program-card:hover { transform: translateY(-3px); filter: drop-shadow(0 10px 16px rgba(13,35,12,.055)); }
+  .program-card:hover::before { background: var(--text-soft); }
+  .program-card:hover .program-media img { transform: scale(1.018); }
+  .program-card:hover .program-link svg { transform: translateX(3px); }
+  .program-card:hover .program-details[open] > .program-link svg { transform: rotate(90deg); }
+}
+@media (max-width: 1050px) {
+  .programs { padding-block: 88px; }
+  .programs-opening { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 40px; }
+  .programs-grid { gap: 32px 24px; }
+  .program-body { padding: 26px 24px 18px; }
+}
+@media (max-width: 760px) {
+  .programs { padding: 64px 24px 72px; }
+  .programs-head { margin-bottom: 36px; }
+  .programs-eyebrow { margin-bottom: 24px; font-size: .625rem; gap: 10px; }
+  .programs-opening { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .programs-title { max-width: 19ch; font-size: clamp(2.125rem, 6.4vw, 3rem); }
+  .programs-intro { max-width: 52ch; font-size: .9375rem; }
+  .programs-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 380px) {
+  .programs { padding-inline: 20px; }
+  .program-body { padding-inline: 20px; }
+  .program-link { gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .programs *, .programs *::before, .programs *::after { transition: none !important; animation: none !important; }
+}
+html[data-motion-paused="true"] .program-card,
+html[data-motion-paused="true"] .program-media img,
+html[data-motion-paused="true"] .program-link svg { transform: none !important; }
+@media (forced-colors: active) {
+  .program-card { border: 1px solid CanvasText; filter: none; }
+  .program-link { color: LinkText; }
+}
