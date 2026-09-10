@@ -1,0 +1,1031 @@
+{
+  "items": [
+    {
+      "id": "cooperacao-mast",
+      "slug": "tangua-se-prepara-para-um-novo-salto-cientifico-com-parceria-estrategica",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2025-03-21",
+      "category": "Notícias",
+      "title": "Tanguá se Prepara para um Novo Salto Científico com Parceria Estratégica",
+      "excerpt": "Tanguá deu um passo importante para ampliar o acesso à ciência e tecnologia com a articulação do Secretário Municipal de Ciência, Tecnologia, Inovação, Trabalho e Renda, e Presidente da FAG, Paulo Renato Faria. Junto ao…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2025/03/21/tangua-se-prepara-para-um-novo-salto-cientifico-com-parceria-estrategica/",
+      "sourceId": 764,
+      "fallback": "science",
+      "topics": [
+        "ciencia",
+        "cooperacao"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-764-0-600.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-764-0-400.webp",
+            "width": 400
+          },
+          {
+            "src": "assets/images/noticias/migrada-764-0-600.webp",
+            "width": 600
+          }
+        ],
+        "width": 600,
+        "height": 300,
+        "kind": "institutional",
+        "alt": "Composição institucional com fotografia de três participantes da visita técnica do MAST a Tanguá.",
+        "caption": "Registro institucional publicado com a matéria.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/04/reuniao-de-projetios-1.png"
+      },
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Tanguá deu um passo importante para ampliar o acesso à ciência e tecnologia com a articulação do Secretário Municipal de Ciência, Tecnologia, Inovação, Trabalho e Renda, e Presidente da FAG, Paulo Renato Faria. Junto ao diretor do Museu de Astronomia e Ciências Afins (MAST), Márcio Rangel, ele esteve na cidade para uma visita técnica, recebida pelo prefeito Rodrigo Medeiros. O encontro marcou o início das tratativas para um termo de cooperação técnica entre o MAST e a Fundação FAG, trazendo novas oportunidades educacionais e tecnológicas para a população."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Entre as iniciativas previstas nessa parceria, destacam-se a realização da Caravana da Ciência, exposições itinerantes sobre o legado de Leonardo da Vinci, visitas de alunos da rede pública ao MAST, além da instalação de um planetário móvel e uma exposição fixa sobre o sistema solar em diversos pontos da cidade. Um dos projetos mais inovadores será a criação de um planetário permanente na região da Lagoa Azul, fortalecendo o turismo científico no município."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Outra proposta promissora é o Trem do Conhecimento, um projeto que prevê a circulação de uma locomotiva com dois vagões, transportando visitantes por diferentes pontos da cidade ao longo da via férrea. Com capacidade para atender até 60 pessoas por viagem, essa iniciativa tem potencial para alavancar o turismo local e tornar a ciência ainda mais acessível à comunidade."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A Fundação FAG, sob a liderança de Paulo Renato Faria, celebra essa parceria que abrirá novas portas para a educação, cultura e inovação em Tanguá."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forum-inovacao-agricola",
+      "slug": "1o-forum-de-tecnologias-agricolas-em-tangua-inovacao-e-desenvolvimento-para-o-futuro",
+      "type": "news",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2025-03-13",
+      "category": "Notícias",
+      "title": "1º Fórum de Tanguá de Inovação Agrícola: Inovação e Sustentabilidade Impulsionam o Futuro do Campo",
+      "excerpt": "Na última terça-feira (11/03), Tanguá se tornou palco de um marco para o setor agrícola regional: o 1º Fórum de Tanguá de Inovação Agrícola, promovido pela FAPERJ em parceria com a Secretaria Municipal de Ciência,…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2025/03/13/1o-forum-de-tecnologias-agricolas-em-tangua-inovacao-e-desenvolvimento-para-o-futuro/",
+      "sourceId": 732,
+      "fallback": "science",
+      "topics": [
+        "ciencia",
+        "cooperacao"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-732-0-800.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-732-0-400.webp",
+            "width": 400
+          },
+          {
+            "src": "assets/images/noticias/migrada-732-0-800.webp",
+            "width": 800
+          },
+          {
+            "src": "assets/images/noticias/migrada-732-0-1024.webp",
+            "width": 1024
+          }
+        ],
+        "width": 1024,
+        "height": 576,
+        "kind": "event",
+        "alt": "Participantes reunidos ao redor de uma mesa durante o Fórum de Inovação Agrícola de Tanguá.",
+        "caption": "Participantes reunidos ao redor de uma mesa durante o Fórum de Inovação Agrícola de Tanguá.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-13.53.25_fe6db4b0-1-1024x576.jpg"
+      },
+      "gallery": [
+        {
+          "src": "assets/images/noticias/migrada-732-1-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-1-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-1-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-1-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Participantes conversam durante reunião do Fórum de Inovação Agrícola.",
+          "caption": "Participantes conversam durante reunião do Fórum de Inovação Agrícola.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.23_b60059ad-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-2-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-2-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-2-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-2-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Grupo reunido no palco do Fórum de Inovação Agrícola, com peças de artesanato nas mãos.",
+          "caption": "Grupo reunido no palco do Fórum de Inovação Agrícola, com peças de artesanato nas mãos.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.24_57b2ffc2-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-3-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-3-400.webp",
+              "width": 399
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-3-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-3-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 564,
+          "kind": "event",
+          "alt": "Participante fala ao microfone em painel do Fórum de Inovação Agrícola.",
+          "caption": "Participante fala ao microfone em painel do Fórum de Inovação Agrícola.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.24_0722111c-1024x564.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-4-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-4-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-4-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-4-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Grupo de participantes posa para fotografia no palco do Fórum.",
+          "caption": "Grupo de participantes posa para fotografia no palco do Fórum.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.24_ed96e13c-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-5-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-5-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-5-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-5-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Participantes acompanham uma conversa em torno de uma mesa durante o Fórum.",
+          "caption": "Participantes acompanham uma conversa em torno de uma mesa durante o Fórum.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.25_37cc18a3-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-6-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-6-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-6-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-6-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Público em pé no auditório durante a programação do Fórum.",
+          "caption": "Público em pé no auditório durante a programação do Fórum.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.25_98afa107-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-7-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-7-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-7-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-7-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Participantes reunidos ao redor de uma mesa no Fórum de Inovação Agrícola.",
+          "caption": "Participantes reunidos ao redor de uma mesa no Fórum de Inovação Agrícola.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.25_31398d4f-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-8-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-8-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-8-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-8-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Grupo conversa em uma sala durante a programação do Fórum.",
+          "caption": "Grupo conversa em uma sala durante a programação do Fórum.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-14.35.26_329b95d9-1024x576.jpg"
+        },
+        {
+          "src": "assets/images/noticias/migrada-732-9-800.webp",
+          "sources": [
+            {
+              "src": "assets/images/noticias/migrada-732-9-400.webp",
+              "width": 400
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-9-800.webp",
+              "width": 800
+            },
+            {
+              "src": "assets/images/noticias/migrada-732-9-1024.webp",
+              "width": 1024
+            }
+          ],
+          "width": 1024,
+          "height": 576,
+          "kind": "event",
+          "alt": "Público acompanha a programação do Fórum no auditório.",
+          "caption": "Público acompanha a programação do Fórum no auditório.",
+          "credit": "",
+          "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/03/Imagem-do-WhatsApp-de-2025-03-12-as-13.53.25_fb07aaed-1-1024x576.jpg"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Na última terça-feira (11/03), Tanguá se tornou palco de um marco para o setor agrícola regional: o 1º Fórum de Tanguá de Inovação Agrícola, promovido pela FAPERJ em parceria com a Secretaria Municipal de Ciência, Tecnologia, Inovação, Trabalho e Renda. O evento reuniu especialistas, pesquisadores, produtores rurais e autoridades em um debate essencial sobre como a tecnologia pode transformar a agricultura local, aliando produtividade e sustentabilidade."
+            }
+          ]
+        },
+        {
+          "type": "h2",
+          "runs": [
+            {
+              "text": "Abertura com Lideranças e Objetivos Estratégicos"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A cerimônia de abertura contou com a presença de figuras-chave como o Prefeito Rodrigo Medeiros, o Professor Paulo Renato Faria (Secretário Municipal de Ciência, Tecnologia, Inovação, Trabalho e Renda e Presidente da FAG), e o Secretário de Ciência e Tecnologia para o Desenvolvimento Social do Ministério da Ciência, Tecnologia e Inovação do Brasil, Inácio Arruda. Em discursos inspiradores, eles destacaram a necessidade de unir políticas públicas, pesquisa e capacitação para modernizar o campo, garantindo desenvolvimento econômico sem descuidar do meio ambiente."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Antes do início das discussões, uma reunião estratégica entre autoridades definiu prioridades para o setor, como a implementação de tecnologias emergentes (como agricultura de precisão e IoT) e programas de formação para produtores. O consenso foi claro: investir em inovação é o caminho para posicionar Tanguá como referência em agricultura sustentável."
+            }
+          ]
+        },
+        {
+          "type": "h2",
+          "runs": [
+            {
+              "text": "Parcerias que fortalecem o Agro Local"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "O sucesso do fórum foi ampliado pelo apoio de instituições renomadas, como Emater-RIO, UENF, IFF, Pesagro-RIO, Secretaria de Estado de Agricultura e o Sindicato Rural de Itaboraí, entre outras. Essa rede de colaboração reforça o compromisso coletivo em transformar desafios em oportunidades, integrando conhecimento acadêmico, políticas públicas e a força do produtor rural."
+            }
+          ]
+        },
+        {
+          "type": "h2",
+          "runs": [
+            {
+              "text": "Um Legado para o Futuro"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "O evento não apenas debateu ideias, mas plantou sementes para ações concretas. Ao destacar casos de sucesso e ferramentas tecnológicas acessíveis, o fórum mostrou que a inovação no campo é viável e urgente. Para Tanguá, o momento é de unir tradição agrícola às soluções do século XXI, garantindo que o município colha os frutos de um crescimento inteligente e inclusivo."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Confira as fotos do evento e acompanhe as próximas etapas desta iniciativa que promete revolucionar o agro na região! 🌱💡"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "InovaçãoNoCampo #AgriculturaSustentável #TanguáEmAção"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inovacao-desenvolvimento-local",
+      "slug": "inovacao-e-desenvolvimento-local",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2025-02-18",
+      "category": "Notícias",
+      "title": "Inovação e Desenvolvimento Local",
+      "excerpt": "No mais recente episódio do canal TV Ciência em Movimento, o jornalista Márcio Campos entrevista o Professor Paulo Renato Faria, Presidente da FAG e Secretário de Ciência, Tecnologia e Inovação de Tanguá. Durante a…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2025/02/18/inovacao-e-desenvolvimento-local/",
+      "sourceId": 725,
+      "fallback": "community",
+      "topics": [
+        "ciencia",
+        "cooperacao"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-725-0-800.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-725-0-400.webp",
+            "width": 399
+          },
+          {
+            "src": "assets/images/noticias/migrada-725-0-800.webp",
+            "width": 800
+          },
+          {
+            "src": "assets/images/noticias/migrada-725-0-1200.webp",
+            "width": 1200
+          }
+        ],
+        "width": 1438,
+        "height": 684,
+        "kind": "event",
+        "alt": "Registro em vídeo da entrevista entre Paulo Renato Faria e o jornalista Márcio Campos.",
+        "caption": "Registro da entrevista.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/02/Screenshot_1.png"
+      },
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "No mais recente episódio do canal "
+            },
+            {
+              "text": "TV Ciência em Movimento"
+            },
+            {
+              "text": ", o jornalista "
+            },
+            {
+              "text": "Márcio Campos"
+            },
+            {
+              "text": " entrevista o "
+            },
+            {
+              "text": "Professor Paulo Renato Faria"
+            },
+            {
+              "text": ", Presidente da "
+            },
+            {
+              "text": "FAG"
+            },
+            {
+              "text": " e Secretário de "
+            },
+            {
+              "text": "Ciência, Tecnologia e Inovação de Tanguá"
+            },
+            {
+              "text": ". Durante a conversa, são discutidas estratégias para o "
+            },
+            {
+              "text": "desenvolvimento local"
+            },
+            {
+              "text": ", o papel da inovação no crescimento econômico na cidade de Tanguá."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A entrevista traz insights valiosos sobre o impacto da ciência e tecnologia no progresso das cidades e destaca iniciativas que podem transformar a realidade local por meio da inovação."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "📺 "
+            },
+            {
+              "text": "Confira a entrevista completa:"
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "Clique Aqui",
+              "href": "https://www.youtube.com/watch?v=Dm_EysCB8FI"
+            },
+            {
+              "text": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acesso-e-oportunidade",
+      "slug": "acesso-e-oportunidade",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2025-02-12",
+      "category": "Notícias",
+      "title": "Acesso e oportunidade",
+      "excerpt": "Hoje, a Eloah contou um pouco sobre sua aprovação no ENEM. É mais uma joia da nossa cidade que se preparou através do Pré Vestibular @cecierj. Agradecemos a @sectirj , a @prefeituradetangua e ao @govrj pela importante…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2025/02/12/acesso-e-oportunidade/",
+      "sourceId": 716,
+      "fallback": "education",
+      "topics": [
+        "educacao",
+        "pre-vestibular"
+      ],
+      "image": null,
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Mais uma universitária passando na sua tela! 🎓📚"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Hoje, a Eloah contou um pouco sobre sua aprovação no ENEM. É mais uma joia da nossa cidade que se preparou através do Pré Vestibular "
+            },
+            {
+              "text": "@cecierj",
+              "href": "https://www.instagram.com/cecierj/"
+            },
+            {
+              "text": ". Agradecemos a "
+            },
+            {
+              "text": "@sectirj",
+              "href": "https://www.instagram.com/sectirj/"
+            },
+            {
+              "text": " , a @prefeituradetangua e ao "
+            },
+            {
+              "text": "@govrj",
+              "href": "https://www.instagram.com/govrj/"
+            },
+            {
+              "text": " pela importante parceria."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "⚠ Lembrando que a inscrição para o PVC estão abertas até o dia 24 de Fevereiro, e você pode se inscrever clicando no botão abaixo."
+            },
+            {
+              "text": "\n"
+            },
+            {
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Clique aqui e se inscreva",
+              "href": "https://www.cecierj.edu.br/processo-seletivo-alunos-pvs-extensivo-2025/"
+            },
+            {
+              "text": "\n"
+            },
+            {
+              "text": "\n\n\n\n"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Assistir ao depoimento em vídeo",
+              "href": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/02/WhatsApp-Video-2025-02-11-at-08.16.34.mp4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impacto-pre-vestibular-social",
+      "slug": "o-impacto-do-pre-vestibular-social",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2025-02-07",
+      "category": "Notícias",
+      "title": "O Impacto do Pré-Vestibular Social!",
+      "excerpt": "Hoje, vocês estão convidados a conhecer um pouco sobre a trajetória da Ana Beatriz, uma jovem que, ao longo do último ano, fez parte do Pré – Vestibular da @cecierj com a parceria do @govrj na nossa cidade. Agora, ela…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2025/02/07/o-impacto-do-pre-vestibular-social/",
+      "sourceId": 710,
+      "fallback": "education",
+      "topics": [
+        "educacao",
+        "pre-vestibular"
+      ],
+      "image": null,
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A nova universitária está na área! 🎓📚"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Hoje, vocês estão convidados a conhecer um pouco sobre a trajetória da Ana Beatriz, uma jovem que, ao longo do último ano, fez parte do Pré – Vestibular da "
+            },
+            {
+              "text": "@cecierj",
+              "href": "https://www.instagram.com/cecierj/"
+            },
+            {
+              "text": " com a parceria do "
+            },
+            {
+              "text": "@govrj",
+              "href": "https://www.instagram.com/govrj/"
+            },
+            {
+              "text": " na nossa cidade. Agora, ela está colhendo os frutos de um ano de dedicação e esforço, pois está aprovada em uma universidade pública. "
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Assim como ela, houveram vários destaques Tanguaenses que foram aprovados no vestibular. É muito orgulho!"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Assistir ao depoimento em vídeo",
+              "href": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/02/WhatsApp-Video-2025-02-07-at-16.32.55.mp4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lancamento-mulheres-mil",
+      "slug": "tangua-comemora-um-avanco-significativo-na-inclusao-e-qualificacao-profissional-com-o-lancamento-do-programa-mulheres-mil",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2024-12-27",
+      "category": "Notícias",
+      "title": "Tanguá comemora um avanço significativo na inclusão e qualificação profissional com o lançamento do Programa Mulheres Mil!",
+      "excerpt": "Na quarta-feira (17/12), o município realizou o lançamento oficial do Programa Nacional Mulheres Mil, uma iniciativa em parceria com os Governos Federal e Estadual. O evento contou com a presença de figuras importantes,…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2024/12/27/tangua-comemora-um-avanco-significativo-na-inclusao-e-qualificacao-profissional-com-o-lancamento-do-programa-mulheres-mil/",
+      "sourceId": 682,
+      "fallback": "community",
+      "topics": [
+        "educacao",
+        "formacao-profissional"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-682-0-600.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-682-0-400.webp",
+            "width": 400
+          },
+          {
+            "src": "assets/images/noticias/migrada-682-0-600.webp",
+            "width": 600
+          }
+        ],
+        "width": 600,
+        "height": 300,
+        "kind": "institutional",
+        "alt": "Registro institucional com fotografias dos participantes do lançamento do Programa Mulheres Mil em Tanguá.",
+        "caption": "Registro institucional publicado com a matéria.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/01/destaque2m10002024.png"
+      },
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Na quarta-feira (17/12), o município realizou o lançamento oficial do Programa Nacional Mulheres Mil, uma iniciativa em parceria com os Governos Federal e Estadual. O evento contou com a presença de figuras importantes, como a Secretária Estadual de Educação, Roberta Barreto de Oliveira, que reforçou o compromisso do estado com a transformação social por meio da educação."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "O programa oferece 863 vagas em cursos de capacitação profissional voltados para mulheres em situação de vulnerabilidade, alunas da rede pública e beneficiárias de programas sociais."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "As aulas já estão em andamento nos seguintes locais:"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Manhã: Sede da Faetec"
+            },
+            {
+              "text": "\n"
+            },
+            {
+              "text": "Tarde: Colégio Estadual Antônio Francisco Leal"
+            },
+            {
+              "text": "\n"
+            },
+            {
+              "text": "Noite: Escola Municipal Iasmim Gonzaga Arantes"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Até o momento, 300 vagas já foram preenchidas. Em fevereiro, novas oportunidades serão abertas para quem deseja transformar sua vida por meio do conhecimento."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A realização deste projeto é fruto de um esforço conjunto, e destaca-se o papel essencial desempenhado pela FAG na execução dessa importante iniciativa.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cooperacao-fag-iff",
+      "slug": "primeira-reuniao-de-trabalho-marca-inicio-da-cooperacao-entre-a-fag-e-o-iff",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2024-06-20",
+      "category": "Notícias",
+      "title": "Primeira Reunião de Trabalho Marca Início da Cooperação entre a FAG e o IFF",
+      "excerpt": "Ocorreu ontem (19/06), a primeira reunião de trabalho entre representantes do IFF – Instituto Federal Fluminense – e FAG para discutir o acordo de cooperação técnica referente ao estudo de viabilidade da implantação do…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2024/06/20/primeira-reuniao-de-trabalho-marca-inicio-da-cooperacao-entre-a-fag-e-o-iff/",
+      "sourceId": 554,
+      "fallback": "science",
+      "topics": [
+        "ciencia",
+        "cooperacao"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-554-0-600.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-554-0-400.webp",
+            "width": 400
+          },
+          {
+            "src": "assets/images/noticias/migrada-554-0-600.webp",
+            "width": 600
+          }
+        ],
+        "width": 600,
+        "height": 300,
+        "kind": "institutional",
+        "alt": "Registro institucional com fotografia de quatro participantes da reunião de cooperação entre a FAG e o IFF.",
+        "caption": "Registro institucional publicado com a matéria.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2024/06/DESTAQUE-reuniao-2.png"
+      },
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Ocorreu ontem (19/06), a primeira reunião de trabalho entre representantes do IFF – Instituto Federal Fluminense – e FAG para discutir o acordo de cooperação técnica referente ao estudo de viabilidade da implantação do futuro parque tecnológico de Tanguá. Este encontro representa um passo significativo para o desenvolvimento tecnológico e econômico do município."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Participaram da reunião o Professor Anderson Vidal, o bolsista Antônio Ferreira, o Secretário de Ciência, Tecnologia, Inovação, Trabalho e Renda do Município de Tanguá e também Presidente da FAG, Professor Paulo Renato Faria, e o Professor Vicente Oliveira. Durante o encontro, foram destacados pontos cruciais que contribuirão para o avanço deste importante projeto, que promete impulsionar ainda mais o desenvolvimento local."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "O parque tecnológico de Tanguá está projetado para abrigar tanto empresas residentes quanto não residentes, oferecendo suporte físico e logístico essencial para a inovação. Esta infraestrutura visa facilitar a implementação de ideias inovadoras, criando um ambiente propício para o crescimento de startups e empresas de tecnologia, além de fomentar a colaboração entre o setor acadêmico e a indústria."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Este acordo de cooperação técnica é um marco na trajetória de desenvolvimento de Tanguá, e espera-se que o parque tecnológico se torne um polo de inovação, atraindo investimentos e gerando oportunidades de emprego e renda para a população local."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A reunião de hoje reforça o compromisso das instituições envolvidas em trabalhar em conjunto para transformar esta visão em realidade, beneficiando toda a comunidade de Tanguá."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "novas-instalacoes-faetec",
+      "slug": "novas-instalacoes-da-faetec-em-tangua-um-marco-na-qualificacao-tecnica-profissional-da-regiao",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2024-06-11",
+      "category": "Notícias",
+      "title": "Novas Instalações da FAETEC em Tanguá: Um Marco na qualificação técnica profissional da Região",
+      "excerpt": "Foram entregues hoje as novas instalações da unidade FAETEC em Tanguá, um marco significativo para a educação técnica profissional da região. O novo prédio, completamente estruturado, oferece mais espaço, inclui um…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2024/06/11/novas-instalacoes-da-faetec-em-tangua-um-marco-na-qualificacao-tecnica-profissional-da-regiao/",
+      "sourceId": 512,
+      "fallback": "education",
+      "topics": [
+        "educacao",
+        "formacao-profissional"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-512-0-600.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-512-0-400.webp",
+            "width": 400
+          },
+          {
+            "src": "assets/images/noticias/migrada-512-0-600.webp",
+            "width": 600
+          }
+        ],
+        "width": 600,
+        "height": 300,
+        "kind": "institutional",
+        "alt": "Registro institucional com fotografias da cerimônia de entrega das instalações da FAETEC em Tanguá.",
+        "caption": "Registro institucional publicado com a matéria.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2024/06/destaq-faetec.png"
+      },
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Foram entregues hoje as novas instalações da unidade FAETEC em Tanguá, um marco significativo para a educação técnica profissional da região. O novo prédio, completamente estruturado, oferece mais espaço, inclui um moderno laboratório de informática e salas climatizadas, proporcionando um ambiente confortável e adequado para os alunos."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A cerimônia de entrega contou com a presença de personalidades importantes, como o Sr. Anderson Luiz de Moraes, Secretário de Ciência, Tecnologia e Inovação do estado do Rio de Janeiro, a Sra. Caroline Alves da Costa, presidente da Fundação de Apoio à Escola Técnica (FAETEC) e o presidente da FAG e também Secretário de Ciência e Tecnologia, Trabalho e Renda de Tanguá, Professor Paulo Renato. Diversas autoridades prestigiaram o evento, destacando a relevância da ocasião."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A entrega desse equipamento público em Tanguá é de extrema importância para a qualificação dos munícipes. Atendendo à crescente demanda por formação técnica de qualidade na região, refletindo o compromisso do poder público municipal em investir na educação profissional e no futuro dos munícipes de Tanguá."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Vale ressaltar que desde 2022 foram formados mais de 1000 alunos e dezenas deles já encaminhados para o mercado de trabalho, justificando assim o retorno do investimento da prefeitura municipal de Tanguá em educação técnica técnica e qualificação gratuita e de qualidade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capacitacao-servidores",
+      "slug": "capacitacao-dos-servidores",
+      "type": "news",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2024-06-05",
+      "category": "Notícias",
+      "title": "Capacitação dos Servidores",
+      "excerpt": "Visando a implementação de novos serviços digitais na Administração Pública, a FAG está capacitando os servidores e colaboradores da Prefeitura de Tanguá através de cursos de informática. Esta iniciativa, realizada em…",
+      "sourceUrl": "https://fag.tangua.rj.gov.br/2024/06/05/capacitacao-dos-servidores/",
+      "sourceId": 475,
+      "fallback": "education",
+      "topics": [
+        "educacao",
+        "formacao-profissional"
+      ],
+      "image": {
+        "src": "assets/images/noticias/migrada-475-0-600.webp",
+        "sources": [
+          {
+            "src": "assets/images/noticias/migrada-475-0-400.webp",
+            "width": 400
+          },
+          {
+            "src": "assets/images/noticias/migrada-475-0-600.webp",
+            "width": 600
+          }
+        ],
+        "width": 600,
+        "height": 300,
+        "kind": "institutional",
+        "alt": "Registro institucional com fotografia de servidores em atividade de capacitação em informática.",
+        "caption": "Registro institucional publicado com a matéria.",
+        "credit": "",
+        "sourceUrl": "https://fag.tangua.rj.gov.br/wp-content/uploads/2024/06/DESTAQUEW-2.png"
+      },
+      "gallery": [],
+      "blocks": [
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Visando a implementação de novos serviços digitais na Administração Pública, a FAG está capacitando os servidores e colaboradores da Prefeitura de Tanguá através de cursos de informática. Esta iniciativa, realizada em parceria com a administração municipal, tem como objetivo modernizar os processos administrativos, aumentar a eficiência dos serviços prestados à população e fomentar uma cultura de inovação tecnológica no setor público."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Os cursos ministrados pela Fundação abrangem uma ampla gama de competências, desde o uso básico de softwares de produtividade até a gestão de sistemas avançados e segurança da informação. Ao investir na formação dos servidores públicos, a Fundação assegura que todos estejam preparados para utilizar as novas ferramentas digitais de maneira eficaz, contribuindo significativamente para a transformação digital da administração pública."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "Esta capacitação também visa aumentar a transparência e a acessibilidade dos processos administrativos, facilitando o acesso dos cidadãos às informações e serviços públicos. Com servidores mais bem preparados, espera-se que os novos serviços digitais ofereçam benefícios significativos à comunidade, incluindo maior agilidade nos atendimentos, redução de custos operacionais e aprimoramento da gestão pública."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "runs": [
+            {
+              "text": "A Fundação de Amparo à Ciência e Tecnologia acredita que a capacitação contínua dos colaboradores da prefeitura é fundamental para acompanhar as rápidas mudanças tecnológicas e garantir que a administração pública esteja sempre à frente, servindo melhor à população com serviços modernos e eficientes. Esta parceria com a Prefeitura de Tanguá é um passo importante para promover o desenvolvimento tecnológico e a inovação na esfera pública, beneficiando diretamente toda a comunidade."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

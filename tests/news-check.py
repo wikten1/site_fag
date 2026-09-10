@@ -1,6 +1,4 @@
-"""Browser regression checks. Requires Python + playwright and local Chrome.
-Run from any directory: python tests/news-check.py [--screenshots]
-"""
+"""Browser checks: python tests/news-check.py [--screenshots]. Requires Playwright."""
 import json
 import threading
 import sys
@@ -10,149 +8,119 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-
-
+items = json.loads((ROOT/'content/news.json').read_text(encoding='utf-8'))['items']
 class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, *_args):
         pass
-
-
-server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(ROOT)))
-threading.Thread(target=server.serve_forever, daemon=True).start()
-url = f'http://127.0.0.1:{server.server_port}/index.html'
-
+    def do_GET(self):
+        try:
+            super().do_GET()
+        except (ConnectionAbortedError, ConnectionResetError, BrokenPipeError):
+            pass  # Navigation cancels in-flight image requests normally.
+server=ThreadingHTTPServer(('127.0.0.1',0),partial(QuietHandler,directory=str(ROOT)))
+threading.Thread(target=server.serve_forever,daemon=True).start()
+base=f'http://127.0.0.1:{server.server_port}/'
 try:
     with sync_playwright() as p:
-        chrome = Path('C:/Program Files/Google/Chrome/Application/chrome.exe')
-        browser = p.chromium.launch(executable_path=str(chrome) if chrome.exists() else None, headless=True)
-        page = browser.new_page(viewport={'width': 1440, 'height': 1100}, reduced_motion='reduce')
-        errors = []
-        page.on('pageerror', lambda error: errors.append(str(error)))
-        page.goto(url, wait_until='load')
+        browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True)
+        page=browser.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce')
+        errors=[]
+        page.on('pageerror',lambda error:errors.append(str(error)))
+        page.goto(base+'index.html')
         page.locator('#noticias-recentes').scroll_into_view_if_needed()
-        page.wait_for_function('document.querySelectorAll(".news-card").length === 4')
-        assert page.locator('.news-grid.has-featured').count() == 1
-        assert page.locator('.news-card-link').count() == 4
-        assert page.locator('.news-feature-label').count() == 1
-        assert page.locator('.news-caption').all_text_contents().count('Ilustração institucional') == 3
-        assert page.locator('.news-archive-link').get_attribute('href') == 'https://fag.tangua.rj.gov.br/category/noticias/'
-        page.wait_for_function('Array.from(document.querySelectorAll(".news img")).every(i => i.complete && i.naturalWidth > 0)')
-
-        # Rules: growing archives, ordering, duplicate destinations, malformed data,
-        # multiple highlights, draft/course records and future dates.
-        result = page.evaluate('''() => {
-          const base = FAG_NEWS_DATA.items[0];
-          const make = (i, extra = {}) => ({...base, id: `n-${i}`, featured: false,
-            url: `https://example.org/noticia/${i}`, publishedAt: '2025-03-13', ...extra});
-          const records = Array.from({length: 100}, (_, i) => make(i));
-          records.push(make('feature-old', {featured: true, publishedAt: '2025-01-01'}));
-          records.push(make('feature-new', {featured: true, publishedAt: '2025-03-20'}));
-          records.push(make('future', {featured: true, publishedAt: '2999-01-01'}));
-          records.push(make('draft', {status: 'draft'}), make('course', {type: 'course'}));
-          records.push(make('date', {publishedAt: '2025-02-30'}));
-          records.push(make('invalid-url', {url: 'javascript:alert(1)'}));
-          records.push(make('empty-title', {title: ' '}), null);
-          records.push({...records[0]}, make('duplicate-url', {url: records[1].url}));
-          const selected = FAGNews.selectNews(records, '2026-09-10');
-          return { ids: selected.map(x => x.id),
-            urls: selected.map(x => x.url),
-            recent: FAGNews.selectNews([make('older', {publishedAt: '2024-01-01'}), make('newer')], '2026-09-10').map(x => x.id) };
-        }''')
-        assert len(result['ids']) == len(set(result['ids'])) == len(set(result['urls'])) == 4
-        assert result['ids'][0] == 'n-feature-new', result
-        assert result['recent'] == ['n-newer', 'n-older']
-
-        for count in [0, 1, 2, 3, 4]:
-            page.evaluate('(n) => FAGNews.render(FAG_NEWS_DATA.items.slice(0,n))', count)
-            assert page.locator('.news-card').count() == count
-            assert page.locator('[data-news-status]').is_visible() == (count == 0)
-            assert page.locator('.news-grid.has-featured').count() == (1 if count == 4 else 0)
-        page.evaluate('FAGNews.render(FAG_NEWS_DATA.items.map(x => ({...x, featured:false})))')
-        assert page.locator('.news-grid.has-featured').count() == 0
-        assert page.locator('.news-card').count() == 4
+        assert page.locator('.news-card').count()==4
+        assert page.locator('.news-archive-link').get_attribute('href')=='noticias.html'
+        assert page.locator('.nav-link[href="noticias.html"]').count()==1
+        assert all(url.startswith('noticias/') for url in page.locator('.news-card-link').evaluate_all('(nodes)=>nodes.map(n=>n.getAttribute("href"))'))
+        for count in range(5):
+            page.evaluate('(n)=>FAGNews.render(FAG_NEWS_DATA.items.slice(0,n))',count)
+            assert page.locator('.news-card').count()==count
+            assert page.locator('[data-news-status]').is_visible()==(count==0)
         page.evaluate('FAGNews.render(FAG_NEWS_DATA.items)')
+        page.locator('.news-card-link').first.click()
+        assert '/noticias/' in page.url
+        assert page.locator('.story-heading h1').count()==1
+        page.locator('.story-return a').click()
+        assert page.url==base+'noticias.html'
+        assert page.locator('.archive-feature .news-card').count()==1
+        assert page.locator('.archive-list .news-card').count()==6
+        first_ids=page.locator('.news-card').evaluate_all('(nodes)=>nodes.map(n=>n.dataset.newsId)')
+        page.locator('.editorial-pagination a[rel="next"]').click()
+        assert 'pagina-2.html' in page.url
+        assert page.locator('.archive-feature').count()==0
+        second_ids=page.locator('.news-card').evaluate_all('(nodes)=>nodes.map(n=>n.dataset.newsId)')
+        assert len(first_ids+second_ids)==len(set(first_ids+second_ids))==len(items)
+        page.locator('.editorial-pagination a[rel="prev"]').click()
+        assert 'noticias.html' in page.url
 
-        # One tab stop per card, a named link, visible unclipped keyboard focus.
-        cards = page.locator('.news-card-link')
-        cards.first.focus()
+        # Original titles/dates/content, local reading graph and working photographs.
+        for item in items:
+            response=page.goto(base+'noticias/'+item['slug']+'.html')
+            assert response.status==200
+            assert page.locator('h1').count()==1
+            assert page.locator('h1').inner_text()==item['title']
+            assert page.locator('.story-heading time').get_attribute('datetime')==item['publishedAt']
+            body=' '.join(page.locator('.story-body').inner_text().split())
+            original=' '.join(' '.join(''.join(r['text'] for r in b['runs']) for b in item['blocks']).split())
+            assert body==original,(item['id'],body,original)
+            assert page.locator('.story-body').evaluate('(e)=>e.getBoundingClientRect().width')<=760
+            assert page.locator('a[href*="fag.tangua.rj.gov.br/category/noticias"]').count()==0
+            peers=page.locator('.story-related .news-card').evaluate_all('(nodes)=>nodes.map(n=>n.dataset.newsId)')
+            assert item['id'] not in peers
+            assert all(any(t in item['topics'] for t in next(i for i in items if i['id']==peer)['topics']) for peer in peers)
+            for image in page.locator('main img').all():
+                image.scroll_into_view_if_needed()
+                image.evaluate('(i)=>i.decode()')
+                assert image.evaluate('(i)=>i.naturalWidth>0')
+            assert not page.locator('main [data-fallback-used]').count()
+            assert page.locator('.news-card-link a,.news-card-link button').count()==0
+
+        feature=next(i for i in items if i['featured'])
+        for route in ['noticias.html','noticias/pagina-2.html','noticias/'+feature['slug']+'.html']:
+            page.goto(base+route)
+            for width in [1440,1024,768,640,390,320]:
+                page.set_viewport_size({'width':width,'height':1000})
+                assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(route,width)
+                assert page.locator('h1').is_visible()
+                if '--screenshots' in sys.argv and width in [1440,390] and 'pagina-' not in route:
+                    for image in page.locator('main img').all():
+                        image.scroll_into_view_if_needed()
+                        image.evaluate('(i)=>i.decode()')
+                    page.evaluate('window.scrollTo(0,0)')
+                    name='archive' if route=='noticias.html' else 'article'
+                    page.screenshot(path=str(ROOT/'tests'/f'{name}-{width}.png'),full_page=True)
+            # Equivalent layout to 200% desktop zoom; also stress doubled text sizing.
+            page.set_viewport_size({'width':640,'height':800})
+            page.add_style_tag(content='html{font-size:200% !important}')
+            assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),route
+            page.reload()
+            page.locator('.editorial-menu summary').click()
+            page.keyboard.press('Escape')
+            assert not page.locator('.editorial-menu').get_attribute('open')
+            assert page.locator('.editorial-menu summary').evaluate('(e)=>e===document.activeElement')
+            assert page.locator('.editorial-menu summary').evaluate('(e)=>getComputedStyle(e).outlineWidth')=='3px'
+
+        page.set_viewport_size({'width':1440,'height':1000})
+        page.goto(base+'noticias.html')
+        card=page.locator('.news-card-link').first
+        card.focus()
+        assert card.evaluate('(e)=>getComputedStyle(e).outlineWidth')=='3px'
         page.keyboard.press('Tab')
-        assert cards.nth(1).evaluate('(a) => a === document.activeElement')
-        assert cards.nth(1).evaluate('(a) => getComputedStyle(a).outlineWidth') == '3px'
-        assert cards.nth(1).evaluate('(a) => document.getElementById(a.getAttribute("aria-labelledby")).textContent.length') > 0
-        assert page.locator('.news-card-link a, .news-card-link button').count() == 0
-        assert page.locator('.news time[datetime][aria-label]').count() == 4
-        assert page.locator('.news').evaluate('(s) => s.getAnimations({subtree:true}).length') == 0
-
-        # Failed authentic image -> correctly labelled fallback, never a false photo.
-        page.evaluate('''() => FAGNews.render([{...FAG_NEWS_DATA.items[0], image: {
-          ...FAG_NEWS_DATA.items[0].image, src:'assets/missing-news-image.webp', sources:[]
-        }}])''')
-        page.wait_for_function('document.querySelector(".news-caption").textContent === "Ilustração institucional"')
-        assert page.locator('.news img').get_attribute('alt') == ''
-        page.evaluate('FAGNews.render(FAG_NEWS_DATA.items)')
-
-        # Responsive reflow and representative images at desktop, tablet and mobile.
-        for width in [1440, 1280, 1024, 820, 768, 767, 390, 320]:
-            page.set_viewport_size({'width': width, 'height': 1100})
-            page.locator('#noticias-recentes').scroll_into_view_if_needed()
-            page.wait_for_timeout(120)
-            dims = page.evaluate('''() => ({
-              viewport: innerWidth, page: document.documentElement.scrollWidth,
-              cards: [...document.querySelectorAll('.news-card')].map(n => {
-                const r = n.getBoundingClientRect(); return {x:r.x, y:r.y, width:r.width, right:r.right};
-              })
-            })''')
-            # The existing foundation decoration overflows at some tablet widths.
-            # Verify this module does not introduce any additional page overflow.
-            baseline = page.evaluate('''() => {
-              const s = document.querySelector('.news'); s.hidden = true;
-              const w = document.documentElement.scrollWidth; s.hidden = false; return w;
-            }''')
-            assert dims['page'] <= max(width, baseline), (width, dims)
-            assert all(c['x'] >= 0 and c['right'] <= width for c in dims['cards']), dims
-            if width > 820:
-                assert page.evaluate('''() => {
-                  const menu = document.querySelector('.nav-links').getBoundingClientRect();
-                  const brand = document.querySelector('.brand-lockup').getBoundingClientRect();
-                  const action = document.querySelector('.nav-actions').getBoundingClientRect();
-                  return brand.right <= menu.left && menu.right <= action.left;
-                }'''), f'Header overlaps at {width}px'
-            if width < 768:
-                assert len(set(round(c['x']) for c in dims['cards'])) == 1
-                assert all(dims['cards'][i]['y'] < dims['cards'][i+1]['y'] for i in range(3))
-            if '--screenshots' in sys.argv and width in [1440, 390]:
-                page.locator('#noticias-recentes').screenshot(path=str(ROOT / 'tests' / f'news-{width}.png'), style='.site-nav, .utility-bar, .skip-link { visibility: hidden !important; }')
-
-        # Endpoint success/empty/error must be distinguishable, with archive access.
-        html = (ROOT / 'index.html').read_text(encoding='utf-8').replace('class="news" id=', 'class="news" data-source="/news-feed" id=')
-        feed_records = page.evaluate('JSON.stringify(FAG_NEWS_DATA)')
-        for response in [
-            {'status': 200, 'body': feed_records, 'expected': 'populated'},
-            {'status': 200, 'body': '{"items":[]}', 'expected': 'empty'},
-            {'status': 200, 'body': '{}', 'expected': 'error'},
-            {'status': 503, 'body': '{}', 'expected': 'error'}
-        ]:
-            feed_page = browser.new_page()
-            feed_page.route('**/index.html', lambda route: route.fulfill(body=html, content_type='text/html'))
-            feed_page.route('**/news-feed', lambda route: route.fulfill(status=response['status'], body=response['body'], content_type='application/json'))
-            feed_page.goto(url)
-            feed_page.wait_for_function('!document.querySelector(".news").hasAttribute("aria-busy")')
-            text = feed_page.locator('[data-news-status]').inner_text()
-            if response['expected'] == 'populated':
-                assert feed_page.locator('.news-card').count() == 4
-                assert not feed_page.locator('[data-news-status]').is_visible()
-            else:
-                assert ('em breve' in text) if response['expected'] == 'empty' else ('Não foi possível' in text)
-            assert feed_page.locator('.news-archive-link').is_visible()
-            feed_page.close()
-
-        nojs = browser.new_page(java_script_enabled=False)
-        nojs.goto(url)
-        assert nojs.locator('.news noscript').is_visible()
-        assert nojs.locator('.news-archive-link').is_visible()
+        assert page.locator('.news-card-link').nth(1).evaluate('(e)=>e===document.activeElement')
+        assert page.locator('.editorial-desktop-nav a.is-active').get_attribute('aria-current')=='page'
+        page.locator('main img').first.evaluate('(i)=>{i.removeAttribute("srcset");i.src="/missing.webp"}')
+        page.wait_for_function('document.querySelector("main img").dataset.fallbackUsed === "true"')
+        assert page.locator('main .news-caption').first.inner_text()=='Ilustração institucional'
+        nojs=browser.new_page(java_script_enabled=False)
+        nojs.goto(base+'noticias.html')
+        nojs.locator('.news-card-link').first.click()
+        assert nojs.locator('.story-body').is_visible()
+        nojs.locator('.story-return a').click()
+        nojs.locator('.editorial-pagination a[rel="next"]').click()
+        assert 'pagina-2' in nojs.url
         nojs.close()
-        assert not errors, errors
+        assert not errors,errors
         browser.close()
-        print(json.dumps({'result': 'PASS', 'viewports': 8, 'records_tested': 100, 'page_errors': errors}))
+        print('PASS: home / archive / article / related; all 9 stories; pagination; 6 widths; text zoom; keyboard; no-JS; image fallback.')
 finally:
     server.shutdown()

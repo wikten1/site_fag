@@ -413,7 +413,7 @@
       <a class="nav-link" href="#sobre-a-fag">A Fundação</a>
       <a class="nav-link" href="#cursos-e-oportunidades">Cursos e oportunidades</a>
       <a class="nav-link" href="#programas-e-projetos">Programas e Projetos</a>
-      <a class="nav-link" href="#noticias-recentes">Notícias</a>
+      <a class="nav-link" href="noticias.html">Notícias</a>
     </div>
     <div class="nav-actions">
       <span class="nav-context">TANGUÁ · RJ</span>
@@ -709,14 +709,13 @@
           <p class="news-intro">Conhecimento em movimento. Acompanhe os acontecimentos, projetos e iniciativas que conectam a FAG à comunidade.</p>
         </header>
         <div class="news-dateline" aria-hidden="true"><span>O que acontece por aqui</span><span>Educação · Ciência · Comunidade</span></div>
-        <!-- Cards are generated from the editorial records in news-data.js.
-             A CMS may supply the same schema through data-source on this section. -->
+        <!-- Shared editorial source: content/news.json. Rebuild with node scripts/build-news.js. -->
         <div class="news-grid" data-news-grid></div>
         <p class="news-empty" data-news-status role="status" hidden></p>
         <noscript><p class="news-empty">Acompanhe as publicações no arquivo de notícias da FAG pelo link abaixo.</p></noscript>
         <footer class="news-footer">
           <p>Novas histórias.<br><span>O mesmo compromisso com o futuro.</span></p>
-          <a class="news-archive-link" href="https://fag.tangua.rj.gov.br/category/noticias/">
+          <a class="news-archive-link" href="noticias.html">
             <span>Ver todas as notícias</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
           </a>
         </footer>
@@ -816,12 +815,11 @@
       const navbar = document.getElementById('navbar');
       const menuButton = navbar.querySelector('.mobile-menu-btn');
       const menu = document.getElementById('nav-links');
-      const links = [...menu.querySelectorAll('.nav-link')];
+      const links = [...menu.querySelectorAll('.nav-link[href^="#"]')];
       const mobile = window.matchMedia('(max-width: 820px)');
       const about = document.getElementById('sobre-a-fag');
       const courses = document.getElementById('cursos-e-oportunidades');
       const programs = document.getElementById('programas-e-projetos');
-      const news = document.getElementById('noticias-recentes');
       navbar.classList.add('nav-enhanced');
 
       function setMenu(open, returnFocus = false) {
@@ -848,8 +846,7 @@
         const atAbout = (window.scrollY > 24 || (!canScroll && location.hash === '#sobre-a-fag')) && bounds.top < window.innerHeight * .7 && bounds.bottom > navbar.getBoundingClientRect().bottom;
         const atCourses = courses.getBoundingClientRect().top < window.innerHeight * .7;
         const atPrograms = programs.getBoundingClientRect().top < window.innerHeight * .7;
-        const atNews = news.getBoundingClientRect().top < window.innerHeight * .7;
-        setActive(atNews ? '#noticias-recentes' : atPrograms ? '#programas-e-projetos' : atCourses ? '#cursos-e-oportunidades' : atAbout ? '#sobre-a-fag' : '#inicio');
+        setActive(atPrograms ? '#programas-e-projetos' : atCourses ? '#cursos-e-oportunidades' : atAbout ? '#sobre-a-fag' : '#inicio');
       }
       let scrollFrame = 0;
       window.addEventListener('scroll', () => {
@@ -864,7 +861,6 @@
         activeObserver.observe(about);
         activeObserver.observe(courses);
         activeObserver.observe(programs);
-        activeObserver.observe(news);
       }
       menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
       document.addEventListener('keydown', event => {
@@ -953,7 +949,9 @@
   </script>
   <script src="assets/institutional.js"></script>
   <script src="assets/courses.js"></script>
+  <script src="assets/news-shared.js"></script>
   <script src="assets/news-data.js"></script>
+  <script src="assets/news-interactions.js"></script>
   <script src="assets/news.js"></script>
 </body>
 </html>

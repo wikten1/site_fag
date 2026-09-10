@@ -1,61 +1,78 @@
-# Notícias recentes — módulo 5.7
+# Notícias — arquivo e experiência de leitura
 
-`index.html` contém a seção; `news.css` cuida da apresentação e `news.js` seleciona e renderiza as prévias. `news-data.js` é o cadastro editorial inicial, separado dos cursos. Funciona também ao abrir o HTML diretamente, sem servidor.
+## Rotas do redesign
 
-## Publicação
+- `noticias.html`: arquivo editorial oficial, destino do menu e CTA da home.
+- `noticias/pagina-N.html`: páginas seguintes do acervo.
+- `noticias/SLUG.html`: matéria individual, com breadcrumb, título original, data, categoria, imagem, conteúdo, galeria quando disponível e notícias relacionadas.
+- `404.html`: estado de endereço indisponível, com retorno para o novo arquivo. Configure a hospedagem para servi-lo como documento de erro com HTTP 404; a configuração do servidor não pertence a este repositório estático.
 
-Cadastre cada matéria uma única vez em `window.FAG_NEWS_DATA.items`, em `news-data.js`. Não é necessário editar o HTML nem criar cards. O cadastro pode crescer; a home exibe no máximo quatro registros. Não há painel administrativo/backend neste projeto estático.
+A interface antiga não é destino de cards, menus, breadcrumbs ou recomendações. URLs antigas ficam somente na proveniência dos registros de migração. Links externos presentes no texto original (YouTube, Cecierj, redes sociais e arquivos de vídeo) foram preservados como referências da própria matéria.
 
-Um CMS pode gerar esse arquivo ou fornecer JSON `{ "items": [...] }` pelo atributo `data-source="/api/noticias-home"` da seção. Nesse caso, o endpoint é a fonte autoritativa e deve retornar até quatro prévias já selecionadas, incluindo o destaque quando houver. Também se aceita um conjunto maior: a seleção local aplica as mesmas regras. Para centenas de matérias, mantenha ordenação/seleção no servidor, com índice de publicação, e paginação no arquivo. Não envie o conteúdo integral das matérias à home. O adaptador `window.FAGNews.render(items)` permite atualizações pelo aplicativo sem manipular o layout.
+## Uma origem editorial
 
-Campos de cada registro:
+Edite **`content/news.json`** e execute:
 
-| Campo | Contrato |
+```sh
+node scripts/build-news.js
+```
+
+Esse comando, sem pacotes adicionais ou acesso à rede, gera as páginas de arquivo, as páginas individuais e `assets/news-data.js`, contendo apenas as quatro prévias da home. Não edite esses arquivos gerados manualmente. O layout e os componentes ficam em `scripts/build-news.js`, `assets/news-shared.js`, `assets/news.css` e `assets/news-pages.css`.
+
+`news-shared.js` fornece o mesmo componente de card e as mesmas regras de validação/seleção ao gerador e à home. Não há três cadastros de notícia: as saídas HTML são artefatos gerados a partir de uma única fonte. Um CMS futuro deve exportar esse contrato e executar o build no processo de publicação. Não há backend administrativo nem sincronização automática com o WordPress antigo.
+
+O arquivo usa paginação nativa com seis cards por página e um destaque adicional opcional na primeira página. Só os HTMLs e imagens visitados são carregados; não é baixado todo o histórico nem o texto de outras matérias. Breadcrumbs, paginação, menu mobile e leitura funcionam sem JavaScript. O carregamento é o nativo do navegador, sem estado artificial de espera. O HTML é entregue já preenchido, eliminando a dependência de requisições de feed em tempo de navegação. A home mantém mensagem de erro se seu feed local não carregar.
+
+As categorias reais recuperadas são `notícias` e, em alguns casos, a categoria genérica `Uncategorized`. A apresentação normaliza a capitalização para **Notícias** e omite o marcador sem classificação. Não foram criadas categorias públicas de Educação/Eventos/Ciência. Com nove matérias e uma categoria útil, não há filtros nem busca específicos; portanto, não há estados vazios de filtros inexistentes.
+
+## Contrato de publicação
+
+| Campo | Conteúdo |
 | --- | --- |
-| `id` | String única e estável |
-| `type` | `news`; cursos, editais e programas são excluídos |
-| `status` | `published`; rascunhos são excluídos |
-| `publishedAt` | Data original de publicação `YYYY-MM-DD`; datas futuras/inválidas são excluídas |
-| `featured` | Booleano opcional; se vários estiverem marcados, prevalece o mais recente |
-| `category` | Nome editorial administrável, sem cores ou layout vinculados ao nome |
-| `title`, `excerpt` | Texto simples; título obrigatório, resumo opcional |
-| `url` | Destino real da matéria; URLs executáveis são rejeitadas |
-| `fallback` | `science`, `community` ou `education`; independente da categoria |
-| `image` | Objeto opcional; use `null` quando não houver fotografia apropriada |
+| `id`, `slug` | Identificadores únicos, minúsculos, com letras ASCII, números e hífens |
+| `type`, `status` | Apenas `news` + `published` entram nas páginas |
+| `publishedAt` | Data original `YYYY-MM-DD`, sem substituir pela data da migração |
+| `title`, `category` | Texto editorial original; obrigatórios |
+| `excerpt` | Prévia curta; na migração, trecho literal do primeiro parágrafo substantivo |
+| `subtitle` | Linha fina opcional, se fornecida pelo conteúdo |
+| `featured` | Booleano opcional; entre vários, prevalece o mais recente |
+| `topics` | Relações factuais de assunto/projeto, usadas nas recomendações |
+| `image`, `gallery` | Imagem principal opcional e imagens complementares |
+| `blocks` | Parágrafos, H2/H3, listas e citações, em blocos estruturados |
+| `sourceUrl`, `sourceId` | Proveniência da migração; não exibida como navegação |
 
-A imagem aceita `src`, `sources: [{src, width}]`, `width`, `height`, `alt`, `kind` (`event`, `institutional`, `illustration`), `caption`, `credit` e `sourceUrl`. Fotografia precisa de alt contextual. Fallbacks são decorativos (`alt=""`) e recebem legenda visível “Ilustração institucional”. Créditos não conhecidos permanecem vazios, sem atribuição inventada. Legenda e crédito ficam em HTML. Falha de imagem própria aciona o fallback; falha do fallback preserva o espaço e informa indisponibilidade.
+Um bloco usa `{"type":"p","runs":[{"text":"Texto original","href":"https://destino-opcional"}]}`. Texto e atributos são escapados; não se injeta HTML arbitrário. Tipos permitidos: `p`, `h2`, `h3`, `li`, `blockquote`. Links para notícias migradas são reescritos para a nova rota.
 
-## Seleção e estados
+Imagem: `src`, `sources: [{src,width}]`, `width`, `height`, `kind`, `alt`, `caption`, `credit`, `sourceUrl`. Fotografia documental precisa de alt contextual. `kind: institutional` preserva integralmente as composições históricas fornecidas pela instituição, sem cortar seus registros. Fallbacks ilustrativos têm `alt=""` e legenda explícita. Imagens que falham recebem fallback local; uma segunda falha informa indisponibilidade sem quebrar o espaço reservado.
 
-- Ordem decrescente por publicação; desempate por ID. Sem duplicação de ID ou destino.
-- Havendo destaque: um destaque e até três outras matérias mais recentes.
-- Sem destaque: até quatro matérias recentes em grid uniforme.
-- Uma, duas ou três matérias: redistribuição automática sem espaços vazios.
-- Nenhuma matéria: mensagem institucional. Falha do endpoint: mensagem própria e acesso ao arquivo, sem apresentar dados antigos silenciosamente.
-- Sem JavaScript: mensagem com acesso ao arquivo oficial.
-- Desktop com destaque: grade de 12 colunas (7 + 5); tablet: duas colunas com destaque acima; mobile: uma coluna, sem carrossel.
+As imagens possuem versões WebP proporcionais, limitadas à resolução original, `srcset`, `sizes` e dimensões. A imagem principal da matéria/destaque carrega prioritariamente; demais fotos e galerias usam lazy loading. Vídeos históricos são links opcionais, evitando carregamento pesado e reprodução automática.
 
-## Conteúdo e destinos iniciais
+## Regras editoriais
 
-As quatro prévias foram sintetizadas a partir das publicações do portal oficial, preservando as datas originais. As categorias são a classificação editorial deste novo cadastro. Não foram importados os cursos e anúncios presentes no arquivo antigo.
+- Mais recentes primeiro; desempate estável por ID.
+- IDs e slugs duplicados, datas inválidas, cursos, rascunhos e publicações futuras são excluídos ou rejeitados no build.
+- Destaque não reaparece no grid; ao desmarcá-lo, retorna à posição cronológica.
+- Relacionadas: até três matérias com assuntos compartilhados, por quantidade de relações e depois por data. Sem relações, a seção é omitida; não há preenchimento aleatório.
+- Acervo vazio gera mensagem institucional; poucas notícias nunca criam cards vazios.
+- O manifesto `content/news-generated.json` permite remover apenas páginas antigas que tenham sido geradas pelo sistema quando uma publicação sair do acervo. Caminhos são validados e arquivos sem a assinatura do gerador não são removidos.
+- Execute novamente o build ao chegar a data de uma publicação programada; a hospedagem estática não executa agendamentos sozinha.
 
-- [Fórum de Inovação Agrícola, 13/03/2025](https://fag.tangua.rj.gov.br/2025/03/13/1o-forum-de-tecnologias-agricolas-em-tangua-inovacao-e-desenvolvimento-para-o-futuro/) — fotografia real da galeria da matéria, origem preservada em `image.sourceUrl`.
-- [Cooperação com o MAST, 21/03/2025](https://fag.tangua.rj.gov.br/2025/03/21/tangua-se-prepara-para-um-novo-salto-cientifico-com-parceria-estrategica/) — fallback de ciência.
-- [Entrevista sobre desenvolvimento local, 18/02/2025](https://fag.tangua.rj.gov.br/2025/02/18/inovacao-e-desenvolvimento-local/) — fallback de comunidade.
-- [Acesso e oportunidade, 12/02/2025](https://fag.tangua.rj.gov.br/2025/02/12/acesso-e-oportunidade/) — fallback de educação.
+## Migração inicial
 
-O CTA leva ao [arquivo oficial existente](https://fag.tangua.rj.gov.br/category/noticias/), e os cards às matérias existentes. O arquivo antigo possui sua própria organização; seu redesenho e as páginas individuais não fazem parte desta implementação. Não há sincronização automática com o WordPress antigo: isso depende de um endpoint editorial ou da geração do cadastro pelo CMS.
+Foram incorporadas nove matérias jornalísticas de 2024 e 2025: visita do MAST; Fórum de Inovação Agrícola; entrevista sobre desenvolvimento local; Acesso e oportunidade; Impacto do Pré-Vestibular Social; lançamento do Mulheres Mil; cooperação FAG/IFF; novas instalações da FAETEC; capacitação dos servidores.
 
-## Imagens e acessibilidade
+Títulos, datas e texto foram preservados. Não foram corrigidas silenciosamente inconsistências do texto histórico nem atualizados prazos de inscrição antigos. Três subtítulos do fórum foram promovidos a H2 sem mudança de redação. As nove fotografias complementares da galeria foram mantidas. Composições gráficas históricas com registro fotográfico foram preservadas e identificadas; os dois posts de pré-vestibular sem foto própria adequada usam o fallback institucional.
 
-Os PNGs fornecidos permanecem intactos; derivados WebP têm larguras de 400, 800 e 1200 px. A fotografia original tem 1024 px e não é ampliada. `srcset`, `sizes`, dimensões, lazy loading e reserva de proporção reduzem carga e deslocamentos. Não há títulos sobrepostos às fotos.
+`scripts/migrate-news.py` documenta a importação inicial dos IDs revisados a partir de um export da API pública. Requer Pillow e curl. **Não é o comando de publicação cotidiana**: executá-lo novamente substitui o cadastro pelos registros da migração. `scripts/news-photo-review.json` registra a revisão visual das imagens e seus textos alternativos.
 
-Cada card tem um único link, nomeado pelo título, com foco externo ao recorte. Datas usam `time` e descrição por extenso. Títulos permanecem integrais; apenas resumos são limitados. Entradas usam 90 ms de intervalo e respeitam tanto `prefers-reduced-motion` quanto o controle de pausa já existente na home. Conteúdo continua visível se a API de animação/observação estiver indisponível.
+A especificação completa “6. Páginas internas → Notícias” não estava nos arquivos disponíveis. A implementação segue os requisitos correspondentes fornecidos na solicitação, o `design_system.html` e os componentes existentes na home.
 
 ## Verificação
 
-`python tests/news-check.py` executa as regressões em navegador headless. Requer o pacote Python `playwright` e Chrome instalado (ou Chromium instalado pelo Playwright em outros sistemas). A opção `--screenshots` salva capturas desktop/mobile na pasta `tests`.
+```sh
+node scripts/build-news.js --check
+node tests/news-model.test.js
+python tests/news-check.py
+```
 
-Verificados: oito larguras de 320 a 1440 px; ordenação e limite com 100 registros; duplicatas; múltiplos destaques; datas inválidas/futuras; exclusão de cursos/rascunhos; conjuntos de zero a quatro notícias; navegação por Tab; nomes dos links e foco; fallback de fotografia quebrada; feed populado, vazio, inválido e indisponível; movimento reduzido e navegação sem JavaScript. Sem erros de JavaScript durante a execução. O teste de overflow compara com a página sem o módulo para não atribuir à seção o transbordamento preexistente da decoração `.foundation-atmosphere` no tablet.
-
-Contrastes calculados: texto principal ≥ 15,09:1; texto secundário ≥ 4,93:1; verde institucional ≥ 5,67:1 nas duas superfícies claras. As capturas desktop/mobile foram inspecionadas visualmente. As verificações automatizadas não substituem uma auditoria completa com leitores de tela.
+O teste de navegador requer Playwright Python e Chrome. `--screenshots` gera capturas na pasta `tests`. Cobertura: modelo com 200 matérias/34 páginas, paginação sem perdas ou duplicações, títulos/datas/textos das nove páginas, links internos, imagens, home, teclado, foco, menu mobile, seis larguras de 320 a 1440 px, texto a 200%, movimento reduzido, fallback e leitura/paginação sem JavaScript. Os pares de texto e superfícies claros mantêm os contrastes AA do módulo anterior.
