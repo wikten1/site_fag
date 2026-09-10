@@ -364,6 +364,7 @@
   <link rel="stylesheet" href="assets/institutional.css">
   <link rel="stylesheet" href="assets/courses.css">
   <link rel="stylesheet" href="assets/programs.css">
+  <link rel="stylesheet" href="assets/news.css">
 </head>
 <body>
   <a class="skip-link" href="#hero-title">Ir para o conteúdo</a>
@@ -412,6 +413,7 @@
       <a class="nav-link" href="#sobre-a-fag">A Fundação</a>
       <a class="nav-link" href="#cursos-e-oportunidades">Cursos e oportunidades</a>
       <a class="nav-link" href="#programas-e-projetos">Programas e Projetos</a>
+      <a class="nav-link" href="#noticias-recentes">Notícias</a>
     </div>
     <div class="nav-actions">
       <span class="nav-context">TANGUÁ · RJ</span>
@@ -697,6 +699,29 @@
         </ul>
       </div>
     </section>
+    <section class="news" id="noticias-recentes" aria-labelledby="news-title" tabindex="-1">
+      <div class="news-shell">
+        <header class="news-head">
+          <div>
+            <p class="news-eyebrow"><span class="news-marker" aria-hidden="true"></span>Atualizações · FAG</p>
+            <h2 class="news-heading" id="news-title">Notícias <span>recentes</span></h2>
+          </div>
+          <p class="news-intro">Conhecimento em movimento. Acompanhe os acontecimentos, projetos e iniciativas que conectam a FAG à comunidade.</p>
+        </header>
+        <div class="news-dateline" aria-hidden="true"><span>O que acontece por aqui</span><span>Educação · Ciência · Comunidade</span></div>
+        <!-- Cards are generated from the editorial records in news-data.js.
+             A CMS may supply the same schema through data-source on this section. -->
+        <div class="news-grid" data-news-grid></div>
+        <p class="news-empty" data-news-status role="status" hidden></p>
+        <noscript><p class="news-empty">Acompanhe as publicações no arquivo de notícias da FAG pelo link abaixo.</p></noscript>
+        <footer class="news-footer">
+          <p>Novas histórias.<br><span>O mesmo compromisso com o futuro.</span></p>
+          <a class="news-archive-link" href="https://fag.tangua.rj.gov.br/category/noticias/">
+            <span>Ver todas as notícias</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+          </a>
+        </footer>
+      </div>
+    </section>
   </main>
   <script>
     (() => {
@@ -796,6 +821,7 @@
       const about = document.getElementById('sobre-a-fag');
       const courses = document.getElementById('cursos-e-oportunidades');
       const programs = document.getElementById('programas-e-projetos');
+      const news = document.getElementById('noticias-recentes');
       navbar.classList.add('nav-enhanced');
 
       function setMenu(open, returnFocus = false) {
@@ -822,7 +848,8 @@
         const atAbout = (window.scrollY > 24 || (!canScroll && location.hash === '#sobre-a-fag')) && bounds.top < window.innerHeight * .7 && bounds.bottom > navbar.getBoundingClientRect().bottom;
         const atCourses = courses.getBoundingClientRect().top < window.innerHeight * .7;
         const atPrograms = programs.getBoundingClientRect().top < window.innerHeight * .7;
-        setActive(atPrograms ? '#programas-e-projetos' : atCourses ? '#cursos-e-oportunidades' : atAbout ? '#sobre-a-fag' : '#inicio');
+        const atNews = news.getBoundingClientRect().top < window.innerHeight * .7;
+        setActive(atNews ? '#noticias-recentes' : atPrograms ? '#programas-e-projetos' : atCourses ? '#cursos-e-oportunidades' : atAbout ? '#sobre-a-fag' : '#inicio');
       }
       let scrollFrame = 0;
       window.addEventListener('scroll', () => {
@@ -837,6 +864,7 @@
         activeObserver.observe(about);
         activeObserver.observe(courses);
         activeObserver.observe(programs);
+        activeObserver.observe(news);
       }
       menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
       document.addEventListener('keydown', event => {
@@ -925,5 +953,7 @@
   </script>
   <script src="assets/institutional.js"></script>
   <script src="assets/courses.js"></script>
+  <script src="assets/news-data.js"></script>
+  <script src="assets/news.js"></script>
 </body>
 </html>
