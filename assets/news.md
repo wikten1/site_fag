@@ -11,6 +11,8 @@ A interface antiga não é destino de cards, menus, breadcrumbs ou recomendaçõ
 
 ## Uma origem editorial
 
+O cabeçalho das páginas internas reutiliza a marcação e os estilos-base do cabeçalho de `index.html` durante o build. `assets/news-header-layout.css` reúne as regras responsivas equivalentes e o espaço reservado acima do conteúdo; `assets/news-header.js` controla rolagem, menu mobile, busca na página e acessibilidade. `assets/news-header.css` é gerado e não deve ser editado manualmente. A preferência de pausa compartilha a chave de sessão da home. O arquivo, a paginação e as matérias individuais recebem o mesmo cabeçalho.
+
 Edite **`content/news.json`** e execute:
 
 ```sh
@@ -73,6 +75,7 @@ A especificação completa “6. Páginas internas → Notícias” não estava 
 node scripts/build-news.js --check
 node tests/news-model.test.js
 python tests/news-check.py
+python tests/news-header-check.py
 ```
 
 O teste de navegador requer Playwright Python e Chrome. `--screenshots` gera capturas na pasta `tests`. Cobertura: modelo com 200 matérias/34 páginas, paginação sem perdas ou duplicações, títulos/datas/textos das nove páginas, links internos, imagens, home, teclado, foco, menu mobile, seis larguras de 320 a 1440 px, texto a 200%, movimento reduzido, fallback e leitura/paginação sem JavaScript. Os pares de texto e superfícies claros mantêm os contrastes AA do módulo anterior.

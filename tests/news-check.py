@@ -94,11 +94,11 @@ try:
             page.add_style_tag(content='html{font-size:200% !important}')
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),route
             page.reload()
-            page.locator('.editorial-menu summary').click()
+            page.locator('.mobile-menu-btn').click()
             page.keyboard.press('Escape')
-            assert not page.locator('.editorial-menu').get_attribute('open')
-            assert page.locator('.editorial-menu summary').evaluate('(e)=>e===document.activeElement')
-            assert page.locator('.editorial-menu summary').evaluate('(e)=>getComputedStyle(e).outlineWidth')=='3px'
+            assert page.locator('.mobile-menu-btn').get_attribute('aria-expanded')=='false'
+            assert page.locator('.mobile-menu-btn').evaluate('(e)=>e===document.activeElement')
+            assert page.locator('.mobile-menu-btn').evaluate('(e)=>getComputedStyle(e).outlineWidth')=='3px'
 
         page.set_viewport_size({'width':1440,'height':1000})
         page.goto(base+'noticias.html')
@@ -107,7 +107,7 @@ try:
         assert card.evaluate('(e)=>getComputedStyle(e).outlineWidth')=='3px'
         page.keyboard.press('Tab')
         assert page.locator('.news-card-link').nth(1).evaluate('(e)=>e===document.activeElement')
-        assert page.locator('.editorial-desktop-nav a.is-active').get_attribute('aria-current')=='page'
+        assert page.locator('.nav-link.is-active').get_attribute('aria-current')=='page'
         page.locator('main img').first.evaluate('(i)=>{i.removeAttribute("srcset");i.src="/missing.webp"}')
         page.wait_for_function('document.querySelector("main img").dataset.fallbackUsed === "true"')
         assert page.locator('main .news-caption').first.inner_text()=='Ilustração institucional'

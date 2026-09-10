@@ -15,13 +15,4 @@
   }
   document.addEventListener('error', event => { if (event.target.matches?.('img[data-fallback]')) imageError(event.target); }, true);
   document.querySelectorAll('img[data-fallback]').forEach(img => { if (img.complete && !img.naturalWidth) imageError(img); });
-  const menu = document.querySelector('.editorial-menu');
-  if (menu) {
-    menu.addEventListener('keydown', event => {
-      if (event.key === 'Escape') { menu.open = false; menu.querySelector('summary').focus(); }
-    });
-    menu.addEventListener('focusout', () => {
-      setTimeout(() => { if (!menu.contains(document.activeElement)) menu.open = false; }, 0);
-    });
-  }
 })();
