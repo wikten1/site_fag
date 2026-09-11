@@ -1,0 +1,105 @@
+/* 5.9 — Atendimento · Precisão técnica. Presença humana. */
+.attendance { padding: 0 32px 80px; }
+.attendance-shell {
+  --attendance-cut: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: 64px;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding: 76px 56px;
+  color: var(--cream);
+}
+/* Clip decorative surfaces only, preserving text reflow and keyboard outlines. */
+.attendance-shell::before { content: ''; position: absolute; inset: 0; z-index: -2; background: var(--forest); clip-path: var(--attendance-cut); }
+.attendance-art { position: absolute; inset: 0; z-index: -1; overflow: hidden; clip-path: var(--attendance-cut); pointer-events: none; }
+.attendance-art::before { content: ''; position: absolute; inset: 0 0 0 64%; background: var(--forest-deep); opacity: .38; }
+.attendance-orbit { position: absolute; width: 640px; height: 640px; right: -180px; top: 50%; margin-top: -320px; color: rgba(232,239,226,.09); stroke-width: 1; }
+.attendance-orbit .attendance-orbit-accent { stroke: var(--lime); opacity: .28; }
+.attendance-orbit .attendance-node { fill: var(--lime-bright); stroke: none; opacity: .38; }
+.attendance-guide { position: absolute; top: 28px; left: 56px; right: 56px; height: 1px; background: rgba(232,239,226,.08); }
+.attendance-guide::before { content: ''; position: absolute; left: 0; top: 0; width: 32px; height: 1px; background: var(--lime); opacity: .65; }
+.attendance-copy { min-width: 0; }
+.attendance-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 24px; color: var(--lime-bright); font: 500 10px/1.6 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
+.attendance-dot { width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: var(--lime-bright); box-shadow: 0 0 0 5px rgba(165,226,63,.08); }
+.attendance-title { margin: 0; color: var(--surface); font-size: clamp(2.25rem, 3.7vw, 3.25rem); font-weight: 400; line-height: 1.06; letter-spacing: -.045em; }
+.attendance-description { max-width: 47ch; margin: 22px 0 28px; color: var(--line); font-size: 15px; line-height: 1.75; }
+.attendance-cta { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 52px; max-width: 100%; padding: 14px 24px; color: var(--forest); font-size: 12px; font-weight: 700; line-height: 1.6; text-decoration: none; transition: transform 180ms ease; }
+.attendance-cta::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--cream); clip-path: polygon(11px 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%, 0 11px); transition: background 180ms ease; }
+.attendance-cta svg { width: 18px; height: 18px; transition: transform 180ms ease; }
+.attendance-cta:focus-visible { outline: 3px solid var(--lime-bright); outline-offset: 5px; }
+.attendance-cta:focus-visible > span { text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) {
+  .attendance-cta:hover { transform: translateY(-3px); }
+  .attendance-cta:hover::before { background: var(--lime-bright); }
+  .attendance-cta:hover svg { transform: translateX(4px); }
+}
+.attendance-cta:active { transform: scale(.98); }
+.attendance-location { position: relative; isolation: isolate; min-width: 0; padding: 30px; }
+.attendance-location::before, .attendance-location::after { content: ''; position: absolute; z-index: -1; pointer-events: none; clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); }
+.attendance-location::before { inset: 0; background: rgba(232,239,226,.14); }
+.attendance-location::after { inset: 1px; background: #16311c; }
+.attendance-location-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.attendance-pin { display: grid; place-items: center; width: 44px; height: 44px; color: var(--lime-bright); border: 1px solid rgba(165,226,63,.22); }
+.attendance-pin svg { width: 24px; height: 24px; }
+.attendance-place { color: var(--line); font: 400 10px/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.attendance-location h3 { margin: 0 0 12px; font-size: 20px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; }
+.attendance-location address { color: var(--line); font-size: 14px; font-style: normal; line-height: 1.8; overflow-wrap: anywhere; }
+.attendance-postcode { display: block; margin-top: 8px; font: 400 11px/1.7 var(--mono); }
+.attendance-location-note { display: flex; align-items: flex-start; gap: 10px; margin: 24px 0 0; padding-top: 18px; border-top: 1px solid rgba(232,239,226,.12); color: #bacab4; font-size: 12px; line-height: 1.65; }
+.attendance-location-note svg { width: 16px; height: 16px; margin-top: 2px; }
+/* No artificial empty column when the optional location module is omitted. */
+.attendance-shell:not(:has(.attendance-location)) { grid-template-columns: minmax(0, 1fr); }
+.attendance-shell:not(:has(.attendance-location)) .attendance-copy { max-width: 640px; }
+@media (prefers-reduced-motion: no-preference) {
+  .attendance.reveal-ready [data-attendance-reveal] { opacity: 0; transform: translateY(20px); filter: blur(2px); transition: opacity 680ms var(--reveal-ease), transform 680ms var(--reveal-ease), filter 680ms var(--reveal-ease); transition-delay: var(--attendance-delay, 0ms); }
+  .attendance-title { --attendance-delay: 60ms; }
+  .attendance-description { --attendance-delay: 120ms; }
+  .attendance-action { --attendance-delay: 180ms; }
+  .attendance-location { --attendance-delay: 240ms; }
+  .attendance.reveal-ready [data-attendance-reveal].is-visible { opacity: 1; transform: none; filter: none; }
+}
+@media (max-width: 1000px) {
+  .attendance { padding-inline: 24px; padding-bottom: 64px; }
+  .attendance-shell { grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); gap: 32px; padding: 64px 36px; }
+  .attendance-guide { left: 36px; right: 36px; }
+  .attendance-location { padding: 24px; }
+  .attendance-cta { gap: 16px; }
+}
+@media (max-width: 760px) {
+  .attendance-shell { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .attendance-description { max-width: 52ch; }
+  .attendance-location { max-width: 480px; width: 100%; }
+  .attendance-location-top { margin-bottom: 20px; }
+  .attendance-art::before { inset: 55% 0 0; }
+  .attendance-orbit { right: -360px; top: 75%; opacity: .6; }
+}
+@media (max-width: 480px) {
+  .attendance { padding: 0 12px 48px; }
+  .attendance-shell { --attendance-cut: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px); padding: 52px 24px; gap: 32px; }
+  .attendance-guide { top: 24px; left: 24px; right: 24px; }
+  .attendance-title { font-size: 2.25rem; }
+  .attendance-eyebrow { margin-bottom: 20px; }
+  .attendance-cta { display: flex; width: 100%; justify-content: space-between; gap: 12px; padding-inline: 22px; }
+  .attendance-location { padding: 24px 20px; }
+  .attendance-orbit { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .attendance [data-attendance-reveal], .attendance-cta, .attendance-cta svg { opacity: 1; transform: none !important; filter: none; transition: none !important; }
+}
+html[data-motion-paused="true"] .attendance [data-attendance-reveal],
+html[data-motion-paused="true"] .attendance-cta,
+html[data-motion-paused="true"] .attendance-cta svg { opacity: 1; transform: none !important; filter: none; transition: none !important; }
+.attendance.reveal-ready:focus-within [data-attendance-reveal] { opacity: 1; transform: none; filter: none; transition: none; }
+@media (forced-colors: active) {
+  .attendance-shell, .attendance-location { border: 1px solid CanvasText; color: CanvasText; }
+  .attendance-shell::before, .attendance-location::after { background: Canvas; }
+  .attendance-art, .attendance-dot { display: none; }
+  .attendance :is(.attendance-eyebrow, .attendance-title, .attendance-description, .attendance-place, address, .attendance-location-note, .attendance-pin) { color: CanvasText; }
+  .attendance-cta { border: 1px solid LinkText; color: LinkText; }
+  .attendance-cta::before { background: Canvas; }
+  .attendance-cta:focus-visible { outline-color: Highlight; }
+}

@@ -105,7 +105,7 @@
     const query=input.value.trim();
     if(!query){status.textContent='Digite um termo para buscar.';input.focus();return;}
     const terms=normalize(query).split(/\s+/);
-    const entries=[...document.querySelectorAll('main .news-card, main .story-body, main .editorial-opening')].map((content,index)=>{
+    const entries=[...document.querySelectorAll('main .news-card, main .story-body, main .editorial-opening, main [data-page-search]')].map((content,index)=>{
       const target=content.matches('.story-body')?document.querySelector('.story-heading h1'):content.querySelector('h1,h2,h3');
       if(target&&!target.id)target.id='header-search-'+index;
       return {content,target};

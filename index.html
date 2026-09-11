@@ -365,6 +365,7 @@
   <link rel="stylesheet" href="assets/courses.css">
   <link rel="stylesheet" href="assets/programs.css">
   <link rel="stylesheet" href="assets/news.css">
+  <link rel="stylesheet" href="assets/attendance.css">
   <style>
     /* 5.8 — Acesso rápido. Styles are scoped to this section. */
     .quick-access { padding: 112px 32px; background: linear-gradient(180deg, #eef4e8, var(--cream) 240px); }
@@ -898,6 +899,44 @@
         </ul>
       </div>
     </section>
+    <!-- 5.9 — Atendimento. The address was migrated from institutional content.
+         contato.html is the canonical contact route of the redesigned site. -->
+    <section class="attendance" id="atendimento" aria-labelledby="attendance-title" tabindex="-1">
+      <div class="attendance-shell">
+        <div class="attendance-art" aria-hidden="true">
+          <svg class="attendance-orbit" viewBox="0 0 640 640" focusable="false">
+            <circle cx="320" cy="320" r="274"/>
+            <circle cx="320" cy="320" r="212"/>
+            <path d="M46 320h92m364 0h92M320 46v62m0 424v62M126 126l44 44m300 300 44 44"/>
+            <path class="attendance-orbit-accent" d="M46 320A274 274 0 0 1 126 126"/>
+            <circle class="attendance-node" cx="126" cy="126" r="4"/>
+            <circle class="attendance-node" cx="502" cy="320" r="3"/>
+            <circle class="attendance-node" cx="320" cy="594" r="4"/>
+          </svg>
+          <span class="attendance-guide"></span>
+        </div>
+        <div class="attendance-copy">
+          <p class="attendance-eyebrow" data-attendance-reveal><span class="attendance-dot" aria-hidden="true"></span>Atendimento</p>
+          <h2 class="attendance-title" id="attendance-title" data-attendance-reveal>Precisa falar<br>com a FAG?</h2>
+          <p class="attendance-description" data-attendance-reveal>Não encontrou o que procura? A Central de Atendimento orienta você sobre cursos, serviços, documentos e outras informações da Fundação.</p>
+          <div class="attendance-action" data-attendance-reveal>
+            <a class="attendance-cta" href="contato.html">
+              <span>Falar com a Central de Atendimento</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <aside class="attendance-location" aria-labelledby="attendance-location-title" data-attendance-reveal>
+          <div class="attendance-location-top">
+            <span class="attendance-pin" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span class="attendance-place">Tanguá / RJ</span>
+          </div>
+          <h3 id="attendance-location-title">Onde estamos</h3>
+          <address>Rua 19 de Novembro, nº 60<br>Sala 202 · Tanguá – RJ<span class="attendance-postcode">CEP 24.890-000</span></address>
+          <p class="attendance-location-note"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-9v.01"/></svg><span>Mais informações e canais de contato na página de Atendimento.</span></p>
+        </aside>
+      </div>
+    </section>
   </main>
   <script>
     (() => {
@@ -1125,6 +1164,7 @@
     })();
   </script>
   <script src="assets/institutional.js"></script>
+  <script src="assets/attendance.js"></script>
   <script src="assets/courses.js"></script>
   <script src="assets/news-shared.js"></script>
   <script src="assets/news-data.js"></script>

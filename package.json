@@ -1,0 +1,16 @@
+{
+  "name": "fag-institucional",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/contact-server.js",
+    "test": "node tests/news-model.test.js && node --test tests/contact-server.test.js",
+    "check:mail": "node --env-file-if-exists=.env server/contact-server.js --verify-mail"
+  },
+  "dependencies": {
+    "nodemailer": "10.0.8"
+  }
+}
