@@ -28,8 +28,10 @@
 .program-card::before, .program-card::after { content: ''; position: absolute; pointer-events: none; z-index: -1; clip-path: var(--program-cut); }
 .program-card::before { inset: 0; background: var(--line); transition: background 280ms ease; }
 .program-card::after { inset: 1px; background: var(--surface); }
-.program-media { margin: 1px 1px 0; aspect-ratio: 1672 / 941; overflow: hidden; clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px); background: var(--cream-deep); }
-.program-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 320ms var(--ease); }
+.program-media { position: relative; flex: none; margin: 1px 1px 0; aspect-ratio: 1672 / 941; overflow: hidden; clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px); background: var(--cream-deep); }
+.program-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 320ms var(--ease); }
+.program-media--identity { background: #fff; }
+.program-media--identity img { object-fit: contain; }
 .program-body { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: 30px 32px 22px; }
 .program-category { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 16px; color: var(--green); font: 500 .625rem/1.6 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .program-category-marker { width: 6px; height: 6px; flex: 0 0 6px; background: var(--accent); }
@@ -40,6 +42,11 @@
 .program-card[data-featured="true"] .program-featured-label { display: inline-block; }
 .program-title { margin: 0 0 16px; color: var(--text); font-size: clamp(1.875rem, 2.6vw, 2.25rem); font-weight: 450; letter-spacing: -.04em; line-height: 1.15; overflow-wrap: anywhere; text-wrap: balance; }
 .program-description { max-width: 55ch; margin: 0 0 24px; color: var(--text-soft); font-size: .9375rem; line-height: 1.75; }
+.program-reach { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 16px; margin: 0 0 20px; padding: 0; list-style: none; }
+.program-reach li { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.program-reach li + li { padding-left: 16px; border-left: 1px solid var(--line); }
+.program-reach strong { flex: none; color: var(--green); font-size: 1.625rem; font-weight: 450; line-height: 1.1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.program-reach span { color: var(--text-soft); font-size: .8125rem; line-height: 1.5; }
 .program-details, .program-body > .program-link { margin-top: auto; }
 .program-link { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 56px; padding-block: 14px 8px; border-top: 1px solid var(--line); color: var(--green); font-size: .875rem; font-weight: 600; line-height: 1.6; text-decoration: none; list-style: none; cursor: pointer; }
 .program-link::-webkit-details-marker { display: none; }
@@ -53,6 +60,12 @@
 .program-more p:last-child { margin-bottom: 0; }
 .program-more a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--green); text-underline-offset: 4px; }
 .program-more a svg { width: 16px; height: 16px; }
+/* Shared minimum aligns closed cards without stretching a neighbor on expansion.
+   Content remains free to grow; no fixed height or clipping. */
+@media (min-width: 761px) {
+  .program-body { min-height: 22rem; }
+  .programs-grid > li:only-child .program-body { min-height: 0; }
+}
 /* A single available item uses the width without implying a featured status. */
 @media (min-width: 1051px) {
   .programs-grid > li:only-child .program-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; }
@@ -84,6 +97,7 @@
   .programs { padding-inline: 20px; }
   .program-body { padding-inline: 20px; }
   .program-link { gap: 12px; }
+  .program-reach li { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .programs *, .programs *::before, .programs *::after { transition: none !important; animation: none !important; }
