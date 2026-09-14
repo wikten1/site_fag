@@ -1,0 +1,21 @@
+:root {
+  color-scheme: light;
+  --cream: #f5f8f1;
+  --surface: #fcfefa;
+  --cream-deep: #e8efe2;
+  --text: #162415;
+  --text-soft: #60705d;
+  --line: #d5dfce;
+  --forest: #03210a;
+  --forest-deep: #011406;
+  --green: #416e01;
+  --accent: #6aaa04;
+  --lime: #78be08;
+  --lime-bright: #a5e23f;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --reveal-ease: cubic-bezier(.22, 1, .36, 1);
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --utility-height: 44px;
+  --header-offset: 140px;
+  --cut: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+}

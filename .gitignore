@@ -4,3 +4,6 @@ node_modules/
 !.env.example
 *.log
 __pycache__/
+.tools/
+tests/artifacts/
+.DS_Store

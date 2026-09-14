@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{{head}}
+</head>
+<body class="catalog-page">
+  <a class="skip-link" href="#catalogo">Ir para os cursos</a>
+{{header}}
+  <main class="courses">
+    <div class="courses-shell">
+      <header class="courses-head" id="catalogo" tabindex="-1">
+        <div>
+          <p class="courses-eyebrow"><span class="courses-marker" aria-hidden="true"></span>Formação profissional</p>
+          <h1 class="courses-title">Cursos e <span>oportunidades.</span></h1>
+        </div>
+        <p class="courses-intro">Conheça as áreas de formação da FAG e explore os cursos técnicos e a formação complementar.</p>
+      </header>
+      <nav aria-label="Escolha um curso">
+        <ul class="catalog-index">
+{{courseIndex}}
+        </ul>
+      </nav>
+      <div class="catalog-details">
+          {{courseDetails}}
+
+
+
+
+
+      </div>
+      <div class="courses-end"><a class="courses-catalog-link" href="index.html#cursos-e-oportunidades"><span>Voltar à página inicial</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+    </div>
+  </main>
+</body>
+</html>
+

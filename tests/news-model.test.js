@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const E = require('../assets/news-shared.js');
+const E = require('../assets/js/shared/news-model.js');
 const source = require('../content/news.json').items;
 const base = source[0];
 const items = Array.from({length:200},(_,i)=>({...base,id:`record-${i}`,slug:`record-${i}`,featured:false,publishedAt:'2025-01-01'}));

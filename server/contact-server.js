@@ -6,6 +6,7 @@ const { createHash } = require('node:crypto');
 const nodemailer = require('nodemailer');
 
 const ROOT = path.resolve(__dirname, '..');
+const configuredPages = new Set(require('../config/pages').map(page => page.route));
 const emailPattern = /^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/;
 const unavailable = { ok: false, code: 'unavailable' };
 function validate(data) {
@@ -75,7 +76,7 @@ async function readJSON(req) {
 function createApp({ mailer = null, root = ROOT, origin = '', rateLimit = 5, windowMs = 600000 } = {}) {
   const rates = new Map();
   const submissions = new Map();
-  const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ico': 'image/x-icon' };
+  const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ico': 'image/x-icon' };
   const server = http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -129,16 +130,31 @@ function createApp({ mailer = null, root = ROOT, origin = '', rateLimit = 5, win
     }
     if (!['GET', 'HEAD'].includes(req.method)) return json(res, 405, { ok: false });
     const name = pathname === '/' ? 'index.html' : pathname.slice(1);
-    const allowed = /^(?:[^/\\]+\.html|noticias\/[^/\\]+\.html|assets\/.+\.(?:css|js|png|jpe?g|webp|svg|woff2?|ico))$/i.test(name);
+    const allowed = configuredPages.has(name) || /^(?:[^/\\]+\.html|noticias\/[^/\\]+\.html|sitemap\.xml|robots\.txt|assets\/(?:css|js|images|fonts)\/.+\.(?:css|js|png|jpe?g|webp|svg|woff2?|ico))$/i.test(name);
     if (!allowed || name.split(/[\/\\]/).some(part => part.startsWith('.'))) return json(res, 404, { ok: false });
     try {
       const filename = await fs.realpath(path.join(root, name));
       const relative = path.relative(await fs.realpath(root), filename);
       if (relative.startsWith('..') || path.isAbsolute(relative)) return json(res, 404, { ok: false });
       const bytes = await fs.readFile(filename);
-      res.writeHead(200, { 'Content-Type': types[path.extname(filename).toLowerCase()], 'Content-Length': bytes.length, 'Cache-Control': 'no-cache' });
+      const etag = '"' + createHash('sha256').update(bytes).digest('base64url') + '"';
+      const headers = { 'Content-Type': types[path.extname(filename).toLowerCase()], 'Cache-Control': 'no-cache', 'ETag': etag };
+      if (req.headers['if-none-match']?.split(/\s*,\s*/).some(tag => tag === '*' || tag.replace(/^W\//, '') === etag)) {
+        res.writeHead(304, headers);
+        return res.end();
+      }
+      res.writeHead(name === '404.html' ? 404 : 200, { ...headers, 'Content-Length': bytes.length });
       res.end(req.method === 'HEAD' ? undefined : bytes);
-    } catch { json(res, 404, { ok: false }); }
+    } catch {
+      if (name.endsWith('.html')) {
+        try {
+          const bytes = await fs.readFile(path.join(root, '404.html'));
+          res.writeHead(404, { 'Content-Type': types['.html'], 'Content-Length': bytes.length, 'Cache-Control': 'no-cache' });
+          return res.end(req.method === 'HEAD' ? undefined : bytes);
+        } catch { /* A custom root may not provide an error page. */ }
+      }
+      json(res, 404, { ok: false });
+    }
   });
   server.requestTimeout = 30000;
   server.headersTimeout = 15000;

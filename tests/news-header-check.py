@@ -4,6 +4,7 @@ from pathlib import Path
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from playwright.sync_api import sync_playwright
+from browser_support import ARTIFACTS, launch_options
 ROOT=Path(__file__).resolve().parents[1]
 class Handler(SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
@@ -15,7 +16,7 @@ threading.Thread(target=server.serve_forever,daemon=True).start()
 base=f'http://127.0.0.1:{server.server_port}/'
 try:
     with sync_playwright() as p:
-        browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True)
+        browser=p.chromium.launch(**launch_options(),headless=True)
         page=browser.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce')
         errors=[]
         page.on('pageerror',lambda e:errors.append(str(e)))
@@ -76,10 +77,10 @@ try:
         assert page.locator('#navbar').evaluate('(e)=>parseFloat(getComputedStyle(e).top)')==page.locator('.utility-bar').bounding_box()['height']+8
         page.evaluate('scrollTo(0,0)')
         page.wait_for_timeout(100)
-        page.screenshot(path=str(ROOT/'tests/header-desktop.png'))
+        page.screenshot(path=str(ARTIFACTS/'header-desktop.png'))
         page.set_viewport_size({'width':390,'height':844})
         page.locator('.mobile-menu-btn').click()
-        page.screenshot(path=str(ROOT/'tests/header-mobile.png'))
+        page.screenshot(path=str(ARTIFACTS/'header-mobile.png'))
         page.locator('#accessibility-tools summary').click()
         assert page.locator('.mobile-menu-btn').get_attribute('aria-expanded')=='false'
         nojs=browser.new_page(java_script_enabled=False,viewport={'width':320,'height':900})

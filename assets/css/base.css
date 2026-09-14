@@ -1,0 +1,16 @@
+@font-face { font-family: Inter; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/inter-latin.woff2") format("woff2"); }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-offset); }
+body { margin: 0; color: var(--text); background: var(--cream); font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+a { color: inherit; }
+button, a, [tabindex] { scroll-margin-block: 32px; }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
+::selection { background: var(--forest); color: var(--cream); }
+svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+[hidden] { display: none !important; }
+
+.skip-link { position: fixed; top: 8px; left: 16px; z-index: 200; max-width: calc(100% - 32px); padding: 14px 20px; background: var(--forest); color: var(--cream); transform: translateY(-160%); }
+.skip-link:focus { transform: none; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

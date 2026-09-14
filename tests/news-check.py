@@ -6,6 +6,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+from browser_support import ARTIFACTS, launch_options
 
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT/'content/news.json').read_text(encoding='utf-8'))['items']
@@ -22,7 +23,7 @@ threading.Thread(target=server.serve_forever,daemon=True).start()
 base=f'http://127.0.0.1:{server.server_port}/'
 try:
     with sync_playwright() as p:
-        browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True)
+        browser=p.chromium.launch(**launch_options(),headless=True)
         page=browser.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce')
         errors=[]
         page.on('pageerror',lambda error:errors.append(str(error)))
@@ -88,7 +89,7 @@ try:
                         image.evaluate('(i)=>i.decode()')
                     page.evaluate('window.scrollTo(0,0)')
                     name='archive' if route=='noticias.html' else 'article'
-                    page.screenshot(path=str(ROOT/'tests'/f'{name}-{width}.png'),full_page=True)
+                    page.screenshot(path=str(ARTIFACTS/f'{name}-{width}.png'),full_page=True)
             # Equivalent layout to 200% desktop zoom; also stress doubled text sizing.
             page.set_viewport_size({'width':640,'height':800})
             page.add_style_tag(content='html{font-size:200% !important}')
