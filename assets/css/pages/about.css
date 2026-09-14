@@ -95,7 +95,8 @@
 .about-related-row[href]:hover { background: var(--cream); border-color: var(--green); }
 .about-related-row[href]:hover .about-related-name { transform: translateX(4px); }
 .about-related-row[href]:hover svg { transform: translateX(4px); }
-.about-related-name small { display: block; margin-top: 6px; color: var(--text-soft); font-size: 11px; font-weight: 400; letter-spacing: 0; }
+.about-related-pending { color: var(--text-soft); }
+.about-coming-soon { margin-left: auto; flex-shrink: 0; padding: 5px 9px; border: 1px solid var(--line); border-radius: 20px; font-size: 10px; }
 .about-contact { position: relative; isolation: isolate; overflow: hidden; max-width: 1380px; width: calc(100% - 40px); margin: 0 auto 40px; color: var(--surface); background: var(--forest); border-radius: 4px; }
 .about-contact-inner { display: grid; grid-template-columns: 8fr 4fr; gap: 30px; align-items: center; padding: 76px max(40px, calc((100% - 1240px) / 2)); }
 .about-contact-grid { position: absolute; inset: 0 0 0 50%; z-index: -1; opacity: .055; background-image: linear-gradient(var(--cream) 1px, transparent 1px), linear-gradient(90deg, var(--cream) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(90deg, transparent, black); }
