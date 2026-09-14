@@ -101,6 +101,7 @@ python tests/news-header-check.py
 python tests/news-check.py
 python tests/contact-check.py
 python tests/site-check.py
+python tests/about-check.py
 ```
 
 Para usar um Chrome instalado, configure `FAG_TEST_CHROME` com o caminho do executável. Os testes não enviam e-mails reais: o SMTP de integração é simulado em loopback, e o teste de interface intercepta a API.

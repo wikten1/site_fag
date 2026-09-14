@@ -10,6 +10,14 @@ module.exports = [
     extra: '<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>'
   },
   {
+    route: 'sobre.html', template: 'sobre.html', active: 'about', footer: 'editorial',
+    title: 'Sobre a FAG — Educação, conhecimento e desenvolvimento',
+    description: 'Conheça a FAG, Fundação de Educação Profissional e Tecnológica, Amparo à Pesquisa, Políticas Sociais e Desenvolvimento Socioeconômico de Tanguá.',
+    image: 'assets/images/institutional/sobre-fag.png',
+    styles: ['components/header', 'pages/about'],
+    scripts: ['components/header', 'pages/about']
+  },
+  {
     route: 'cursos.html', template: 'cursos.html', header: 'catalog',
     title: 'Cursos e oportunidades — FAG',
     description: 'Conheça os cursos técnicos e a formação complementar da FAG, em Tanguá.',
