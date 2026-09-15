@@ -8,29 +8,86 @@
 {{header}}
   <main class="courses">
     <div class="courses-shell">
-      <header class="courses-head" id="catalogo" tabindex="-1">
-        <div>
-          <p class="courses-eyebrow"><span class="courses-marker" aria-hidden="true"></span>Formação profissional</p>
-          <h1 class="courses-title">Cursos e <span>oportunidades.</span></h1>
-        </div>
-        <p class="courses-intro">Conheça as áreas de formação da FAG e explore os cursos técnicos e a formação complementar.</p>
-      </header>
-      <nav aria-label="Escolha um curso">
-        <ul class="catalog-index">
-{{courseIndex}}
-        </ul>
+      <nav class="catalog-breadcrumb" aria-label="Caminho de navegação">
+        <ol><li><a href="index.html">Início</a></li><li><a href="index.html#cursos-e-oportunidades">Cursos e Oportunidades</a></li><li aria-current="page">Cursos</li></ol>
       </nav>
-      <div class="catalog-details">
-          {{courseDetails}}
+      <header class="catalog-hero">
+        <div class="catalog-hero-copy">
+          <p class="courses-eyebrow"><span class="courses-marker" aria-hidden="true"></span>Formação profissional · FAG</p>
+          <h1 class="courses-title">Cursos<span class="catalog-title-dot">.</span></h1>
+          <p class="catalog-lead">Novas habilidades.<br><span>Mais caminhos para você.</span></p>
+          <p class="courses-intro">Encontre oportunidades de formação para desenvolver suas habilidades e ampliar seus caminhos profissionais.</p>
+          <p class="catalog-hero-note">Conheça os cursos técnicos e a formação complementar da FAG.</p>
+          <a class="catalog-text-link" href="#catalogo">Explorar cursos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+        </div>
+        <div class="catalog-art" aria-hidden="true">
+          <div class="catalog-orbit catalog-orbit-outer"></div><div class="catalog-orbit catalog-orbit-inner"></div>
+          <span class="catalog-art-coordinate">FAG / CONHECIMENTO EM CONEXÃO</span>
+          <div class="catalog-learning-panel">
+            <span class="catalog-art-label">APRENDER. CONECTAR. TRANSFORMAR.</span>
+            <svg class="catalog-book" viewBox="0 0 120 100"><path d="M60 82V24C43 12 26 12 10 18v58c18-6 33-4 50 6Zm0 0V24c17-12 34-12 50-6v58c-18-6-33-4-50 6Z"/><path d="M23 32c9-1 16 0 24 4m-24 9c9-1 16 0 24 4m26-13c8-4 15-5 24-4M73 49c8-4 15-5 24-4"/></svg>
+            <strong>Conhecimento que<br>abre caminhos.</strong>
+            <div class="catalog-panel-rule"><span>EDUCAÇÃO PROFISSIONAL</span><span>↗</span></div>
+          </div>
+          <span class="catalog-art-chip catalog-art-chip-top"><svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5L2 9Zm4 2v6c4 3 8 3 12 0v-6m4-2v7"/></svg>Formação técnica</span>
+          <span class="catalog-art-chip catalog-art-chip-bottom"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18m-15-6 12 12M6 18 18 6"/></svg>Novas possibilidades</span>
+          <span class="catalog-art-foot">PRECISÃO TÉCNICA. PRESENÇA HUMANA.</span>
+        </div>
+      </header>
 
+      <section class="catalog-discovery" id="catalogo" aria-labelledby="catalog-title" tabindex="-1">
+        <div class="catalog-section-head"><div><p class="courses-eyebrow">Encontre seu caminho</p><h2 id="catalog-title">Explore nossos cursos</h2></div><p>Conheça cada área de formação<br>e encontre seu próximo passo.</p></div>
+        <div class="catalog-controls" hidden>
+          <div class="catalog-filters" role="group" aria-label="Filtrar cursos por modalidade ou formação">
+            <button type="button" data-filter="todos" aria-pressed="true" aria-controls="catalog-grid">Todos <span data-filter-count="todos"></span></button>
+            <button type="button" data-filter="presencial" aria-pressed="false" aria-controls="catalog-grid">Presencial <span data-filter-count="presencial"></span></button>
+            <button type="button" data-filter="tecnico" aria-pressed="false" aria-controls="catalog-grid">Técnico <span data-filter-count="tecnico"></span></button>
+            <button type="button" data-filter="ead" aria-pressed="false" aria-controls="catalog-grid">EAD <span data-filter-count="ead"></span></button>
+          </div>
+          <div class="catalog-toolbar">
+            <label class="catalog-search" for="course-search"><span class="catalog-sr-only">Buscar curso pelo nome</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg><input id="course-search" type="search" placeholder="Buscar curso" autocomplete="off" aria-controls="catalog-grid"></label>
+            <p class="catalog-results" role="status" aria-live="polite" aria-atomic="true">{{courseCount}} cursos encontrados</p>
+            <button class="catalog-clear" type="button" data-clear disabled>Limpar filtros <span aria-hidden="true">×</span></button>
+          </div>
+        </div>
+        <p class="catalog-offer-note">Consulte a FAG para confirmar a modalidade de oferta e a disponibilidade de inscrições de cada curso.</p>
+        <noscript><p>Explore os cursos abaixo e selecione “Ver curso” para saber mais. A busca e os filtros precisam de JavaScript.</p></noscript>
+        <ul class="courses-grid" id="catalog-grid">
+{{catalogCards}}
+        </ul>
+        <div class="catalog-empty" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5M8 10.5h5"/></svg>
+          <h3>Nenhum curso encontrado</h3>
+          <p data-empty-message>Não encontramos cursos correspondentes aos filtros selecionados.</p>
+          <button class="courses-catalog-link" type="button" data-clear>Limpar filtros <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="catalog-caption"><span>Formação que aproxima conhecimento e prática.</span><span class="catalog-caption-index" aria-hidden="true">FAG / CATÁLOGO</span></div>
+      </section>
 
+      <section class="catalog-ead" id="educacao-a-distancia" aria-labelledby="ead-title" data-course-reveal>
+        <div class="catalog-ead-copy">
+          <p class="courses-eyebrow">Educação a distância</p>
+          <h2 id="ead-title">Estude com<br><span>mais flexibilidade.</span></h2>
+          <p>A Plataforma EAD é o ambiente digital destinado às atividades de educação a distância da FAG.</p>
+          <p class="catalog-platform-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Acesso à plataforma ainda indisponível.</p>
+          <a class="courses-catalog-link catalog-lime-link" href="contato.html">Consultar informações sobre EAD <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+        </div>
+        <div class="catalog-ead-art" aria-hidden="true">
+          <div class="catalog-screen"><div class="catalog-screen-bar"><span>FAG / AMBIENTE DIGITAL</span><span>•••</span></div><div class="catalog-screen-content"><svg viewBox="0 0 24 24"><path d="M3 4c4-1 6 0 9 2 3-2 5-3 9-2v15c-4-1-6 0-9 2-3-2-5-3-9-2V4Zm9 2v15"/></svg><span>O conhecimento<br>conecta você.</span></div><div class="catalog-screen-lines"><i></i><i></i><i></i></div></div>
+          <div class="catalog-screen-base"></div><span class="catalog-ead-caption">EDUCAÇÃO ALÉM DO ESPAÇO FÍSICO</span>
+        </div>
+      </section>
 
+      <section class="catalog-opportunities" aria-labelledby="opportunities-title" data-course-reveal>
+        <div class="catalog-opportunity-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3H5v18h14V3h-3M8 3v4h8V3H8Zm0 9h8m-8 4h5"/></svg></div>
+        <div><p class="courses-eyebrow">Inscrições e oportunidades</p><h2 id="opportunities-title">Procurando inscrições abertas?</h2><p>A disponibilidade de cursos e os períodos de inscrição podem variar. Entre em contato com a FAG para orientações sobre ofertas e processos de seleção.</p></div>
+        <a class="catalog-text-link" href="contato.html">Consultar inscrições <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+      </section>
 
-
-      </div>
-      <div class="courses-end"><a class="courses-catalog-link" href="index.html#cursos-e-oportunidades"><span>Voltar à página inicial</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+      <section class="catalog-help" aria-labelledby="help-title"><div><p class="courses-eyebrow">Conte com a FAG</p><h2 id="help-title">Uma dúvida sobre o próximo passo?</h2><p>Nossos canais de atendimento são o caminho para obter informações sobre a formação que você procura.</p></div><a class="courses-catalog-link" href="contato.html">Fale com a FAG <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></section>
+      <nav class="catalog-related" aria-label="Conteúdos relacionados"><a href="index.html#programas-e-projetos"><span>Continue explorando</span>Programas e Projetos <span aria-hidden="true">↗</span></a><a href="#educacao-a-distancia"><span>Aprendizagem digital</span>Educação a Distância <span aria-hidden="true">↗</span></a><a href="noticias.html"><span>Acompanhe a Fundação</span>Notícias da FAG <span aria-hidden="true">↗</span></a></nav>
     </div>
   </main>
+{{footer}}
 </body>
 </html>
-

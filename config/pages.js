@@ -25,10 +25,10 @@ module.exports = [
     scripts: ['components/header', 'pages/partners']
   },
   {
-    route: 'cursos.html', template: 'cursos.html', header: 'catalog',
+    route: 'cursos.html', template: 'cursos.html', header: 'catalog', footer: 'editorial',
     title: 'Cursos e oportunidades — FAG',
     description: 'Conheça os cursos técnicos e a formação complementar da FAG, em Tanguá.',
-    styles: ['pages/catalog', 'components/courses'], scripts: []
+    styles: ['components/courses', 'pages/catalog'], scripts: ['components/courses', 'pages/catalog']
   },
   {
     route: 'contato.html', template: 'contato.html', footer: 'contact',

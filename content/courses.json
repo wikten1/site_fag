@@ -5,6 +5,7 @@
     "summary": "Prevenção de riscos e cuidado com a saúde e a segurança nos ambientes de trabalho.",
     "description": "A segurança do trabalho se dedica à identificação de riscos e à prevenção de acidentes nos ambientes profissionais. O cuidado com as pessoas orienta essa área, que conecta observação, organização e práticas de proteção.",
     "kind": "Curso técnico",
+    "modality": "Presencial",
     "position": "40% 50%",
     "image": {
       "src": "assets/images/cursos/seguranca-do-trabalho-800.webp",
@@ -20,6 +21,7 @@
     "summary": "Conservação ambiental e uso responsável dos recursos naturais.",
     "description": "A área ambiental envolve a relação entre as atividades humanas e a natureza. A observação dos ecossistemas, a conservação e o uso responsável dos recursos naturais fazem parte desse campo de atuação.",
     "kind": "Curso técnico",
+    "modality": "Presencial",
     "position": "40% 50%",
     "image": {
       "src": "assets/images/cursos/meio-ambiente-800.webp",
@@ -35,6 +37,7 @@
     "summary": "Cuidados estéticos faciais e corporais, com atenção ao bem-estar.",
     "description": "A estética reúne cuidados voltados ao rosto, ao corpo e ao bem-estar. A atenção às pessoas, a higiene e a responsabilidade no atendimento são aspectos centrais dessa área profissional.",
     "kind": "Curso técnico",
+    "modality": "Presencial",
     "position": "52% 50%",
     "image": {
       "src": "assets/images/cursos/estetica-800.webp",
@@ -50,6 +53,7 @@
     "summary": "Acompanhamento de visitantes e apresentação de lugares, histórias e patrimônios.",
     "description": "O guia de turismo aproxima visitantes dos lugares, das histórias e das culturas que conhecem. Comunicação, acolhimento e valorização do patrimônio natural e cultural fazem parte desse campo profissional.",
     "kind": "Curso técnico",
+    "modality": "Presencial",
     "position": "48% 50%",
     "image": {
       "src": "assets/images/cursos/guia-de-turismo-800.webp",
@@ -65,6 +69,7 @@
     "summary": "Desenvolvimento de sites e aplicações para a internet.",
     "description": "A informática para internet está ligada à criação de sites e aplicações digitais. É uma área que conecta programação, organização da informação e interfaces para que as pessoas possam acessar e utilizar serviços na web.",
     "kind": "Curso técnico",
+    "modality": "Presencial",
     "position": "45% 50%",
     "image": {
       "src": "assets/images/cursos/informatica-para-internet-800.webp",
@@ -80,6 +85,7 @@
     "summary": "Uso do computador e de ferramentas digitais nas atividades do cotidiano.",
     "description": "A informática básica aproxima as pessoas do uso cotidiano da tecnologia. Computadores e ferramentas digitais participam de atividades de comunicação, organização de informações e acesso a serviços.",
     "kind": "Formação complementar",
+    "modality": "Presencial",
     "position": "45% 50%",
     "image": {
       "src": "assets/images/cursos/informatica-basica-800.webp",

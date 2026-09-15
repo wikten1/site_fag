@@ -30,6 +30,8 @@ function build() {
       scripts: '', newsFeed,
       partnerGrid: page.active === 'partners' ? renderPartners(partners.items, prefix) : '',
       courseCards: C.courses.map((course, index) => C.card(course, index, prefix)).join('\n'),
+      catalogCards: C.courses.map((course, index) => C.card(course, index, prefix, true)).join('\n'),
+      courseCount: String(C.courses.length),
       courseDetails: C.courses.map((course, index) => C.detail(course, index, prefix)).join('\n'),
       courseIndex: C.courses.map(C.index).join('\n'),
       prefix

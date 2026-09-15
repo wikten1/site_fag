@@ -11,15 +11,19 @@ function image(course, variant, prefix) {
   return `<div class="course-media"><img src="${esc(prefix + img.src)}" srcset="${esc(srcset)}" sizes="${sizes[variant]}" alt="${esc(img.alt)}" width="${img.width}" height="${img.height}" loading="lazy" decoding="async"></div>`;
 }
 function meta(course, index) {
-  return `<p class="course-meta"><span class="course-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><span>${esc(course.kind)}</span></p>`;
+  return `<p class="course-meta"><span class="course-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><span>${esc(course.modality)} · ${esc(course.kind)}</span></p>`;
 }
-function card(course, index, prefix = '') {
+function card(course, index, prefix = '', catalog = false) {
   const id = esc(course.slug);
-  return `<li data-course-reveal><article class="course-card" aria-labelledby="curso-${id}" style="--course-position: ${esc(course.position)}">
+  const categories = [course.modality === 'Presencial' ? 'presencial' : '', course.kind === 'Curso técnico' ? 'tecnico' : ''].filter(Boolean).join(' ');
+  const action = catalog
+    ? `<details class="course-description"><summary class="course-link"><span>Ver curso<span class="catalog-sr-only">: ${esc(course.title)}</span></span>${arrow}</summary><div class="course-expanded"><p>${esc(course.description)}</p><a href="${prefix}contato.html">Consultar oferta e inscrições${arrow}</a></div></details>`
+    : `<a class="course-link" href="${prefix}cursos.html#${id}" aria-labelledby="acao-${id} curso-${id}"><span id="acao-${id}">Ver curso</span>${arrow}</a>`;
+  return `<li data-course-reveal${catalog ? ` data-catalog-item data-categories="${categories}" data-name="${esc(course.title)}"` : ''}><article class="course-card"${catalog ? ` id="${id}" tabindex="-1"` : ''} aria-labelledby="curso-${id}" style="--course-position: ${esc(course.position)}">
 ${image(course, 'card', prefix)}<div class="course-body">${meta(course, index)}
 <h3 class="course-title" id="curso-${id}" tabindex="-1">${esc(course.title)}</h3>
 <p class="course-summary">${esc(course.summary)}</p>
-<div class="course-footer"><a class="course-link" href="${prefix}cursos.html#${id}" aria-labelledby="acao-${id} curso-${id}"><span id="acao-${id}">Ver curso</span>${arrow}</a></div>
+<div class="course-footer">${action}</div>
 </div></article></li>`;
 }
 function detail(course, index, prefix = '') {
