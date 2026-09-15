@@ -1,0 +1,38 @@
+{
+  "featuredId": "mulheres-mil",
+  "items": [
+    {
+      "id": "mulheres-mil",
+      "name": "Mulheres Mil",
+      "category": "Inclusão e formação profissional",
+      "type": "Programa",
+      "description": "A formação profissional como caminho para a autonomia. O Mulheres Mil reúne capacitação e desenvolvimento pessoal, com atenção às mulheres em situação de vulnerabilidade social.",
+      "objective": "Ampliar o acesso à educação e fortalecer habilidades, autoconfiança e possibilidades de participação no mundo do trabalho.",
+      "audience": "Mulheres em situação de vulnerabilidade social, alunas da rede pública e beneficiárias de programas sociais.",
+      "image": "assets/images/programs/mulheres-mil",
+      "imageAlt": "Mulheres de diferentes idades reunidas à mesa, com cadernos e um notebook, em uma atividade de aprendizagem.",
+      "imageNote": "Imagem ilustrativa · Formação e colaboração",
+      "width": 1672,
+      "height": 941,
+      "link": {
+        "href": "noticias/tangua-comemora-um-avanco-significativo-na-inclusao-e-qualificacao-profissional-com-o-lancamento-do-programa-mulheres-mil.html",
+        "label": "Leia sobre o lançamento em Tanguá"
+      },
+      "source": "Conteúdo da seção Programas e Projetos da home e notícia local sobre o lançamento do Mulheres Mil."
+    },
+    {
+      "id": "pronatec",
+      "name": "PRONATEC",
+      "category": "Educação profissional",
+      "type": "Programa nacional",
+      "description": "O Programa Nacional de Acesso ao Ensino Técnico e Emprego amplia o acesso à educação profissional e tecnológica, aproximando formação e oportunidades para estudantes e trabalhadores.",
+      "objective": "Ampliar e democratizar o acesso à formação profissional e à preparação para o mundo do trabalho.",
+      "image": "assets/images/programs/pronatec",
+      "imageAlt": "Marca do PRONATEC com livros abertos em azul, verde e amarelo.",
+      "imageFit": "contain",
+      "width": 1672,
+      "height": 941,
+      "source": "Programa já apresentado na home. Não há destino local específico nem informações de oferta atual validadas."
+    }
+  ]
+}

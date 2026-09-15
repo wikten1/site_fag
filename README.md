@@ -103,6 +103,7 @@ python tests/contact-check.py
 python tests/site-check.py
 python tests/about-check.py
 python tests/partners-check.py
+python tests/programs-check.py
 ```
 
 Para usar um Chrome instalado, configure `FAG_TEST_CHROME` com o caminho do executável. Os testes não enviam e-mails reais: o SMTP de integração é simulado em loopback, e o teste de interface intercepta a API.
@@ -120,3 +121,5 @@ O envio do formulário exige o servidor Node na mesma origem e as variáveis SMT
 Veja [a análise e as decisões da refatoração](docs/architecture.md) e [o catálogo visual](docs/design_system.html). Para visualizar o catálogo localmente, use um servidor de arquivos no diretório do projeto; o servidor de produção disponibiliza apenas os recursos públicos.
 
 A página [Parcerias](parcerias.html) usa os registros de `content/partners.json` e logos locais em `assets/images/partners/`. Consulte a [especificação de UX/UI e atualização](docs/parcerias.md).
+
+A página [Programas e Projetos](programas-e-projetos.html) usa `content/programs.json`, com destaque configurável e cards informativos. Consulte a [documentação de conteúdo e manutenção](docs/programs.md).

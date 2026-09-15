@@ -25,6 +25,14 @@ module.exports = [
     scripts: ['components/header', 'pages/partners']
   },
   {
+    route: 'programas-e-projetos.html', template: 'programas-e-projetos.html', active: 'programs', footer: 'editorial',
+    title: 'Programas e Projetos — FAG',
+    description: 'Conheça os programas e projetos da FAG: iniciativas de educação profissional, inclusão e desenvolvimento social, com destaque para o Mulheres Mil.',
+    image: 'assets/images/programs/mulheres-mil-1200.webp',
+    styles: ['components/header', 'pages/editorial', 'components/programs', 'pages/programs'],
+    scripts: ['components/header', 'pages/programs']
+  },
+  {
     route: 'cursos.html', template: 'cursos.html', header: 'catalog', footer: 'editorial',
     title: 'Cursos e oportunidades — FAG',
     description: 'Conheça os cursos técnicos e a formação complementar da FAG, em Tanguá.',

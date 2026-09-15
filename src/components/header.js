@@ -9,6 +9,7 @@ module.exports = function header({ prefix = '', active = '', article = false, va
       .replace(/href="#([^"]+)"/g, 'href="index.html#$1"')
       .replace('Pesquise sobre educação, pesquisa ou a atuação da FAG.', 'Pesquise nos títulos e conteúdos desta página.');
     if (active === 'news') markup = markup.replace('<a class="nav-link" href="noticias.html">', `<a class="nav-link is-active" aria-current="${article ? 'true' : 'page'}" href="noticias.html">`);
+    if (active === 'programs') markup = markup.replace('<a class="nav-link" href="programas-e-projetos.html">', '<a class="nav-link is-active" aria-current="page" href="programas-e-projetos.html">');
     if (active === 'about') {
       markup = markup.replace('<a class="nav-link" href="sobre.html">', '<a class="nav-link is-active" aria-current="page" href="sobre.html">')
         .replace('href="sobre.html">Conhecer a FAG', 'href="contato.html">Fale com a FAG');
