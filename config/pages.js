@@ -18,6 +18,13 @@ module.exports = [
     scripts: ['components/header', 'pages/about']
   },
   {
+    route: 'parcerias.html', template: 'parcerias.html', active: 'partners', footer: 'editorial',
+    title: 'Parcerias — FAG',
+    description: 'Conheça as instituições parceiras da FAG: uma rede de colaboração pela educação, ciência, tecnologia e desenvolvimento social em Tanguá.',
+    styles: ['components/header', 'pages/partners'],
+    scripts: ['components/header', 'pages/partners']
+  },
+  {
     route: 'cursos.html', template: 'cursos.html', header: 'catalog',
     title: 'Cursos e oportunidades — FAG',
     description: 'Conheça os cursos técnicos e a formação complementar da FAG, em Tanguá.',

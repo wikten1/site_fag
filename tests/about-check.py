@@ -22,8 +22,7 @@ with sync_playwright() as p:
         page.goto(base + 'sobre.html', wait_until='networkidle')
         assert ' '.join(page.locator('h1').inner_text().split()) == 'Sobre a FAG.'
         assert page.locator('.nav-link[aria-current="page"]').get_attribute('href') == 'sobre.html'
-        assert page.locator('.about-related-pending').get_attribute('aria-disabled') == 'true'
-        assert page.locator('.about-related-pending').get_attribute('href') is None
+        assert page.locator('.about-related-row').first.get_attribute('href') == 'parcerias.html'
         assert page.locator('.about-values-list dt').all_text_contents() == ['Compromisso', 'Responsabilidade Social', 'Transparência', 'Ética', 'Cooperação']
         assert page.locator('.about-principle').first.locator('.about-principle-content p').count() == 3
         assert 'Espaço reservado' not in page.locator('main').inner_text()
@@ -55,7 +54,7 @@ with sync_playwright() as p:
         page.locator('.about-discover').click()
         assert page.evaluate('document.activeElement.id') == 'quem-somos'
         page.keyboard.press('Tab')
-        assert page.locator('a[href="cursos.html"].about-related-row').evaluate('(link) => link === document.activeElement')
+        assert page.locator('a[href="parcerias.html"].about-related-row').evaluate('(link) => link === document.activeElement')
         assert page.evaluate('getComputedStyle(document.activeElement).outlineStyle') != 'none'
         page.locator('.about-contact-button').click()
         page.wait_for_url('**/contato.html')

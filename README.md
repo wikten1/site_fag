@@ -102,6 +102,7 @@ python tests/news-check.py
 python tests/contact-check.py
 python tests/site-check.py
 python tests/about-check.py
+python tests/partners-check.py
 ```
 
 Para usar um Chrome instalado, configure `FAG_TEST_CHROME` com o caminho do executável. Os testes não enviam e-mails reais: o SMTP de integração é simulado em loopback, e o teste de interface intercepta a API.
@@ -117,3 +118,5 @@ Publique somente os HTMLs gerados, `noticias/`, `assets/`, `robots.txt` e `sitem
 O envio do formulário exige o servidor Node na mesma origem e as variáveis SMTP descritas em [.env.example](.env.example) e [Contato](docs/contact.md). `PUBLIC_ORIGIN` configura a origem permitida pela API; não substitui `FAG_SITE_URL` do build.
 
 Veja [a análise e as decisões da refatoração](docs/architecture.md) e [o catálogo visual](docs/design_system.html). Para visualizar o catálogo localmente, use um servidor de arquivos no diretório do projeto; o servidor de produção disponibiliza apenas os recursos públicos.
+
+A página [Parcerias](parcerias.html) usa os registros de `content/partners.json` e logos locais em `assets/images/partners/`. Consulte a [especificação de UX/UI e atualização](docs/parcerias.md).

@@ -9,6 +9,8 @@ const footer = require('../src/components/footer');
 const C = require('../src/components/courses');
 const E = require('../assets/js/shared/news-model');
 const news = require('../content/news.json');
+const partners = require('../content/partners.json');
+const { renderPartners } = require('../src/components/partners');
 
 function build() {
   const editorial = require('./build-news');
@@ -26,6 +28,7 @@ function build() {
       header: header({ prefix, active: page.active, variant: page.header }),
       footer: page.footer ? footer({ prefix, variant: page.footer, home: page.active === 'home' }) : '',
       scripts: '', newsFeed,
+      partnerGrid: page.active === 'partners' ? renderPartners(partners.items, prefix) : '',
       courseCards: C.courses.map((course, index) => C.card(course, index, prefix)).join('\n'),
       courseDetails: C.courses.map((course, index) => C.detail(course, index, prefix)).join('\n'),
       courseIndex: C.courses.map(C.index).join('\n'),

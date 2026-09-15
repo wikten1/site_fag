@@ -1,0 +1,23 @@
+{
+  "source": "https://fag.tangua.rj.gov.br/convenios/",
+  "verifiedAt": "2026-09-15",
+  "items": [
+    { "id": "uenf", "name": "Universidade Estadual do Norte Fluminense Darcy Ribeiro", "logo": "assinatura-horizontal-Cor-1-1024x279.png", "width": 1024, "height": 279, "url": "https://uenf.br/portal/" },
+    { "id": "sindpanific", "name": "Sindicato das Indústrias de Panificação e Confeitaria de Niterói e São Gonçalo", "logo": "Sindpanific-logo-350PX-1.png", "width": 350, "height": 82, "logoSurface": "dark", "url": "https://sindpanific.associativismo-firjan.com.br/" },
+    { "id": "mast", "name": "Museu de Astronomia e Ciências Afins", "logo": "MAST_Cor-1-890x1024.png", "width": 890, "height": 1024, "url": "https://www.gov.br/mast/pt-br" },
+    { "id": "seeduc", "name": "Secretaria de Estado de Educação do Rio de Janeiro", "logo": "images-1-1.png", "width": 511, "height": 98, "url": "https://www.seeduc.rj.gov.br/" },
+    { "id": "pesagro", "name": "Pesagro-Rio", "logo": "images-2.png", "width": 515, "height": 98, "url": "https://www.rj.gov.br/pesagro/" },
+    { "id": "sindicato-rural", "name": "Sindicato Rural de Itaboraí", "logo": "SIND-ITB-RURAL-1.png", "width": 182, "height": 51 },
+    { "id": "mec", "name": "Ministério da Educação", "logo": "mec.png", "width": 774, "height": 232, "url": "https://www.gov.br/mec/pt-br" },
+    { "id": "firjan-senai", "name": "Firjan SENAI", "logo": "FirjanSENAI-01.png", "width": 360, "height": 360, "url": "https://www.firjansenai.com.br/" },
+    { "id": "faetec", "name": "Fundação de Apoio à Escola Técnica do Estado do Rio de Janeiro", "logo": "faetc-1024x289.jpg", "width": 1024, "height": 289, "url": "https://www.faetec.rj.gov.br/" },
+    { "id": "biohope", "name": "Biohope", "logo": "biohope.jpeg", "width": 300, "height": 112 },
+    { "id": "cecierj", "name": "Fundação CECIERJ", "logo": "cecierk.jpeg", "width": 252, "height": 148, "url": "https://cecierj.edu.br/" },
+    { "id": "cetene", "name": "Centro de Tecnologias Estratégicas do Nordeste", "logo": "cetene.jpeg", "width": 468, "height": 230, "url": "https://www.gov.br/cetene/pt-br" },
+    { "id": "geobrasilis", "name": "Geo Brasilis", "logo": "geobrasilis.jpeg", "width": 533, "height": 269 },
+    { "id": "iff", "name": "Instituto Federal Fluminense", "logo": "iff.jpeg", "width": 150, "height": 150 },
+    { "id": "mcti", "name": "Ministério da Ciência, Tecnologia e Inovação", "logo": "mcti.jpeg", "width": 312, "height": 162, "url": "https://www.gov.br/mcti/pt-br" },
+    { "id": "rio-metropole", "name": "Instituto Rio Metrópole", "logo": "riometropoce.jpeg", "width": 960, "height": 679 },
+    { "id": "setrab", "name": "Secretaria de Estado de Trabalho e Renda do Rio de Janeiro", "logo": "setrab.jpeg", "width": 225, "height": 225, "url": "https://www.rj.gov.br/trabalho/" }
+  ]
+}
