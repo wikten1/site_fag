@@ -5,7 +5,7 @@ module.exports = [
     route: 'index.html', template: 'index.html', active: 'home', footer: 'institutional',
     title: 'FAG — Educação que conecta oportunidades',
     description: 'Conheça a FAG: educação profissional e tecnológica, amparo à pesquisa, políticas sociais e desenvolvimento socioeconômico em Tanguá.',
-    styles: ['components/header', 'pages/home', 'components/institutional', 'components/courses', 'components/programs', 'components/news', 'components/attendance', 'components/quick-access', 'components/footer'],
+    styles: ['components/header', 'components/indicator', 'pages/home', 'components/institutional', 'components/courses', 'components/programs', 'components/news', 'components/attendance', 'components/quick-access', 'components/footer'],
     scripts: ['components/header', 'pages/home', 'components/footer', 'components/institutional', 'components/attendance', 'components/courses', 'shared/news-model', 'data/news', 'components/news-interactions', 'pages/news', 'components/quick-access'],
     extra: '<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>'
   },

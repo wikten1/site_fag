@@ -24,7 +24,7 @@
 .attendance-guide::before { content: ''; position: absolute; left: 0; top: 0; width: 32px; height: 1px; background: var(--lime); opacity: .65; }
 .attendance-copy { min-width: 0; }
 .attendance-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 24px; color: var(--lime-bright); font: 500 10px/1.6 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
-.attendance-dot { width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: var(--lime-bright); box-shadow: 0 0 0 5px rgba(165,226,63,.08); }
+.attendance-dot { --indicator-color: var(--lime-bright); --indicator-ring: 165,226,63; --indicator-glow: 165,226,63; }
 .attendance-title { margin: 0; color: var(--surface); font-size: clamp(2.25rem, 3.7vw, 3.25rem); font-weight: 400; line-height: 1.06; letter-spacing: -.045em; }
 .attendance-description { max-width: 47ch; margin: 22px 0 28px; color: var(--line); font-size: 15px; line-height: 1.75; }
 .attendance-cta { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 52px; max-width: 100%; padding: 14px 24px; color: var(--forest); font-size: 12px; font-weight: 700; line-height: 1.6; text-decoration: none; transition: transform 180ms ease; }
