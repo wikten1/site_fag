@@ -76,7 +76,7 @@ async function readJSON(req) {
 function createApp({ mailer = null, root = ROOT, origin = '', rateLimit = 5, windowMs = 600000 } = {}) {
   const rates = new Map();
   const submissions = new Map();
-  const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ico': 'image/x-icon' };
+  const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ico': 'image/x-icon', '.pdf': 'application/pdf' };
   const server = http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -130,7 +130,7 @@ function createApp({ mailer = null, root = ROOT, origin = '', rateLimit = 5, win
     }
     if (!['GET', 'HEAD'].includes(req.method)) return json(res, 405, { ok: false });
     const name = pathname === '/' ? 'index.html' : pathname.slice(1);
-    const allowed = configuredPages.has(name) || /^(?:[^/\\]+\.html|noticias\/[^/\\]+\.html|sitemap\.xml|robots\.txt|assets\/(?:css|js|images|fonts)\/.+\.(?:css|js|png|jpe?g|webp|svg|woff2?|ico))$/i.test(name);
+    const allowed = configuredPages.has(name) || /^(?:[^/\\]+\.html|noticias\/[^/\\]+\.html|sitemap\.xml|robots\.txt|assets\/documents\/[a-z0-9][a-z0-9._/-]*\.pdf|assets\/(?:css|js|images|fonts)\/.+\.(?:css|js|png|jpe?g|webp|svg|woff2?|ico))$/i.test(name);
     if (!allowed || name.split(/[\/\\]/).some(part => part.startsWith('.'))) return json(res, 404, { ok: false });
     try {
       const filename = await fs.realpath(path.join(root, name));

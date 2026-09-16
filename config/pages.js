@@ -33,6 +33,13 @@ module.exports = [
     scripts: ['components/header', 'pages/programs']
   },
   {
+    route: 'inscricoes-e-selecoes.html', template: 'inscricoes-e-selecoes.html', active: 'opportunities', footer: 'editorial',
+    title: 'Inscrições e Seleções — FAG',
+    description: 'Acompanhe inscrições, processos seletivos, prazos, documentos e resultados da FAG. Consulte oportunidades e orientações para participar.',
+    styles: ['components/header', 'pages/editorial', 'pages/opportunities'],
+    scripts: ['components/header', 'shared/opportunities-model', 'pages/opportunities']
+  },
+  {
     route: 'cursos.html', template: 'cursos.html', header: 'catalog', footer: 'editorial',
     title: 'Cursos e oportunidades — FAG',
     description: 'Conheça os cursos técnicos e a formação complementar da FAG, em Tanguá.',

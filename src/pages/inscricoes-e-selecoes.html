@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{{head}}
+</head>
+<body class="editorial-page opportunities-page">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+{{header}}
+  <main id="conteudo" tabindex="-1">
+    <div class="editorial-shell">
+      <nav class="editorial-breadcrumb aura-view-reveal" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><span aria-current="page">Inscrições e Seleções</span></li></ol></nav>
+      <section class="op-hero" aria-labelledby="op-title" data-page-search>
+        <div class="op-hero-copy">
+          <p class="op-eyebrow aura-view-reveal"><span aria-hidden="true"></span>Oportunidades · FAG</p>
+          <h1 class="aura-view-reveal" id="op-title">Inscrições<br><span>e Seleções</span></h1>
+          <p class="op-lead aura-view-reveal">Acompanhe processos seletivos, inscrições para cursos, programas, projetos e outras oportunidades disponibilizadas pela FAG.</p>
+          <p class="op-hero-note aura-view-reveal">Consulte os prazos, documentos e instruções de cada oportunidade antes de realizar sua inscrição.</p>
+          <div class="op-hero-links aura-view-reveal"><a class="op-text-link" href="#em-andamento">Consultar oportunidades <span aria-hidden="true">↓</span></a><a class="op-text-link" href="#como-participar">Como participar <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="op-visual aura-view-reveal" aria-hidden="true">
+          <div class="op-orbit"></div><span class="op-visual-coordinate">FAG / EDUCAÇÃO & FUTURO</span>
+          <div class="op-visual-sheet op-visual-sheet--back"></div>
+          <div class="op-visual-sheet">
+            <div class="op-sheet-top"><svg viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8M8 16h5"/></svg><span>CENTRAL DE<br>OPORTUNIDADES</span><span class="op-sheet-mark">↗</span></div>
+            <p>Seu próximo passo<br>começa por aqui.</p>
+            <div class="op-sheet-line"><span>01</span><span>Encontre uma oportunidade</span><span>↗</span></div>
+            <div class="op-sheet-line"><span>02</span><span>Confira os documentos</span><span>↗</span></div>
+            <div class="op-sheet-line"><span>03</span><span>Acompanhe cada etapa</span><span>↗</span></div>
+            <div class="op-sheet-footer"><span class="op-sheet-dot"></span>Informação que abre caminhos</div>
+          </div>
+          <div class="op-visual-chip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18m-14 5h3m4 0h3"/></svg><div>Cada etapa, no seu tempo.<small>Consulte sempre o edital.</small></div></div>
+        </div>
+      </section>
+      <section class="op-overview aura-view-reveal" aria-label="Resumo das oportunidades publicadas">
+        <div class="op-overview-main"><span class="op-eyebrow">Nesta central</span><p><strong data-op-count="active">{{opportunitiesCount}}</strong><span>processos<br>em andamento</span></p></div>
+        <dl><div><dt><span aria-hidden="true">●</span> Inscrições abertas</dt><dd data-op-count="open">{{openCount}}</dd></div><div><dt><span aria-hidden="true">◷</span> Próximas do encerramento</dt><dd data-op-count="urgent">{{urgentCount}}</dd></div><div><dt><span aria-hidden="true">✓</span> Com resultado</dt><dd data-op-count="result">{{resultCount}}</dd></div><div><dt><span aria-hidden="true">↶</span> No histórico</dt><dd data-op-count="archive">{{historyCount}}</dd></div></dl>
+      </section>
+
+      <section class="op-directory" id="em-andamento" aria-labelledby="active-title" tabindex="-1">
+        <header class="op-section-head aura-view-reveal"><div><p class="op-eyebrow">Encontre seu caminho</p><h2 id="active-title">Em andamento</h2></div><p>Confira as oportunidades com inscrições, etapas ou resultados atualmente ativos.</p></header>
+        {{opportunitiesFilters}}
+        <noscript><p class="op-noscript">Todas as oportunidades estão disponíveis abaixo. Para buscar, use a opção “Localizar” do seu navegador.</p></noscript>
+        <div class="op-empty op-no-results" id="op-no-results" hidden><span class="op-empty-icon" aria-hidden="true">⌕</span><h3>Nenhuma oportunidade encontrada</h3><p>Tente alterar os filtros ou realizar uma nova busca.</p><button class="op-text-link" type="button" data-clear-filters>Limpar filtros <span aria-hidden="true">↻</span></button></div>
+        <div id="op-active" class="op-grid">{{opportunitiesActive}}</div>
+        <div class="op-empty aura-view-reveal" id="op-active-empty" {{opportunitiesEmpty}}>
+          <div class="op-empty-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18m-11 5h4"/></svg><span>○</span></div>
+          <div><p class="op-eyebrow">Novos caminhos virão</p><h3>Nenhuma inscrição aberta no momento</h3><p>Não há processos ativos publicados nesta central. Novas oportunidades serão disponibilizadas aqui assim que forem abertas.</p><a class="op-text-link" href="#historico">Consulte o histórico de seleções <span aria-hidden="true">↓</span></a></div>
+          <span class="op-empty-corner" aria-hidden="true">↗</span>
+        </div>
+        <p class="op-filter-empty" id="op-active-filter-empty" hidden>Nenhum processo em andamento corresponde aos filtros. Confira o histórico abaixo.</p>
+      </section>
+
+      <section class="op-history" id="historico" aria-labelledby="history-title" tabindex="-1">
+        <header class="op-section-head aura-view-reveal"><div><p class="op-eyebrow">Transparência e consulta</p><h2 id="history-title">Encerradas / Histórico</h2></div><p>Consulte processos seletivos e inscrições publicados anteriormente pela FAG.</p></header>
+        <div id="op-history-list">{{opportunitiesHistory}}</div>
+        <div class="op-history-empty" id="op-history-empty" {{historyEmpty}}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v14H3zM2 3h20v4H2zM9 11h6"/></svg><div><h3>O histórico será reunido aqui.</h3><p>Ainda não há processos anteriores publicados nesta central. Para informações sobre seleções passadas, <a href="contato.html">fale com a FAG</a>.</p></div></div>
+        <p class="op-filter-empty" id="op-history-filter-empty" hidden>Nenhum processo encerrado corresponde aos filtros selecionados.</p>
+      </section>
+    </div>
+
+    <section class="op-guide" id="como-participar" aria-labelledby="guide-title" tabindex="-1" data-page-search>
+      <div class="editorial-shell">
+        <header class="op-section-head aura-view-reveal"><div><p class="op-eyebrow">Da consulta à inscrição</p><h2 id="guide-title">Como participar</h2></div><p>Três passos para seguir com tranquilidade.<br>O edital orienta cada etapa do processo.</p></header>
+        <ol class="op-guide-steps" role="list">
+          <li class="aura-view-reveal"><span class="op-guide-number">01 <span aria-hidden="true">↗</span></span><h3>Encontre uma<br>oportunidade</h3><p>Confira o público, os requisitos e o período de inscrição. Escolha a oportunidade que combina com o seu momento.</p></li>
+          <li class="aura-view-reveal"><span class="op-guide-number">02 <span aria-hidden="true">↗</span></span><h3>Consulte<br>o edital</h3><p>Leia as regras, a documentação necessária e o cronograma. Observe as orientações específicas de cada seleção.</p></li>
+          <li class="aura-view-reveal"><span class="op-guide-number">03 <span aria-hidden="true">↗</span></span><h3>Realize<br>sua inscrição</h3><p>Utilize somente o canal oficial indicado na oportunidade. Guarde seu comprovante e acompanhe as próximas etapas.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="editorial-shell">
+      <aside class="op-notice aura-view-reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.01"/></svg><div><h2>Antes de se inscrever</h2><p>Verifique sempre o edital e os documentos oficiais da oportunidade. Datas, critérios e etapas podem variar de acordo com cada processo.</p></div><a class="op-text-link" href="contato.html">Precisa de ajuda? <span aria-hidden="true">↗</span></a></aside>
+      <section class="op-related aura-view-reveal" aria-labelledby="related-title" data-page-search><div><p class="op-eyebrow">Continue explorando</p><h2 id="related-title">Não encontrou uma<br>oportunidade para você?</h2><p>Conheça os cursos, programas e projetos da FAG ou acompanhe nossas notícias para descobrir novas possibilidades.</p></div><nav aria-label="Outros caminhos na FAG"><a class="op-button" href="cursos.html">Conhecer os cursos <span aria-hidden="true">→</span></a><a class="op-text-link" href="programas-e-projetos.html">Ver programas e projetos <span aria-hidden="true">↗</span></a><a class="op-text-link" href="noticias.html">Acompanhar notícias <span aria-hidden="true">↗</span></a></nav></section>
+    </div>
+  </main>
+{{footer}}
+  <script type="application/json" id="opportunities-data">{{opportunitiesData}}</script>
+</body>
+</html>

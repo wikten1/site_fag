@@ -7,7 +7,7 @@
   const button = navbar.querySelector('.mobile-menu-btn');
   const menu = document.getElementById('nav-links');
   const panels = [...utility.querySelectorAll('details')];
-  const mobile = matchMedia('(max-width: 820px)');
+  const mobile = matchMedia('(max-width: 1120px)');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const motion = document.getElementById('utility-motion');
   const storageKey = 'fag-hero-motion-paused';

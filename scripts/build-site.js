@@ -13,6 +13,8 @@ const partners = require('../content/partners.json');
 const { renderPartners } = require('../src/components/partners');
 const programs = require('../content/programs.json');
 const { renderPrograms } = require('../src/components/programs');
+const opportunities = require('../content/opportunities.json');
+const { renderOpportunities } = require('../src/components/opportunities');
 
 function build() {
   const editorial = require('./build-news');
@@ -32,6 +34,7 @@ function build() {
       scripts: '', newsFeed,
       partnerGrid: page.active === 'partners' ? renderPartners(partners.items, prefix) : '',
       ...(page.active === 'programs' ? renderPrograms(programs, prefix) : {}),
+      ...(page.active === 'opportunities' ? renderOpportunities(opportunities) : {}),
       courseCards: C.courses.map((course, index) => C.card(course, index, prefix)).join('\n'),
       catalogCards: C.courses.map((course, index) => C.card(course, index, prefix, true)).join('\n'),
       courseCount: String(C.courses.length),
