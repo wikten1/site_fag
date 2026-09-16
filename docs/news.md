@@ -19,13 +19,17 @@ Edite **`content/news.json`** e execute:
 node scripts/build-news.js
 ```
 
-Esse comando executa o build completo, sem pacotes adicionais ou acesso à rede: páginas institucionais, arquivo, artigos e `assets/js/data/news.js`, contendo apenas as quatro prévias da home. Não edite esses arquivos gerados manualmente. O layout e os componentes ficam em `src/`, `scripts/build-news.js`, `assets/js/shared/news-model.js`, `assets/css/components/news.css` e `assets/css/pages/editorial.css`.
+Esse comando executa o build completo, sem pacotes adicionais ou acesso à rede: páginas institucionais, arquivo, artigos, `assets/js/data/news.js` (as quatro prévias da home) e `assets/js/data/news-archive.js` (metadados do acervo publicado para busca). Não edite esses arquivos gerados manualmente. O layout e os componentes ficam em `src/`, `scripts/build-news.js`, `assets/js/shared/news-model.js`, `assets/css/components/news.css` e `assets/css/pages/editorial.css`.
 
 `assets/js/shared/news-model.js` fornece o mesmo componente de card e as mesmas regras de validação/seleção ao gerador e à home. Não há três cadastros de notícia: as saídas HTML são artefatos gerados a partir de uma única fonte. Um CMS futuro deve exportar esse contrato e executar o build no processo de publicação. Não há backend administrativo nem sincronização automática com o WordPress antigo.
 
-O arquivo usa paginação nativa com seis cards por página e um destaque adicional opcional na primeira página. Só os HTMLs e imagens visitados são carregados; não é baixado todo o histórico nem o texto de outras matérias. Breadcrumbs, paginação, menu mobile e leitura funcionam sem JavaScript. O carregamento é o nativo do navegador, sem estado artificial de espera. O HTML é entregue já preenchido, eliminando a dependência de requisições de feed em tempo de navegação. A home mantém mensagem de erro se seu feed local não carregar.
+O arquivo usa paginação nativa com seis cards por página e um destaque adicional opcional na primeira página. Breadcrumbs, paginação, menu mobile e leitura funcionam sem JavaScript. O HTML é entregue já preenchido. O índice de busca inclui metadados de todas as matérias publicadas, sem seus corpos ou galerias, e é carregado somente nas páginas de arquivo. A home mantém mensagem de erro se seu feed local não carregar.
 
-As categorias reais recuperadas são `notícias` e, em alguns casos, a categoria genérica `Uncategorized`. A apresentação normaliza a capitalização para **Notícias** e omite o marcador sem classificação. Não foram criadas categorias públicas de Educação/Eventos/Ciência. Com nove matérias e uma categoria útil, não há filtros nem busca específicos; portanto, não há estados vazios de filtros inexistentes.
+As categorias reais recuperadas são `notícias` e, em alguns casos, a categoria genérica `Uncategorized`. A apresentação normaliza a capitalização para **Notícias** e omite o marcador sem classificação. Os filtros são explicitamente **por assunto**, usando os `topics` já cadastrados: Educação, Ciência e tecnologia, Formação profissional e Cooperação. Apenas assuntos com pelo menos duas matérias aparecem.
+
+A busca combina título, resumo, categoria e assuntos, ignora acentos e maiúsculas e pesquisa todo o acervo, incluindo o destaque e páginas seguintes. Busca e assunto podem ser combinados; os parâmetros `q` e `assunto` preservam o contexto ao recarregar ou compartilhar o endereço. Os resultados mostram contagem, estado vazio e ação de limpar. Acima de seis resultados, o botão de carregar mais acrescenta cards e move o foco para o primeiro novo link sem rolar a página. Ao limpar a pesquisa, a paginação original retorna. Os controles só aparecem quando seu índice e comportamento estão disponíveis.
+
+As matérias exibem resumo, tempo estimado (200 palavras por minuto do corpo), compartilhamento explícito por WhatsApp e cópia do endereço canônico. A cópia anuncia sucesso apenas após confirmação do navegador; se indisponível, apresenta o endereço selecionável. Uma linha fina acompanha o progresso até o final do texto. Entrada de cards, zoom e hover respeitam movimento reduzido e a preferência de pausar animações do cabeçalho.
 
 ## Contrato de publicação
 
@@ -67,7 +71,7 @@ Títulos, datas e texto foram preservados. Não foram corrigidas silenciosamente
 
 `scripts/migrate-news.py` documenta a importação inicial dos IDs revisados a partir de um export da API pública. Requer Pillow e curl. **Não é o comando de publicação cotidiana**: executá-lo novamente substitui o cadastro pelos registros da migração. `scripts/news-photo-review.json` registra a revisão visual das imagens e seus textos alternativos.
 
-A especificação completa “6. Páginas internas → Notícias” não estava nos arquivos disponíveis. A implementação segue os requisitos correspondentes fornecidos na solicitação, o `design_system.html` e os componentes existentes na home.
+A apresentação segue o briefing de redesign de Notícias e `docs/design_system.html`: abertura compacta, título leve, detalhe orbital discreto, destaque assimétrico com superfície verde profunda, busca em superfície clara e cards com os recortes geométricos da identidade. Cabeçalho, rodapé, conteúdo original e fotografias institucionais foram preservados.
 
 ## Verificação
 
@@ -78,4 +82,4 @@ python tests/news-check.py
 python tests/news-header-check.py
 ```
 
-O teste de navegador requer Playwright Python e Chrome. `--screenshots` gera capturas na pasta `tests`. Cobertura: modelo com 200 matérias/34 páginas, paginação sem perdas ou duplicações, títulos/datas/textos das nove páginas, links internos, imagens, home, teclado, foco, menu mobile, seis larguras de 320 a 1440 px, texto a 200%, movimento reduzido, fallback e leitura/paginação sem JavaScript. Os pares de texto e superfícies claros mantêm os contrastes AA do módulo anterior.
+O teste de navegador requer Playwright Python e Chrome. `--screenshots` gera capturas em `tests/artifacts`. Cobertura: modelo com 200 matérias/34 páginas, paginação sem perdas ou duplicações, títulos/datas/textos das nove páginas, busca sem acentos entre páginas, filtros combinados, estado vazio, parâmetros de URL, carregamento adicional, compartilhamento e falha de cópia, links internos, imagens, home, teclado, foco, menu mobile, seis larguras de 320 a 1440 px, texto a 200%, movimento reduzido, fallback e leitura/paginação sem JavaScript.

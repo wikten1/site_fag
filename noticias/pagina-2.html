@@ -23,6 +23,8 @@
 <link rel="stylesheet" href="../assets/css/pages/editorial.css">
 <link rel="stylesheet" href="../assets/css/components/header.css">
 <script src="../assets/js/components/header.js" defer></script>
+<script src="../assets/js/shared/news-model.js" defer></script>
+<script src="../assets/js/data/news-archive.js" defer></script>
 <script src="../assets/js/components/news-interactions.js" defer></script>
 <link rel="prev" href="https://fag.tangua.rj.gov.br/noticias.html"></head>
 <body class="editorial-page"><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -81,9 +83,16 @@
   </nav>
 
 <main id="conteudo" tabindex="-1"><div class="editorial-shell">
-    <header class="editorial-opening"><nav class="editorial-breadcrumb" aria-label="Você está aqui"><ol><li><a href="../index.html">Início</a></li><li><span aria-current="page">Notícias</span></li></ol></nav><div class="editorial-opening-grid"><div><p class="news-eyebrow"><span class="news-marker" aria-hidden="true"></span>Atualizações · FAG</p><h1>Notícias<span class="editorial-title-dot" aria-hidden="true">.</span></h1></div>
-    <p class="editorial-intro">Acontecimentos, projetos e iniciativas que aproximam educação, ciência e comunidade. Acompanhe a FAG e as histórias que fazem parte da nossa trajetória.</p></div></header>
-    <section class="archive-list" aria-labelledby="todas-as-noticias"><header class="archive-list-head"><div><p class="editorial-label">Arquivo editorial</p><h2 id="todas-as-noticias" tabindex="-1">Todas as notícias</h2></div><p>9 publicações <span aria-hidden="true">/</span> Página 2 de 2</p></header>
+    <header class="editorial-opening"><nav class="editorial-breadcrumb" aria-label="Você está aqui"><ol><li><a href="../index.html">Início</a></li><li><span aria-current="page">Notícias</span></li></ol></nav><div class="editorial-opening-grid"><div><p class="news-eyebrow"><span class="news-marker" aria-hidden="true"></span>FAG · Notícias</p><h1>Notícias<span class="editorial-title-dot" aria-hidden="true">.</span></h1></div>
+    <p class="editorial-intro">Acompanhe as notícias, projetos e iniciativas da FAG. Histórias que conectam <strong>educação, ciência e comunidade.</strong></p></div><div class="editorial-orbit" aria-hidden="true"></div></header>
+    <section class="archive-list" aria-labelledby="todas-as-noticias" data-archive-prefix="../"><header class="archive-list-head"><div><p class="editorial-label">O que acontece na FAG</p><h2 id="todas-as-noticias" tabindex="-1">Todas as notícias</h2></div><p class="archive-count">9 publicações <span aria-hidden="true">/</span> Página 2 de 2</p></header>
+    <div class="archive-explorer" hidden>
+    <form class="archive-search" role="search" aria-label="Buscar no acervo de notícias">
+      <label for="news-search">Encontre uma história</label>
+      <div class="archive-search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="news-search" name="q" type="search" placeholder="Buscar notícias" maxlength="120" autocomplete="off"><button type="button" class="archive-search-clear" aria-label="Limpar busca" hidden>×</button><button class="archive-search-submit" type="submit">Buscar</button></div>
+    </form>
+    <div class="archive-topics"><span id="news-topics-label">Explore por assunto</span><div class="archive-chips" role="group" aria-labelledby="news-topics-label"><button type="button" data-topic="" aria-pressed="true">Todas</button><button type="button" data-topic="educacao" aria-pressed="false">Educação</button><button type="button" data-topic="ciencia" aria-pressed="false">Ciência e tecnologia</button><button type="button" data-topic="formacao-profissional" aria-pressed="false">Formação profissional</button><button type="button" data-topic="cooperacao" aria-pressed="false">Cooperação</button></div></div>
+  </div><p class="archive-feedback" role="status" aria-live="polite" aria-atomic="true" hidden></p>
     <div class="editorial-grid"><article class="news-card" data-news-id="novas-instalacoes-faetec"><a class="news-card-link" href="../noticias/novas-instalacoes-da-faetec-em-tangua-um-marco-na-qualificacao-tecnica-profissional-da-regiao.html" aria-labelledby="archive-novas-instalacoes-faetec">
       <figure class="news-figure news-figure--document">
       <div class="news-image-frame"><img src="../assets/images/noticias/migrada-512-0-600.webp" srcset="../assets/images/noticias/migrada-512-0-400.webp 400w, ../assets/images/noticias/migrada-512-0-600.webp 600w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1024px) 46vw, 397px" width="600" height="300" alt="Registro institucional com fotografias da cerimônia de entrega das instalações da FAETEC em Tanguá." loading="lazy" decoding="async" data-fallback="../assets/images/noticias/educacao-profissional-800.webp"></div>
@@ -95,10 +104,12 @@
       <figcaption class="news-caption">Registro institucional publicado com a matéria.</figcaption></figure><div class="news-body"><p class="news-meta"><time datetime="2024-06-05" aria-label="5 de junho de 2024">05 JUN 2024</time><span aria-hidden="true">·</span><span class="news-category">Notícias</span></p>
       <h3 class="news-card-title" id="archive-capacitacao-servidores">Capacitação dos Servidores</h3>
       <p class="news-excerpt">Visando a implementação de novos serviços digitais na Administração Pública, a FAG está capacitando os servidores e colaboradores da Prefeitura de Tanguá através de cursos de informática. Esta iniciativa, realizada em…</p><span class="news-read" aria-hidden="true"><span>Ler notícia</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a></article></div>
+    <div class="archive-empty" hidden><span class="archive-empty-mark" aria-hidden="true">↗</span><h3>Nenhuma notícia encontrada</h3><p>Tente utilizar outro termo ou alterar os filtros selecionados.</p><button type="button" class="news-archive-link" data-reset-news>Limpar filtros</button></div>
+    <div class="archive-more" hidden><button type="button" class="news-archive-link">Carregar mais notícias <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div>
     <nav class="editorial-pagination" aria-label="Paginação de notícias">
     <a class="pagination-direction" rel="prev" href="../noticias.html#todas-as-noticias">← <span>Anterior</span></a>
     <div class="pagination-numbers"><a href="../noticias.html#todas-as-noticias" aria-label="Página 1">1</a><span class="pagination-current" aria-current="page" aria-label="Página 2, atual">2</span></div>
-    <span class="pagination-direction" aria-disabled="true"><span>Próxima</span> →</span></nav></section></div></main>
+    <span class="pagination-direction" aria-disabled="true"><span>Próxima</span> →</span></nav></section><aside class="editorial-invitation"><div><p class="editorial-label">Conheça de perto</p><h2>Histórias que continuam em nossas iniciativas.</h2><p>Explore os programas e projetos que conectam a FAG à comunidade.</p></div><a class="news-archive-link" href="../programas-e-projetos.html">Conhecer as iniciativas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></aside></div></main>
 <footer class="editorial-footer"><div class="editorial-shell"><a href="../index.html" class="editorial-footer-brand" aria-label="FAG — início"><img src="../assets/images/brand/logo.webp" width="1828" height="860" alt="FAG"></a><p>Precisão técnica.<br><span>Presença humana.</span></p><nav aria-label="Navegação do rodapé"><a href="../noticias.html">Notícias</a><a href="../index.html">Voltar ao início <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></nav></div></footer>
 
 </body></html>

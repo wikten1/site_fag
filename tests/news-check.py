@@ -54,6 +54,43 @@ try:
         page.locator('.editorial-pagination a[rel="prev"]').click()
         assert 'noticias.html' in page.url
 
+        # Search covers the entire archive, including the feature and later pages.
+        search = page.locator('#news-search')
+        search.fill('capacitacao')
+        page.locator('.archive-search-submit').click()
+        assert page.locator('.archive-list .news-card').count()==1
+        assert page.locator('.archive-list .news-card').first.get_attribute('data-news-id')=='capacitacao-servidores'
+        assert page.locator('.editorial-pagination').is_hidden()
+        assert 'q=capacitacao' in page.url
+        page.reload()
+        assert search.input_value()=='capacitacao'
+        assert page.locator('.archive-list .news-card').count()==1
+        page.locator('[data-topic="ciencia"]').click()
+        assert page.locator('.archive-empty').is_visible()
+        assert page.locator('[data-topic="ciencia"]').get_attribute('aria-pressed')=='true'
+        page.locator('[data-reset-news]').click()
+        assert search.evaluate('(e)=>e===document.activeElement')
+        assert page.locator('.archive-list .news-card').count()==6
+        assert page.locator('.editorial-pagination').is_visible()
+        page.locator('[data-topic="educacao"]').click()
+        assert page.locator('.archive-list .news-card').count()==5
+        page.locator('[data-topic=""]').click()
+        search.fill('noticias')
+        page.locator('.archive-search-submit').click()
+        assert page.locator('.archive-list .news-card').count()==6
+        page.locator('.archive-more button').click()
+        page.wait_for_function('document.querySelectorAll(".archive-list .news-card").length===9')
+        assert page.locator('.archive-more').is_hidden()
+        result_ids=page.locator('.archive-list .news-card').evaluate_all('(nodes)=>nodes.map(n=>n.dataset.newsId)')
+        assert len(set(result_ids))==len(items)
+        assert page.locator('.archive-list .news-card-link').nth(6).evaluate('(e)=>e===document.activeElement')
+        page.locator('.archive-search-clear').click()
+        search.fill('<img src=x onerror=alert(1)>')
+        page.locator('.archive-search-submit').click()
+        assert page.locator('.archive-empty').is_visible()
+        assert page.locator('.archive-feedback img').count()==0
+        page.locator('[data-reset-news]').click()
+
         # Original titles/dates/content, local reading graph and working photographs.
         for item in items:
             response=page.goto(base+'noticias/'+item['slug']+'.html')
@@ -107,11 +144,24 @@ try:
         card.focus()
         assert card.evaluate('(e)=>getComputedStyle(e).outlineWidth')=='3px'
         page.keyboard.press('Tab')
-        assert page.locator('.news-card-link').nth(1).evaluate('(e)=>e===document.activeElement')
+        assert page.locator('#news-search').evaluate('(e)=>e===document.activeElement')
         assert page.locator('.nav-link.is-active').get_attribute('aria-current')=='page'
         page.locator('main img').first.evaluate('(i)=>{i.removeAttribute("srcset");i.src="/missing.webp"}')
         page.wait_for_function('document.querySelector("main img").dataset.fallbackUsed === "true"')
         assert page.locator('main .news-caption').first.inner_text()=='Ilustração institucional'
+        page.goto(base+'noticias/'+feature['slug']+'.html')
+        page.evaluate('Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:async text=>{window.copiedURL=text}}})')
+        page.locator('[data-copy-link]').click()
+        assert page.locator('.story-copy-status').inner_text()=='Link copiado'
+        assert page.evaluate('window.copiedURL').endswith(feature['slug']+'.html')
+        page.evaluate('Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:async()=>{throw new Error("denied")}}})')
+        page.locator('[data-copy-link]').click()
+        assert page.locator('.story-copy-status a').is_visible()
+        assert page.locator('.story-progress').is_visible()
+        page.locator('.story-share').scroll_into_view_if_needed()
+        page.wait_for_function('document.querySelector(".story-progress span").style.transform==="scaleX(1)"')
+        assert page.locator('.story-reading-time').inner_text().startswith('2 min')
+        assert page.locator('.news-card').first.evaluate('(e)=>getComputedStyle(e).animationName')=='none'
         nojs=browser.new_page(java_script_enabled=False)
         nojs.goto(base+'noticias.html')
         nojs.locator('.news-card-link').first.click()
@@ -122,6 +172,6 @@ try:
         nojs.close()
         assert not errors,errors
         browser.close()
-        print('PASS: home / archive / article / related; all 9 stories; pagination; 6 widths; text zoom; keyboard; no-JS; image fallback.')
+        print('PASS: home / archive / article / related; all 9 stories; search, topics, URL state, empty results, load more; sharing; pagination; 6 widths; text zoom; keyboard; no-JS; reduced motion; image fallback.')
 finally:
     server.shutdown()
