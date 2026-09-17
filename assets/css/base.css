@@ -10,6 +10,7 @@ button, a, [tabindex] { scroll-margin-block: 32px; }
 ::selection { background: var(--forest); color: var(--cream); }
 svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 [hidden] { display: none !important; }
+.editorial-footer nav { flex-wrap: wrap; }
 
 .skip-link { position: fixed; top: 8px; left: 16px; z-index: 200; max-width: calc(100% - 32px); padding: 14px 20px; background: var(--forest); color: var(--cream); transform: translateY(-160%); }
 .skip-link:focus { transform: none; }

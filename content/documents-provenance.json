@@ -1,0 +1,125 @@
+{
+  "checkedAt": "2026-09-17",
+  "records": [
+    {
+      "id": "edital-05-2026",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2026/08/Edital-Programa-Mulheres-que-Inspiram-10082026-Oficial.1.pdf",
+      "bytes": 475274,
+      "sha256": "a82caf75584c214e88538b5802acfeaf9c126d5135cb1be47a4b1dc33c49b239"
+    },
+    {
+      "id": "prorrogacao-05-2026",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2026/08/Errata-edital-Simplificado-FAG-N%C2%B0-05-26-PRORROGACAO-DAS-INSCRICOES.pdf",
+      "bytes": 245946,
+      "sha256": "9be32a51fbf24e26330d639487c391fa1f79b9cadb0580153c212565df25898a"
+    },
+    {
+      "id": "edital-01-2026",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2026/01/Edital-FAG-01-2026-Coordenadores-Tecnicos.pdf",
+      "bytes": 348166,
+      "sha256": "a722d96e0829169a2926cb36a77856ecd03efe9d4edd79a957a0b99be4cb2911"
+    },
+    {
+      "id": "prorrogacao-inscricoes-04-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2026/01/Errata-de-prorrogacao-das-inscricoes.pdf",
+      "bytes": 346463,
+      "sha256": "df1f2723c53efadcd861bc38fd14c4cd7a29909e19b9262a7b1333b30407c876"
+    },
+    {
+      "id": "prorrogacao-datas-04-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2026/01/Errata-prorrogacao-das-datas-15-01-26.pdf",
+      "bytes": 170263,
+      "sha256": "7a38676fa751265eed519f7d5ac5655983c1ef6c2133e87ed4999acfc29e9dc5"
+    },
+    {
+      "id": "resultado-04-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2026/01/Resultado-preliminar-Edital-FAG-04-2025-Diario-Oficial-2.pdf",
+      "bytes": 192626,
+      "sha256": "1fbaac3bf5d297715a69f750ae2467843cad2c9a0a1383228c146d0bda5c0f2a"
+    },
+    {
+      "id": "edital-04-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/12/publicacao_Edital_n4_FAG_PRONATEC_2025.pdf",
+      "bytes": 1049894,
+      "sha256": "1887958f5ab8d7291e6f6dc2353c5097396ba2cb10126d2e1bc34654c68f6681"
+    },
+    {
+      "id": "edital-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/06/Edital-FAG-No03-25-PROFISSIONAIS-PRONATEC-1.pdf",
+      "bytes": 673933,
+      "sha256": "41b0faed62715356aa7c0e7250cd8487e04bbbea412a1870bc4cc008522f66d3"
+    },
+    {
+      "id": "resultado-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/08/resultado_final_edital_03_25.pdf",
+      "bytes": 304552,
+      "sha256": "6819d63313bd9cfef587c247447eab7353c22c3aa71da38fcf195fa1cac40d88"
+    },
+    {
+      "id": "errata-resultado-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/08/errata_da_publicacao.pdf",
+      "bytes": 571078,
+      "sha256": "327f850b8e54e8e9d1d9439240fb1e3dcd2e0dc96659fececac963f04493bb28"
+    },
+    {
+      "id": "convocacao-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/08/convocacao_edital_n03_25.pdf",
+      "bytes": 197664,
+      "sha256": "d3c1bed50ebe2d2ad8ba32b7a10359b3bde89b94b899289748214f24a7d74065"
+    },
+    {
+      "id": "errata-01-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/08/Errata-no-01.pdf",
+      "bytes": 79206,
+      "sha256": "b3211b156af98e6080cc4e69da9e4ff22e7ec0ea0b0fb1d99a853d1a9846a5e9"
+    },
+    {
+      "id": "errata-02-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/08/Errata-no-02.pdf",
+      "bytes": 881780,
+      "sha256": "8954ffdad3918800bf3abfa26a60449b83894e32ab08120083c7ae3f0d4c2a94"
+    },
+    {
+      "id": "errata-03-03-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/08/Errata-03-Edital-FAG-1.pdf",
+      "bytes": 667342,
+      "sha256": "b208ee2dbfeffb2f63dc5047c46870581686c1c453a4b497e2dbee06c123747d"
+    },
+    {
+      "id": "edital-02-2025",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/06/Edital-FAG-02-2025-Coordenadores-Tecnicos_organized-1.pdf",
+      "bytes": 2969296,
+      "sha256": "00117a1c721bd56836048d6d6e4a03a4e2e03f4bf0aa89f52312565db509410f"
+    },
+    {
+      "id": "edital-estudantes-pronatec",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/06/publicacao-edital.pdf",
+      "bytes": 352294,
+      "sha256": "9f20cb66a8cfc8941954ab02a78f0def289b053438c4eab2ad07e637cc497200"
+    },
+    {
+      "id": "edital-01-mm",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2025/01/EDITAL-01-MM-Equipe-2a-e-3a-rodada.pdf",
+      "bytes": 491883,
+      "sha256": "13f265a29a5c4d667c7392c8293454f27846af456345c3246eee24d74b36f68b"
+    },
+    {
+      "id": "edital-mm-alunas",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2024/10/Edital-Mulheres-Mil-Equipe-Multidisciplinar-02.24.pdf",
+      "bytes": 180560,
+      "sha256": "939c0e08c4d9020cd987ac7680c33b1065a405a2bed758c713d2cabe8025e6b0"
+    },
+    {
+      "id": "edital-mm-equipe",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2024/10/Edital-Equipe-Multidisciplinar-02.24.pdf",
+      "bytes": 218728,
+      "sha256": "640eaa2ecfe3059e6de54888e01b3091f795b371b2976d286569cf104c1e6fd8"
+    },
+    {
+      "id": "portaria-01-2024",
+      "source": "https://fag.tangua.rj.gov.br/wp-content/uploads/2024/10/PORTARIA-01-24.pdf",
+      "bytes": 153067,
+      "sha256": "c679dd96642169f40db20e23344002a922d9c5a1068c763cab38f6e4e4bc1d78"
+    }
+  ]
+}

@@ -2,6 +2,13 @@
 // Add a template in src/pages and register its public route here.
 module.exports = [
   {
+    route: 'transparencia.html', template: 'transparencia.html', active: 'transparency', footer: 'editorial',
+    title: 'Transparência — FAG',
+    description: 'Consulte editais, portarias, resultados e publicações institucionais da FAG. Acesse documentos oficiais e pesquise por tipo, ano ou palavra-chave.',
+    styles: ['components/header', 'pages/editorial', 'pages/transparency'],
+    scripts: ['components/header', 'shared/documents-model', 'pages/transparency']
+  },
+  {
     route: 'conteudo-online.html', template: 'conteudo-online.html', active: 'online', footer: 'editorial',
     title: 'Conteúdo Online — FAG',
     description: 'Biblioteca Digital, Plataforma EAD e recursos de apoio à aprendizagem. Conheça os caminhos para estudar, pesquisar e ampliar seu conhecimento com a FAG.',

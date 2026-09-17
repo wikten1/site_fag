@@ -10,6 +10,7 @@ module.exports = function header({ prefix = '', active = '', article = false, va
       .replace('Pesquise sobre educação, pesquisa ou a atuação da FAG.', 'Pesquise nos títulos e conteúdos desta página.');
     if (active === 'news') markup = markup.replace('<a class="nav-link" href="noticias.html">', `<a class="nav-link is-active" aria-current="${article ? 'true' : 'page'}" href="noticias.html">`);
     if (active === 'online') markup = markup.replace('<a class="nav-link" href="conteudo-online.html">', '<a class="nav-link is-active" aria-current="page" href="conteudo-online.html">');
+    if (active === 'transparency') markup = markup.replace('<a class="nav-link" href="transparencia.html">', '<a class="nav-link is-active" aria-current="page" href="transparencia.html">');
     if (active === 'programs') markup = markup.replace('<a class="nav-link" href="programas-e-projetos.html">', '<a class="nav-link is-active" aria-current="page" href="programas-e-projetos.html">');
     if (active === 'opportunities') markup = markup.replace('<a class="nav-link" href="inscricoes-e-selecoes.html">', '<a class="nav-link is-active" aria-current="page" href="inscricoes-e-selecoes.html">');
     if (active === 'about') {

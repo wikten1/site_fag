@@ -126,3 +126,5 @@ A página [Parcerias](parcerias.html) usa os registros de `content/partners.json
 A página [Programas e Projetos](programas-e-projetos.html) usa `content/programs.json`, com destaque configurável e cards informativos. Consulte a [documentação de conteúdo e manutenção](docs/programs.md).
 
 A central [Inscrições e Seleções](inscricoes-e-selecoes.html) usa `content/opportunities.json`, com busca, filtros, histórico e prazos calculados. Consulte o [contrato de conteúdo e publicação](docs/opportunities.md).
+
+A central [Transparência](transparencia.html) reúne PDFs oficiais locais com busca, filtros e histórico. Consulte a [documentação do acervo e sua atualização](docs/transparency.md).

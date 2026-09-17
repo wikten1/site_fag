@@ -17,10 +17,13 @@ const opportunities = require('../content/opportunities.json');
 const { renderOpportunities } = require('../src/components/opportunities');
 const online = require('../content/online.json');
 const { renderOnline } = require('../src/components/online');
+const documents = require('../content/documents.json');
+const { renderDocuments } = require('../src/components/documents');
 
 function build() {
   const editorial = require('./build-news');
   const outputs = new Map(editorial.outputs);
+  outputs.set('assets/data/documents.json', JSON.stringify({ items: documents.items.map(({ source, ...item }) => item) }) + '\n');
   const selected = E.selectNews(news.items);
   const asymmetric = selected.length === 4 && selected[0].featured === true;
   const newsFeed = `<div class="news-grid${asymmetric ? ' has-featured' : ''}" data-news-grid data-rendered="true" data-count="${selected.length}">${selected.map((item, index) => E.card(item, {
@@ -38,6 +41,7 @@ function build() {
       ...(page.active === 'programs' ? renderPrograms(programs, prefix) : {}),
       ...(page.active === 'opportunities' ? renderOpportunities(opportunities) : {}),
       ...(page.active === 'online' ? renderOnline(online) : {}),
+      ...(page.active === 'transparency' ? renderDocuments(documents) : {}),
       courseCards: C.courses.map((course, index) => C.card(course, index, prefix)).join('\n'),
       catalogCards: C.courses.map((course, index) => C.card(course, index, prefix, true)).join('\n'),
       courseCount: String(C.courses.length),

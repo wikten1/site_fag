@@ -102,7 +102,7 @@
 .editorial-footer-brand img { width: 124px; height: 60px; object-fit: contain; }
 .editorial-footer p { margin: 0 auto 0 0; font-size: 1rem; line-height: 1.65; }
 .editorial-footer p span { color: var(--text-soft); }
-.editorial-footer nav { display: flex; align-items: center; gap: 32px; }
+.editorial-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 32px; }
 .editorial-footer nav a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: .8125rem; color: var(--green); text-decoration: none; }
 .editorial-footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .story-opening { padding-top: 32px; }

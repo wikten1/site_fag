@@ -53,7 +53,7 @@
 .brand-lockup { display: inline-flex; width: fit-content; align-items: center; text-decoration: none; }
 .brand-logo-frame { display: flex; width: 124px; height: 56px; align-items: center; justify-content: center; }
 .brand-logo { width: 100%; height: 100%; object-fit: contain; }
-.nav-links { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.nav-links { display: flex; align-items: center; justify-content: center; gap: 14px; }
 .nav-link { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 8px 2px; color: var(--text-soft); font-size: 12px; font-weight: 600; line-height: 1.5; text-decoration: none; transition: color 220ms ease; }
 .nav-link::after { content: ""; position: absolute; left: 2px; right: calc(100% - 2px); bottom: 6px; height: 1px; background: var(--green); transition: right 220ms ease; }
 .nav-link:hover, .nav-link:focus-visible, .nav-link.is-active { color: var(--text); }
@@ -91,7 +91,7 @@ html { scroll-padding-top: var(--header-offset); }
 .entrance-complete { animation: none !important; }
 @keyframes reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @media (max-width: 1280px) {
-  .nav-links { gap: 18px; }
+  .nav-links { gap: 10px; }
   .nav-context { display: none; }
 }
 @media (max-width: 1120px) {

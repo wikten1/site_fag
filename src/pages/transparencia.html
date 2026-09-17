@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>{{head}}</head>
+<body class="transparency-page">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  {{header}}
+  <main id="conteudo" tabindex="-1">
+    <div class="doc-opening">
+      <div class="doc-shell">
+        <nav class="editorial-breadcrumb" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><span aria-current="page">Transparência</span></li></ol></nav>
+        <section class="doc-hero" aria-labelledby="transparency-title" data-page-search>
+          <div class="doc-hero-art" aria-hidden="true"><div class="doc-paper doc-paper-back"><span>PORTARIA</span><img src="assets/images/documents/portaria.png" alt="" width="560" height="792"></div><div class="doc-paper doc-paper-middle"><span>PUBLICAÇÃO</span><img src="assets/images/documents/publicacao.png" alt="" width="560" height="792"></div><div class="doc-paper doc-paper-front"><span>EDITAL <b>2026 / PDF</b></span><img src="assets/images/documents/edital.png" alt="" width="560" height="792" fetchpriority="high"></div><span class="doc-art-label">FAG / ACERVO INSTITUCIONAL</span><span class="doc-art-foot">DOCUMENTOS PÚBLICOS <span>↗</span></span></div>
+          <div class="doc-hero-copy"><p class="doc-eyebrow doc-enter">Transparência · FAG</p><h1 class="doc-enter" id="transparency-title">Transparência<span>.</span></h1><p class="doc-hero-lead doc-enter">Informação pública.<br><span>Acesso para todos.</span></p><p class="doc-hero-description doc-enter">Documentos, editais e publicações da Fundação, reunidos em um só lugar. Clareza para consultar. Confiança para acompanhar.</p><a class="doc-button doc-enter" href="#documentos">Consultar documentos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a></div>
+        </section>
+        <div class="doc-baseline"><span>Informação que aproxima.</span><span>ACESSO PÚBLICO <i></i> COMPROMISSO INSTITUCIONAL</span></div>
+      </div>
+    </div>
+
+    <section class="doc-categories doc-shell" aria-labelledby="categories-title" data-page-search>
+      <header class="doc-section-head" data-doc-reveal><div><p class="doc-eyebrow">Acesso à informação</p><h2 id="categories-title">Encontre o que procura.</h2></div><p>Editais, atos administrativos e publicações.<br>Informação organizada para facilitar o acesso.</p></header>
+      <div class="doc-category-grid">{{documentCategories}}</div>
+    </section>
+
+    <section class="doc-active" id="em-andamento" aria-labelledby="active-title" hidden><div class="doc-shell"><header class="doc-section-head"><div><p class="doc-eyebrow">Acompanhe os processos</p><h2 id="active-title">Em andamento</h2></div></header><div id="doc-active-items"></div></div></section>
+
+    <section class="doc-center" id="documentos" tabindex="-1" aria-labelledby="documents-title" data-page-search>
+      <div class="doc-shell">
+        <header class="doc-section-head" data-doc-reveal><div><p class="doc-eyebrow">Central de documentos</p><h2 id="documents-title">Consulte os documentos<span>.</span></h2></div><span class="doc-index">ACERVO / FAG</span></header>
+        <form id="doc-filters" class="doc-filters" role="search" aria-label="Pesquisar documentos" hidden>
+          <label for="doc-query" class="doc-sr">Buscar por título, número ou palavra-chave</label>
+          <div class="doc-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="doc-query" name="q" type="search" maxlength="160" placeholder="Buscar por título, número ou palavra-chave" autocomplete="off"><span class="doc-search-caption">BUSCA NO ACERVO</span></div>
+          <button class="doc-mobile-filters" type="button" aria-expanded="false" aria-controls="doc-filter-fields"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6m8 4v6"/></svg><span id="doc-filter-label">Filtros</span></button>
+          <div class="doc-filter-fields" id="doc-filter-fields"><div><label for="doc-type">Tipo de documento</label><select id="doc-type" name="tipo"><option value="">Todos os tipos</option>{{documentTypes}}</select></div><div><label for="doc-year">Ano</label><select id="doc-year" name="ano"><option value="">Todos os anos</option>{{documentYears}}</select></div><div><label for="doc-status">Status</label><select id="doc-status" name="status"><option value="">Todos os status</option>{{documentStatuses}}</select></div><div><label for="doc-order">Ordenar por</label><select id="doc-order" name="ordem"><option value="recentes">Mais recentes</option><option value="antigos">Mais antigos</option><option value="titulo">Ordem alfabética</option></select></div></div>
+        </form>
+        <div class="doc-results-head"><p id="doc-count" role="status" aria-live="polite" aria-atomic="true">{{documentCount}} documentos no acervo</p><button id="doc-reset" class="doc-text-button" type="button" hidden>Limpar filtros <span aria-hidden="true">×</span></button></div>
+        <div class="doc-loading" id="doc-loading" role="status" hidden><span class="doc-sr">Carregando documentos</span><div></div><div></div><div></div></div>
+        <div class="doc-error" id="doc-error" role="alert" hidden><div><h3>Não foi possível carregar os documentos</h3><p>A busca está indisponível. Os arquivos abaixo continuam acessíveis.</p></div><button class="doc-button" id="doc-retry" type="button">Tentar novamente <span aria-hidden="true">↻</span></button></div>
+        <div id="doc-results">{{documentTable}}</div>
+        {{documentFallback}}
+        <div class="doc-empty" id="doc-empty" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 10.5h5"/></svg><h3>Nenhum documento encontrado</h3><p>Tente alterar os filtros ou utilizar outro termo de busca.</p><button class="doc-button" data-clear-documents type="button">Limpar filtros <span aria-hidden="true">×</span></button></div>
+        <nav class="doc-pagination" id="doc-pagination" aria-label="Paginação de documentos" hidden><button type="button" id="doc-prev" aria-label="Página anterior" title="Página anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><span id="doc-page-number"></span><button type="button" id="doc-next" aria-label="Próxima página" title="Próxima página"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></nav>
+        <div class="doc-footnote"><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6v20h14V8ZM14 2v6h6"/></svg>Arquivos em PDF · Abrem em nova aba</p><p>Acervo conferido em {{documentChecked}}</p></div>
+        <p class="doc-metadata-note">“Publicado” indica a disponibilidade do documento, sem confirmar a vigência do processo. Datas não confirmadas estão identificadas na listagem.</p>
+      </div>
+    </section>
+
+    <section class="doc-history" id="historico" aria-labelledby="history-title" data-page-search><div class="doc-shell doc-history-inner"><div data-doc-reveal><p class="doc-eyebrow">Memória institucional</p><h2 id="history-title">Histórico</h2><p>Documentos de anos anteriores.<br>O registro de cada etapa, sempre acessível.</p></div><div class="doc-years" data-doc-reveal>{{documentHistory}}</div></div></section>
+
+    <section class="doc-help doc-shell" aria-labelledby="help-title" data-page-search><div data-doc-reveal><p class="doc-eyebrow">Conte com a FAG</p><h2 id="help-title">Não encontrou o documento<br>que procura?</h2><p>Entre em contato com a Fundação para solicitar informações sobre documentos e publicações institucionais.</p></div><a class="doc-text-link" href="contato.html">Contato e Atendimento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></section>
+    <section class="doc-cta" aria-labelledby="cta-title"><div class="doc-shell"><div><p class="doc-eyebrow">Diálogo aberto</p><h2 id="cta-title">Informação pública.<br>Uma Fundação mais próxima.</h2></div><a class="doc-button doc-button-light" href="contato.html">Falar com a Central de Atendimento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></section>
+    <nav class="doc-related doc-shell" aria-labelledby="related-title"><h2 class="doc-eyebrow" id="related-title">Acessos relacionados</h2><div><a href="inscricoes-e-selecoes.html">Inscrições e Seleções <span aria-hidden="true">↗</span></a><a href="noticias.html">Notícias <span aria-hidden="true">↗</span></a><a href="sobre.html">Conheça a FAG <span aria-hidden="true">↗</span></a></div></nav>
+  </main>
+  {{footer}}
+</body>
+</html>
