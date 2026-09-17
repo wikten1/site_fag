@@ -9,7 +9,7 @@
     "build": "node scripts/build-site.js",
     "build:check": "node scripts/build-site.js --check",
     "start": "node --env-file-if-exists=.env server/contact-server.js",
-    "test": "node tests/news-model.test.js && node --test tests/contact-server.test.js tests/site.test.js tests/opportunities.test.js",
+    "test": "node tests/news-model.test.js && node --test tests/contact-server.test.js tests/site.test.js tests/opportunities.test.js tests/online.test.js",
     "check:mail": "node --env-file-if-exists=.env server/contact-server.js --verify-mail"
   },
   "dependencies": {

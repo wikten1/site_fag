@@ -15,6 +15,8 @@ const programs = require('../content/programs.json');
 const { renderPrograms } = require('../src/components/programs');
 const opportunities = require('../content/opportunities.json');
 const { renderOpportunities } = require('../src/components/opportunities');
+const online = require('../content/online.json');
+const { renderOnline } = require('../src/components/online');
 
 function build() {
   const editorial = require('./build-news');
@@ -35,6 +37,7 @@ function build() {
       partnerGrid: page.active === 'partners' ? renderPartners(partners.items, prefix) : '',
       ...(page.active === 'programs' ? renderPrograms(programs, prefix) : {}),
       ...(page.active === 'opportunities' ? renderOpportunities(opportunities) : {}),
+      ...(page.active === 'online' ? renderOnline(online) : {}),
       courseCards: C.courses.map((course, index) => C.card(course, index, prefix)).join('\n'),
       catalogCards: C.courses.map((course, index) => C.card(course, index, prefix, true)).join('\n'),
       courseCount: String(C.courses.length),

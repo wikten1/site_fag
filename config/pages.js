@@ -2,6 +2,13 @@
 // Add a template in src/pages and register its public route here.
 module.exports = [
   {
+    route: 'conteudo-online.html', template: 'conteudo-online.html', active: 'online', footer: 'editorial',
+    title: 'Conteúdo Online — FAG',
+    description: 'Biblioteca Digital, Plataforma EAD e recursos de apoio à aprendizagem. Conheça os caminhos para estudar, pesquisar e ampliar seu conhecimento com a FAG.',
+    styles: ['components/header', 'pages/editorial', 'pages/online'],
+    scripts: ['components/header', 'pages/online']
+  },
+  {
     route: 'index.html', template: 'index.html', active: 'home', footer: 'institutional',
     title: 'FAG — Educação que conecta oportunidades',
     description: 'Conheça a FAG: educação profissional e tecnológica, amparo à pesquisa, políticas sociais e desenvolvimento socioeconômico em Tanguá.',

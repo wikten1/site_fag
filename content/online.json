@@ -1,0 +1,52 @@
+{
+  "reviewedAt": "2026-09-17",
+  "items": [
+    {
+      "id": "biblioteca-digital",
+      "name": "Biblioteca Digital",
+      "category": "Biblioteca · USP",
+      "provider": "Portal de Livros Abertos da USP",
+      "description": "Livros e publicações da Universidade de São Paulo para consultar e baixar. Um acervo gratuito para seus estudos, pesquisas e novas descobertas.",
+      "detail": "Acesso público e gratuito · Consulta e download",
+      "url": "https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP",
+      "cta": "Acessar Biblioteca Digital",
+      "icon": "book",
+      "tier": "primary",
+      "theme": "library",
+      "status": "available",
+      "source": "https://fag.tangua.rj.gov.br/author/bryanna/page/2/",
+      "verification": "Destino respondeu HTTP 200 e título Portal de Livros Abertos da USP."
+    },
+    {
+      "id": "plataforma-ead",
+      "name": "Plataforma EAD",
+      "category": "Educação a distância",
+      "provider": "Ambiente de aprendizagem da FAG",
+      "description": "O ambiente digital de apoio às atividades de educação a distância da FAG. Um ponto de encontro entre sua formação, os conteúdos e a aprendizagem.",
+      "detail": "Para participantes das atividades de educação a distância",
+      "url": "https://ead.tangua.rj.gov.br/login/index.php",
+      "cta": "Acessar Plataforma EAD",
+      "icon": "learning",
+      "tier": "primary",
+      "theme": "ead",
+      "status": "unavailable",
+      "source": "https://fag.tangua.rj.gov.br/cursos/",
+      "verification": "URL oficial identificada no link Acessar plataforma EAD. Destino sem resposta na verificação; revalidar antes de ativar."
+    },
+    {
+      "id": "senac-ead",
+      "name": "Senac EAD",
+      "category": "Formação complementar",
+      "provider": "Programa Senac de Gratuidade",
+      "description": "Consulte cursos a distância, critérios de participação e novas ofertas do Programa Senac de Gratuidade.",
+      "detail": "Ofertas e vagas sujeitas à disponibilidade do Senac.",
+      "url": "https://www.ead.senac.br/gratuito/",
+      "cta": "Consultar Senac EAD",
+      "icon": "learning",
+      "tier": "complementary",
+      "status": "available",
+      "source": "https://fag.tangua.rj.gov.br/2024/04/04/75-cursos-gratuitos/",
+      "verification": "Página oficial consultada; não anuncia vagas disponíveis na data da revisão."
+    }
+  ]
+}
