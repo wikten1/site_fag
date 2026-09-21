@@ -14,7 +14,7 @@
 .news-grid[data-count="1"] > .news-card { grid-column: 1 / -1; }
 .news-grid[data-count="2"] > .news-card { grid-column: span 6; }
 .news-grid[data-count="3"] > .news-card { grid-column: span 4; }
-.news-card-link { --news-cut: polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px); position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-width: 0; color: var(--text); text-decoration: none; filter: drop-shadow(0 4px 8px rgba(13,35,12,.025)); transition: transform 220ms var(--ease), filter 220ms ease; }
+.news-card-link { --news-cut: polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px); position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-width: 0; color: var(--text); text-decoration: none; filter: drop-shadow(0 4px 8px rgba(var(--shadow-rgb),0.025)); transition: transform 220ms var(--ease), filter 220ms ease; }
 /* Clip the surfaces only: the full link and its focus ring stay intact. */
 .news-card-link::before, .news-card-link::after { content: ''; position: absolute; z-index: -1; clip-path: var(--news-cut); pointer-events: none; }
 .news-card-link::before { inset: 0; background: var(--line); transition: background 220ms ease; }
@@ -61,7 +61,7 @@
 .news-card-link:hover::before, .news-card-link:focus-visible::before { background: var(--green); }
 .news-card-link:hover .news-card-title, .news-card-link:focus-visible .news-card-title { color: var(--green); }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .news-card-link:hover { transform: translateY(-4px); filter: drop-shadow(0 10px 16px rgba(13,35,12,.08)); }
+  .news-card-link:hover { transform: translateY(-4px); filter: drop-shadow(0 10px 16px rgba(var(--shadow-rgb),0.08)); }
   .news-card-link:hover .news-image-frame img { transform: scale(1.03); }
   .news-card-link:hover .news-read svg, .news-archive-link:hover svg { transform: translateX(4px); }
   .news-archive-link:hover { transform: translateY(-3px); }

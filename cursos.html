@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F5F8F1">
+<meta name="theme-color" content="#f5f8f1">
+<meta name="color-scheme" content="only light">
 <title>Cursos e oportunidades — FAG</title>
 <meta name="description" content="Conheça os cursos técnicos e a formação complementar da FAG, em Tanguá.">
 <link rel="canonical" href="https://fag.tangua.rj.gov.br/cursos.html">
@@ -20,9 +21,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
+<script src="assets/js/theme.js"></script>
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components/courses.css">
 <link rel="stylesheet" href="assets/css/pages/catalog.css">
+<link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/courses.js" defer></script>
 <script src="assets/js/pages/catalog.js" defer></script>
 
@@ -33,7 +36,10 @@
     <nav class="catalog-nav" aria-label="Navegação principal">
       <a class="catalog-brand" href="index.html" aria-label="FAG — início"><img src="assets/images/brand/logo.webp" width="1828" height="860" alt="FAG"></a>
       <a class="catalog-back" href="index.html#cursos-e-oportunidades"><span aria-hidden="true">←</span> Voltar ao início</a>
-    </nav>
+    <button class="theme-toggle " type="button" data-theme-toggle aria-label="Modo escuro desativado. Ativar modo escuro" aria-pressed="false" hidden>
+    <span class="theme-toggle-icons" aria-hidden="true"><svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg></span>
+    <span data-theme-label>Modo claro</span>
+  </button></nav>
   </header>
 
   <main class="courses">
@@ -153,7 +159,7 @@
       <nav class="catalog-related" aria-label="Conteúdos relacionados"><a href="programas-e-projetos.html"><span>Continue explorando</span>Programas e Projetos <span aria-hidden="true">↗</span></a><a href="#educacao-a-distancia"><span>Aprendizagem digital</span>Educação a Distância <span aria-hidden="true">↗</span></a><a href="noticias.html"><span>Acompanhe a Fundação</span>Notícias da FAG <span aria-hidden="true">↗</span></a></nav>
     </div>
   </main>
-<footer class="editorial-footer"><div class="editorial-shell"><a href="index.html" class="editorial-footer-brand" aria-label="FAG — início"><img src="assets/images/brand/logo.webp" width="1828" height="860" alt="FAG"></a><p>Precisão técnica.<br><span>Presença humana.</span></p><nav aria-label="Navegação do rodapé"><a href="transparencia.html">Transparência</a><a href="conteudo-online.html">Conteúdo Online</a><a href="noticias.html">Notícias</a><a href="index.html">Voltar ao início <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></nav></div></footer>
+<footer class="editorial-footer"><div class="editorial-shell"><a href="index.html" class="editorial-footer-brand" aria-label="FAG — início"><img src="assets/images/brand/logo.webp" width="1828" height="860" alt="FAG"></a><p>Precisão técnica.<br><span>Presença humana.</span></p><nav aria-label="Navegação do rodapé"><a href="transparencia.html">Transparência</a><a href="conteudo-online.html">Conteúdo Online</a><a href="noticias.html">Notícias</a><a href="politica-de-privacidade.html">Privacidade</a><a href="index.html">Voltar ao início <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></nav></div></footer>
 
 </body>
 </html>

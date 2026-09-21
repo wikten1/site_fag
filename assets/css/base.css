@@ -6,12 +6,21 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 a { color: inherit; }
 button, a, [tabindex] { scroll-margin-block: 32px; }
-:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
-::selection { background: var(--forest); color: var(--cream); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 5px; }
+::selection { background: var(--selection-bg); color: var(--selection-text); }
+html { background: var(--background); scrollbar-color: var(--border-control) var(--background); }
+button, input, select, textarea { color: inherit; font: inherit; }
+input, select, textarea, option { color: var(--text); background-color: var(--surface); accent-color: var(--green); }
+input::placeholder, textarea::placeholder { color: var(--text-soft); opacity: 1; }
+input:autofill, textarea:autofill, select:autofill { box-shadow: 0 0 0 1000px var(--surface) inset; -webkit-text-fill-color: var(--text); caret-color: var(--text); }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px var(--surface) inset; -webkit-text-fill-color: var(--text); }
+input:disabled, select:disabled, textarea:disabled { color: var(--disabled-text); background-color: var(--disabled-bg); cursor: not-allowed; }
+dialog { color: var(--text); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-float); }
+dialog::backdrop { background: var(--overlay); }
 svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 [hidden] { display: none !important; }
 .editorial-footer nav { flex-wrap: wrap; }
 
-.skip-link { position: fixed; top: 8px; left: 16px; z-index: 200; max-width: calc(100% - 32px); padding: 14px 20px; background: var(--forest); color: var(--cream); transform: translateY(-160%); }
+.skip-link { position: fixed; top: 8px; left: 16px; z-index: 200; max-width: calc(100% - 32px); padding: 14px 20px; background: var(--action-bg); color: var(--on-action); transform: translateY(-160%); }
 .skip-link:focus { transform: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

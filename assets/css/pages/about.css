@@ -76,9 +76,9 @@
 .about-principle-content p + p { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--card-line); }
 .about-principle-dark .about-principle-content { font-size: 23px; line-height: 1.65; letter-spacing: -.025em; }
 .about-principle-foot { margin-top: auto; padding-top: 19px; border-top: 1px solid var(--card-line); color: var(--text-soft); font: 400 9px/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-.about-principle-dark { --card-line: #345038; background: var(--forest); color: var(--surface); border-color: var(--forest); }
+.about-principle-dark { --card-line: var(--inverse-line); background: var(--inverse-bg); color: var(--inverse-text); border-color: var(--forest); }
 .about-principle-dark .about-principle-top, .about-principle-dark h3 span { color: var(--lime); }
-.about-principle-dark .about-principle-content, .about-principle-dark .about-principle-foot { color: #c3d0bd; }
+.about-principle-dark .about-principle-content, .about-principle-dark .about-principle-foot { color: var(--inverse-muted); }
 .about-principle-values { background: var(--cream); }
 .about-values-list { display: grid; gap: 22px; }
 .about-values-list > div + div { border-top: 1px solid var(--card-line); padding-top: 22px; }
@@ -97,14 +97,14 @@
 .about-related-row[href]:hover svg { transform: translateX(4px); }
 .about-related-pending { color: var(--text-soft); }
 .about-coming-soon { margin-left: auto; flex-shrink: 0; padding: 5px 9px; border: 1px solid var(--line); border-radius: 20px; font-size: 10px; }
-.about-contact { position: relative; isolation: isolate; overflow: hidden; max-width: 1380px; width: calc(100% - 40px); margin: 0 auto 40px; color: var(--surface); background: var(--forest); border-radius: 4px; }
+.about-contact { position: relative; isolation: isolate; overflow: hidden; max-width: 1380px; width: calc(100% - 40px); margin: 0 auto 40px; color: var(--inverse-text); background: var(--inverse-bg); border-radius: 4px; }
 .about-contact-inner { display: grid; grid-template-columns: 8fr 4fr; gap: 30px; align-items: center; padding: 76px max(40px, calc((100% - 1240px) / 2)); }
-.about-contact-grid { position: absolute; inset: 0 0 0 50%; z-index: -1; opacity: .055; background-image: linear-gradient(var(--cream) 1px, transparent 1px), linear-gradient(90deg, var(--cream) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(90deg, transparent, black); }
+.about-contact-grid { position: absolute; inset: 0 0 0 50%; z-index: -1; opacity: .055; background-image: linear-gradient(var(--cream) 1px, transparent 1px), linear-gradient(90deg, var(--cream) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(90deg, transparent, var(--mask-opaque)); }
 .about-contact .about-eyebrow { color: var(--lime); }
 .about-contact h2 { margin-top: 24px; font-size: clamp(36px, 3.8vw, 52px); }
 .about-contact h2 span { color: var(--lime); }
-.about-contact-copy > p:last-of-type { margin-top: 24px; color: #c3d0bd; font-size: 16px; line-height: 1.75; }
-.about-contact-button { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 34px; min-height: 56px; margin-top: 30px; padding: 15px 22px; color: var(--forest); font-size: 12px; font-weight: 650; transition: transform 300ms var(--ease); }
+.about-contact-copy > p:last-of-type { margin-top: 24px; color: var(--inverse-muted); font-size: 16px; line-height: 1.75; }
+.about-contact-button { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 34px; min-height: 56px; margin-top: 30px; padding: 15px 22px; color: var(--on-accent); font-size: 12px; font-weight: 650; transition: transform 300ms var(--ease); }
 .about-contact-button::before { position: absolute; inset: 0; z-index: -1; content: ''; background: var(--lime); clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); transition: background 250ms ease; }
 .about-contact-button:hover { transform: translateY(-3px); }
 .about-contact-button:hover::before { background: var(--lime-bright); }
@@ -113,10 +113,10 @@
 .about-page .about-contact-button:active { transform: translateY(0); background: transparent; }
 .about-contact-button:focus-visible { outline-color: var(--lime-bright); }
 .about-contact-art { height: 310px; position: relative; pointer-events: none; }
-.about-contact-orbit { position: absolute; left: 50%; top: 50%; width: 290px; height: 290px; transform: translate(-50%, -50%); border: 1px solid #345038; border-radius: 50%; }
+.about-contact-orbit { position: absolute; left: 50%; top: 50%; width: 290px; height: 290px; transform: translate(-50%, -50%); border: 1px solid var(--inverse-line); border-radius: 50%; }
 .about-contact-orbit:nth-child(2) { width: 210px; height: 210px; }
 .about-contact-orbit:nth-child(3) { width: 130px; height: 130px; }
-.about-contact-art::before, .about-contact-art::after { position: absolute; content: ''; background: #345038; }
+.about-contact-art::before, .about-contact-art::after { position: absolute; content: ''; background: var(--inverse-line); }
 .about-contact-art::before { width: 1px; height: 100%; left: 50%; }
 .about-contact-art::after { height: 1px; width: 100%; top: 50%; }
 .about-contact-art > span { position: absolute; width: 26px; height: 26px; top: calc(50% - 13px); left: calc(50% - 13px); background: var(--lime); clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px); }
@@ -139,7 +139,7 @@
 .about-reveal-ready .about-hero-figure { transition-duration: 800ms; }
 .about-reveal-ready .about-principle { transition: opacity 700ms var(--reveal-ease) var(--reveal-delay, 0ms), translate 700ms var(--reveal-ease) var(--reveal-delay, 0ms), filter 700ms var(--reveal-ease) var(--reveal-delay, 0ms), transform 300ms var(--ease), border-color 300ms ease, box-shadow 300ms ease; }
 @media (hover: hover) and (pointer: fine) {
-  .about-principle:hover { transform: translateY(-4px); border-color: var(--green); box-shadow: 0 10px 24px rgba(3, 33, 10, .045); }
+  .about-principle:hover { transform: translateY(-4px); border-color: var(--green); box-shadow: 0 10px 24px rgba(var(--shadow-rgb),0.045); }
   .about-principle-dark:hover { border-color: var(--lime); }
   .about-principle:hover .about-principle-symbol { transform: rotate(6deg); }
 }

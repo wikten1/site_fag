@@ -2,6 +2,13 @@
 // Add a template in src/pages and register its public route here.
 module.exports = [
   {
+    route: 'politica-de-privacidade.html', template: 'politica-de-privacidade.html', active: 'privacy', footer: 'editorial',
+    title: 'LGPD e Política de Privacidade — FAG',
+    description: 'Conheça a Política de Privacidade da FAG, o tratamento de dados pessoais, seus direitos e os canais para dúvidas e requisições.',
+    styles: ['components/header', 'pages/editorial', 'pages/privacy'],
+    scripts: ['components/header', 'pages/privacy']
+  },
+  {
     route: 'transparencia.html', template: 'transparencia.html', active: 'transparency', footer: 'editorial',
     title: 'Transparência — FAG',
     description: 'Consulte editais, portarias, resultados e publicações institucionais da FAG. Acesse documentos oficiais e pesquise por tipo, ano ou palavra-chave.',

@@ -14,7 +14,7 @@
 .courses-intro { max-width: 48ch; margin: 0 0 3px; color: var(--text-soft); font-size: 1.0625rem; line-height: 1.65; }
 .courses-grid { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; margin: 0; padding: 0; list-style: none; }
 .courses-grid > li { min-width: 0; display: flex; }
-.course-card { position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-width: 0; filter: drop-shadow(0 6px 9px rgba(13,35,12,.04)); transition: transform 220ms var(--ease), filter 220ms var(--ease); }
+.course-card { position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-width: 0; filter: drop-shadow(0 6px 9px rgba(var(--shadow-rgb),0.04)); transition: transform 220ms var(--ease), filter 220ms var(--ease); }
 /* Clip only the surface and photograph; the link's focus outline remains intact. */
 .course-card::before, .course-card::after { content: ''; position: absolute; z-index: -1; pointer-events: none; clip-path: var(--course-cut); }
 .course-card::before { inset: 0; background: var(--line); transition: background 220ms var(--ease); }
@@ -28,16 +28,16 @@
 .course-title { min-height: 2.36em; margin: 0 0 12px; color: var(--text); font-size: 1.6875rem; font-weight: 550; line-height: 1.18; letter-spacing: -.025em; text-wrap: balance; }
 .course-summary { min-height: 4.65em; margin: 0 0 24px; color: var(--text-soft); font-size: 1rem; line-height: 1.55; }
 .course-footer { margin-top: auto; border-top: 1px solid var(--line); }
-.course-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding-top: 12px; color: var(--forest); font-size: .875rem; font-weight: 600; line-height: 1.4; text-decoration: none; }
+.course-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding-top: 12px; color: var(--text); font-size: .875rem; font-weight: 600; line-height: 1.4; text-decoration: none; }
 .course-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 .course-link svg { width: 18px; height: 18px; transition: transform 220ms var(--ease); }
 .course-link:focus-visible { outline: none; text-decoration: underline; text-underline-offset: 4px; }
 .course-link:focus-visible::after { outline: 3px solid var(--green); outline-offset: 4px; }
 .course-card:has(.course-link:focus-visible) { z-index: 2; }
-.course-card:active { transform: none; filter: drop-shadow(0 3px 5px rgba(13,35,12,.04)); }
+.course-card:active { transform: none; filter: drop-shadow(0 3px 5px rgba(var(--shadow-rgb),0.04)); }
 .courses-end { display: flex; justify-content: center; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
-.courses-catalog-link { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 52px; padding: 14px 24px; color: var(--cream); font-size: .9375rem; font-weight: 600; line-height: 1.4; text-decoration: none; transition: transform 220ms var(--ease); }
-.courses-catalog-link::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--forest); clip-path: polygon(11px 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%, 0 11px); transition: background 220ms var(--ease); }
+.courses-catalog-link { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 52px; padding: 14px 24px; color: var(--inverse-text); font-size: .9375rem; font-weight: 600; line-height: 1.4; text-decoration: none; transition: transform 220ms var(--ease); }
+.courses-catalog-link::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--inverse-bg); clip-path: polygon(11px 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%, 0 11px); transition: background 220ms var(--ease); }
 .courses-catalog-link svg { width: 18px; height: 18px; transition: transform 220ms var(--ease); }
 .courses-catalog-link:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
 .courses-catalog-link:active { transform: none; }
@@ -65,8 +65,8 @@
 .catalog-course .catalog-back { margin-top: 8px; }
 
 @media (hover: hover) and (pointer: fine) {
-  .course-card:hover { z-index: 2; transform: translateY(-4px); filter: drop-shadow(0 14px 15px rgba(13,35,12,.09)); }
-  .course-card:hover::before { background: #8aa171; }
+  .course-card:hover { z-index: 2; transform: translateY(-4px); filter: drop-shadow(0 14px 15px rgba(var(--shadow-rgb),0.09)); }
+  .course-card:hover::before { background: var(--surface-hover); }
   .course-card:hover .course-media img { transform: scale(1.025); }
   .course-card:hover .course-link svg { transform: translateX(4px); }
   .courses-catalog-link:hover { transform: translateY(-2px); }

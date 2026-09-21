@@ -3,7 +3,8 @@
 <html lang="pt-BR">
 <head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F5F8F1">
+<meta name="theme-color" content="#f5f8f1">
+<meta name="color-scheme" content="only light">
 <title>Transparência — FAG</title>
 <meta name="description" content="Consulte editais, portarias, resultados e publicações institucionais da FAG. Acesse documentos oficiais e pesquise por tipo, ano ou palavra-chave.">
 <link rel="canonical" href="https://fag.tangua.rj.gov.br/transparencia.html">
@@ -19,10 +20,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
+<script src="assets/js/theme.js"></script>
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components/header.css">
 <link rel="stylesheet" href="assets/css/pages/editorial.css">
 <link rel="stylesheet" href="assets/css/pages/transparency.css">
+<link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/header.js" defer></script>
 <script src="assets/js/shared/documents-model.js" defer></script>
 <script src="assets/js/pages/transparency.js" defer></script>
@@ -31,7 +34,10 @@
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <div class="utility-bar" aria-label="Ferramentas e redes sociais" role="region">
     <div class="utility-inner">
-      <div class="utility-tools">
+      <div class="utility-tools"><button class="theme-toggle theme-toggle-header" type="button" data-theme-toggle aria-label="Modo escuro desativado. Ativar modo escuro" aria-pressed="false" hidden>
+    <span class="theme-toggle-icons" aria-hidden="true"><svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg></span>
+    <span data-theme-label>Modo claro</span>
+  </button>
         <details class="utility-item" id="accessibility-tools">
           <summary class="utility-trigger"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7"/></svg>Acessibilidade</summary>
           <div class="utility-panel">
@@ -69,7 +75,10 @@
     <button class="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
       <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
-    <div class="nav-links" id="nav-links">
+    <div class="nav-links" id="nav-links"><button class="theme-toggle theme-toggle-menu" type="button" data-theme-toggle aria-label="Modo escuro desativado. Ativar modo escuro" aria-pressed="false" hidden>
+    <span class="theme-toggle-icons" aria-hidden="true"><svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg></span>
+    <span data-theme-label>Modo claro</span>
+  </button>
       <a class="nav-link" href="index.html">Início</a>
       <a class="nav-link" href="sobre.html">A Fundação</a>
       <a class="nav-link" href="index.html#cursos-e-oportunidades">Cursos e oportunidades</a>
@@ -131,7 +140,7 @@
     <section class="doc-cta" aria-labelledby="cta-title"><div class="doc-shell"><div><p class="doc-eyebrow">Diálogo aberto</p><h2 id="cta-title">Informação pública.<br>Uma Fundação mais próxima.</h2></div><a class="doc-button doc-button-light" href="contato.html">Falar com a Central de Atendimento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></section>
     <nav class="doc-related doc-shell" aria-labelledby="related-title"><h2 class="doc-eyebrow" id="related-title">Acessos relacionados</h2><div><a href="inscricoes-e-selecoes.html">Inscrições e Seleções <span aria-hidden="true">↗</span></a><a href="noticias.html">Notícias <span aria-hidden="true">↗</span></a><a href="sobre.html">Conheça a FAG <span aria-hidden="true">↗</span></a></div></nav>
   </main>
-  <footer class="editorial-footer"><div class="editorial-shell"><a href="index.html" class="editorial-footer-brand" aria-label="FAG — início"><img src="assets/images/brand/logo.webp" width="1828" height="860" alt="FAG"></a><p>Precisão técnica.<br><span>Presença humana.</span></p><nav aria-label="Navegação do rodapé"><a href="transparencia.html">Transparência</a><a href="conteudo-online.html">Conteúdo Online</a><a href="noticias.html">Notícias</a><a href="index.html">Voltar ao início <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></nav></div></footer>
+  <footer class="editorial-footer"><div class="editorial-shell"><a href="index.html" class="editorial-footer-brand" aria-label="FAG — início"><img src="assets/images/brand/logo.webp" width="1828" height="860" alt="FAG"></a><p>Precisão técnica.<br><span>Presença humana.</span></p><nav aria-label="Navegação do rodapé"><a href="transparencia.html">Transparência</a><a href="conteudo-online.html">Conteúdo Online</a><a href="noticias.html">Notícias</a><a href="politica-de-privacidade.html">Privacidade</a><a href="index.html">Voltar ao início <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></nav></div></footer>
 
 </body>
 </html>

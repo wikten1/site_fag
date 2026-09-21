@@ -6,6 +6,7 @@ module.exports = function head({ title, description, route, prefix = '', styles 
   return `<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="${site.themeColor}">
+<meta name="color-scheme" content="only light">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${esc(canonical)}">
@@ -20,7 +21,9 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-${['assets/css/tokens.css', 'assets/css/base.css', ...styles].map(file => `<link rel="stylesheet" href="${esc(prefix + file)}">`).join('\n')}
+<link rel="stylesheet" href="${esc(prefix)}assets/css/tokens.css">
+<script src="${esc(prefix)}assets/js/theme.js"></script>
+${['assets/css/base.css', ...styles, 'assets/css/theme-controls.css'].map(file => `<link rel="stylesheet" href="${esc(prefix + file)}">`).join('\n')}
 ${scripts.map(file => `<script src="${esc(prefix + file)}" defer></script>`).join('\n')}
 ${extra}`;
 };

@@ -1,0 +1,30 @@
+/* Shared theme controls; breakpoints change layout only. */
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--green); font: 500 11px/1.5 Inter, system-ui, sans-serif; cursor: pointer; transition: background var(--theme-duration), color var(--theme-duration), border-color var(--theme-duration), box-shadow var(--theme-duration); }
+.theme-toggle:hover { background: var(--surface-hover); border-color: var(--green); }
+.theme-toggle[aria-pressed="true"] { border-color: var(--green); box-shadow: inset 0 -2px var(--highlight); }
+.theme-toggle:active { box-shadow: inset 0 0 0 2px var(--focus); }
+.theme-toggle-icons { position: relative; display: block; width: 18px; height: 18px; }
+.theme-toggle-icons svg { position: absolute; inset: 0; width: 18px; height: 18px; transition: opacity var(--theme-duration), transform var(--theme-duration) var(--ease); }
+.theme-moon { opacity: 0; transform: rotate(-30deg) scale(.6); }
+[data-theme="dark"] .theme-moon { opacity: 1; transform: none; }
+[data-theme="dark"] .theme-sun { opacity: 0; transform: rotate(30deg) scale(.6); }
+.theme-toggle-header { border-block: 0; border-radius: 0; background: transparent; }
+.theme-toggle-menu { display: none; }
+.utility-tools { column-gap: 16px; }
+.catalog-nav { flex-wrap: wrap; }
+.catalog-nav .theme-toggle { margin-left: auto; }
+.nav-link.is-active { color: var(--green); }
+.brand-logo-frame, .catalog-brand, .contact-footer img, .editorial-footer img { background: var(--brand-neutral); border-radius: 3px; }
+.footer-brand::before { background: var(--brand-neutral); }
+/* Color-only transitions leave layout, scroll position and entrance motion intact. */
+.theme-changing *, .theme-changing *::before, .theme-changing *::after { transition: background-color var(--theme-duration) ease, color var(--theme-duration) ease, border-color var(--theme-duration) ease, box-shadow var(--theme-duration) ease, fill var(--theme-duration) ease, stroke var(--theme-duration) ease !important; }
+.theme-changing .theme-toggle-icons svg { transition: opacity var(--theme-duration) ease, transform var(--theme-duration) var(--ease) !important; }
+@media (max-width: 1120px) { .theme-toggle-menu { display: inline-flex; justify-self: start; margin: 4px 12px 8px; } }
+@media (max-width: 560px) {
+  .utility-tools { width: 100%; justify-content: space-between; gap: 0 5px; }
+  .theme-toggle-header { padding-inline: 4px; font-size: 10px; gap: 5px; }
+  .catalog-nav { gap: 8px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (forced-colors: active) { .theme-toggle { border: 1px solid ButtonText; color: ButtonText; background: ButtonFace; } .theme-toggle[aria-pressed="true"] { outline: 2px solid Highlight; outline-offset: -3px; } }
+@media print { .theme-toggle { display: none !important; } }

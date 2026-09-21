@@ -1,8 +1,11 @@
 'use strict';
 const { template } = require('../../scripts/lib/templates');
+const themeToggle = require('./theme-toggle');
 module.exports = function header({ prefix = '', active = '', article = false, variant = 'full' } = {}) {
-  if (variant === 'catalog') return template('components/header-catalog.html').replace(/(href|src)="(?!https?:|#)([^"]+)"/g, `$1="${prefix}$2"`);
+  if (variant === 'catalog') return template('components/header-catalog.html').replace('</nav>', themeToggle() + '</nav>').replace(/(href|src)="(?!https?:|#)([^"]+)"/g, `$1="${prefix}$2"`);
   let markup = template('components/header.html');
+  markup = markup.replace('<div class="utility-tools">', '<div class="utility-tools">' + themeToggle('theme-toggle-header'))
+    .replace('<div class="nav-links" id="nav-links">', '<div class="nav-links" id="nav-links">' + themeToggle('theme-toggle-menu'));
   if (active !== 'home') {
     markup = markup.replace('class="nav-link is-active"', 'class="nav-link"').replace(' aria-current="location"', '')
       .replace(/href="#inicio"/g, 'href="index.html"')

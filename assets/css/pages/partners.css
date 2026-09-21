@@ -43,10 +43,10 @@
 .partners-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding: 0; margin: 0; list-style: none; }
 .partner-item { min-width: 0; display: flex; }
 .partner-card { width: 100%; display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; position: relative; }
-.partner-logo { height: 148px; padding: 14px 6px; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 2px; }
+.partner-logo { height: 148px; padding: 14px 6px; display: flex; align-items: center; justify-content: center; background: var(--brand-neutral); border-radius: 2px; }
 .partner-logo img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
 /* This supplied version has white lettering. A neutral dark backing keeps it intact. */
-.partner-logo-dark { background: #303330; padding-inline: 12px; }
+.partner-logo-dark { background: var(--brand-neutral-dark); padding-inline: 12px; }
 .partner-info { display: flex; flex: 1; flex-direction: column; padding-top: 22px; }
 .partner-info h3 { font-size: 14px; line-height: 1.6; font-weight: 550; letter-spacing: -.012em; overflow-wrap: break-word; }
 .partner-info > p { margin-top: 12px; color: var(--text-soft); font-size: 13px; line-height: 1.7; }
@@ -64,7 +64,7 @@
 .partners-empty svg { width: 48px; height: 48px; color: var(--green); }
 .partners-empty h3 { font-size: 24px; font-weight: 450; letter-spacing: -.035em; }
 .partners-empty p { max-width: 52ch; font-size: 16px; line-height: 1.75; color: var(--text-soft); }
-.partners-statement { display: grid; grid-template-columns: 1.5fr 1fr; align-items: center; gap: 70px; padding: 52px 56px; background: var(--forest); color: var(--surface); clip-path: polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px); }
+.partners-statement { display: grid; grid-template-columns: 1.5fr 1fr; align-items: center; gap: 70px; padding: 52px 56px; background: var(--inverse-bg); color: var(--inverse-text); clip-path: polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px); }
 .partners-statement .partners-eyebrow { color: var(--lime-bright); }
 .partners-statement-title { margin-top: 22px !important; max-width: 26ch; font-size: clamp(26px, 2.55vw, 36px); line-height: 1.3; letter-spacing: -.045em; font-weight: 350; text-wrap: balance; }
 .partners-statement-title span { color: var(--lime-bright); }
@@ -75,9 +75,9 @@
 .partners-contact { display: flex; justify-content: space-between; align-items: center; gap: 56px; padding-block: 96px; }
 .partners-contact h2 { margin-top: 20px; font-size: clamp(30px, 3vw, 42px); }
 .partners-contact p:last-child { max-width: 56ch; margin-top: 22px; font-size: 15px; line-height: 1.8; color: var(--text-soft); }
-.partners-button { display: inline-flex; align-items: center; justify-content: center; gap: 36px; min-height: 54px; flex-shrink: 0; padding: 16px 24px; background: var(--forest); color: var(--surface); font-size: 12px; font-weight: 550; border-radius: 3px; transition: background 220ms ease, transform 220ms var(--reveal-ease); }
+.partners-button { display: inline-flex; align-items: center; justify-content: center; gap: 36px; min-height: 54px; flex-shrink: 0; padding: 16px 24px; background: var(--action-bg); color: var(--on-action); font-size: 12px; font-weight: 550; border-radius: 3px; transition: background 220ms ease, transform 220ms var(--reveal-ease); }
 .partners-button svg { width: 18px; transition: transform 220ms var(--reveal-ease); }
-.partners-button:active { background: var(--forest-deep); }
+.partners-button:active { background: var(--action-hover); }
 .partners-related { padding-block: 32px 56px; border-top: 1px solid var(--line); }
 .partners-related h2 { font-size: 18px !important; font-weight: 500 !important; letter-spacing: -.025em !important; }
 .partners-related nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 20px; }
@@ -93,13 +93,13 @@
 .partners-page .editorial-footer nav a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; color: var(--green); font-size: 12px; }
 .partners-page .editorial-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) {
-  .partner-card.has-link:hover { transform: translateY(-4px); border-color: #9db782; background: #fff; box-shadow: 0 8px 20px #03210a08; }
+  .partner-card.has-link:hover { transform: translateY(-4px); border-color: var(--line); background: var(--surface-raised); box-shadow: 0 8px 20px rgba(var(--shadow-rgb),0.031); }
   .partner-card.has-link:hover img { transform: scale(1.02); }
   .partner-card.has-link:hover .partner-link svg { transform: translate(2px, -2px); }
   .partner-card.has-link:hover .partner-link span { text-decoration: underline; text-underline-offset: 4px; }
   .partners-discover:hover span { text-decoration: underline; text-underline-offset: 4px; }
   .partners-discover:hover svg { transform: translateY(3px); }
-  .partners-button:hover { background: var(--forest-deep); transform: translateY(-3px); }
+  .partners-button:hover { background: var(--action-hover); transform: translateY(-3px); }
   .partners-button:hover svg { transform: translateX(3px); }
   .partners-related a:hover { color: var(--green); border-color: var(--green); }
   .partners-related a:hover span { text-decoration: underline; text-underline-offset: 4px; }

@@ -5,11 +5,11 @@
   flex: 0 0 var(--indicator-size, 6px);
   border-radius: 50%;
   background: var(--indicator-color, var(--green));
-  box-shadow: 0 0 0 4px rgba(var(--indicator-ring, 65,110,1), .08);
+  box-shadow: 0 0 0 4px rgba(var(--indicator-ring, var(--green-rgb)), .08);
 }
 @keyframes indicator-pulse {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(var(--indicator-ring, 65,110,1), .07), 0 0 6px rgba(var(--indicator-glow, 120,190,8), .04); }
-  50% { box-shadow: 0 0 0 5px rgba(var(--indicator-ring, 65,110,1), .13), 0 0 12px rgba(var(--indicator-glow, 120,190,8), .12); }
+  0%, 100% { box-shadow: 0 0 0 3px rgba(var(--indicator-ring, var(--green-rgb)), .07), 0 0 6px rgba(var(--indicator-glow, var(--lime-rgb)), .04); }
+  50% { box-shadow: 0 0 0 5px rgba(var(--indicator-ring, var(--green-rgb)), .13), 0 0 12px rgba(var(--indicator-glow, var(--lime-rgb)), .12); }
 }
 @media (prefers-reduced-motion: no-preference) {
   .indicator-dot { animation: indicator-pulse 1.2s ease-in-out infinite; }
