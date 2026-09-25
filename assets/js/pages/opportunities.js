@@ -5,34 +5,7 @@
   const M = window.FAGOpportunities;
   const data = JSON.parse(document.getElementById('opportunities-data').textContent);
   const form = document.getElementById('op-filters');
-  const root = document.documentElement;
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const stopped = () => reduced.matches || root.dataset.motionPaused === 'true';
   let day = M.today();
-  const targets = [...main.querySelectorAll('.aura-view-reveal')];
-  let observer;
-  const revealAll = () => {
-    targets.forEach(target => target.classList.add('is-visible'));
-    observer?.disconnect();
-  };
-  if (!('IntersectionObserver' in window) || stopped()) revealAll();
-  else {
-    observer = new IntersectionObserver(entries => {
-      let index = 0;
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.style.setProperty('--op-delay', `${(index++ % 3) * 70}ms`);
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: .05 });
-    main.classList.add('op-reveal-ready');
-    targets.forEach(target => observer.observe(target));
-  }
-  main.addEventListener('focusin', revealAll);
-  window.addEventListener('beforeprint', revealAll);
-  reduced.addEventListener('change', () => { if (stopped()) revealAll(); });
-  new MutationObserver(() => { if (stopped()) revealAll(); }).observe(root, { attributes: true, attributeFilter: ['data-motion-paused'] });
 
   function syncDetails() {
     main.querySelectorAll('details').forEach(details => {

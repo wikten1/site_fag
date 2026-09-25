@@ -41,7 +41,9 @@ ${renderFooter({prefix,variant:'editorial'})}
 </body></html>\n`;
 }
 function breadcrumb(prefix, title) {
-  return `<nav class="editorial-breadcrumb" aria-label="Você está aqui"><ol><li><a href="${prefix}index.html">Início</a></li><li>${title?`<a href="${prefix}noticias.html">Notícias</a>`:'<span aria-current="page">Notícias</span>'}</li>${title?`<li><span aria-current="page">${esc(title)}</span></li>`:''}</ol></nav>`;
+  const items = [{ label: 'Início', href: 'index.html' }, { label: 'Notícias', href: 'noticias.html' }];
+  if (title) items.push({ label: title });
+  return require('../src/components/breadcrumb')({ items, label: 'Você está aqui' }, prefix);
 }
 function pagination(data, prefix) {
   if (data.pages <= 1) return '';

@@ -48,6 +48,8 @@ sitemap.xml          Saída do build
 
 ## Criar uma página
 
+Veja também [a integração das novas páginas](docs/page-integration.md), com os padrões compartilhados de breadcrumbs, animações, rodapé compacto e imagens responsivas. Os caminhos de navegação são configurados em `config/breadcrumbs.json` e inseridos nos templates por `{{breadcrumb}}`.
+
 1. Crie `src/pages/projetos.html`, seguindo este exemplo:
 
 ```html

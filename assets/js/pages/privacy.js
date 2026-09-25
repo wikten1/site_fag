@@ -3,32 +3,17 @@
   const main = document.querySelector('.privacy-page main');
   if (!main) return;
   const root = document.documentElement;
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 820px)');
   const toggle = main.querySelector('.privacy-index-toggle');
   const navigation = main.querySelector('#privacy-index-links');
   const links = [...navigation.querySelectorAll('a')];
   const sections = links.map(link => document.querySelector(link.hash));
-  const targets = [...main.querySelectorAll('[data-privacy-reveal]')];
   const bar = document.querySelector('.privacy-progress span');
-  let revealObserver;
   let queued = false;
-  const stopped = () => reduced.matches || root.dataset.motionPaused === 'true';
-  function revealAll() {
-    targets.forEach(target => target.classList.add('is-visible'));
-    revealObserver?.disconnect();
-  }
-  if ('IntersectionObserver' in window && !stopped()) {
-    revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0, rootMargin: '0px 0px -25px 0px' });
-    targets.forEach(target => revealObserver.observe(target));
-    main.classList.add('privacy-reveal-ready');
-  }
+  const revealAll = window.FAGReveal(main, {
+    selector: '[data-privacy-reveal]', readyClass: 'privacy-reveal-ready',
+    threshold: 0, rootMargin: '0px 0px -25px 0px', focus: 'target'
+  });
   const setExpanded = expanded => {
     toggle.setAttribute('aria-expanded', String(expanded));
     navigation.hidden = !expanded;
@@ -76,9 +61,6 @@
   main.querySelectorAll('details').forEach(details => details.addEventListener('toggle', scheduleReading));
   if ('ResizeObserver' in window) new ResizeObserver(scheduleReading).observe(main.querySelector('.privacy-document'));
   updateReading();
-  reduced.addEventListener('change', () => { if (stopped()) revealAll(); });
-  new MutationObserver(() => { if (stopped()) revealAll(); }).observe(root, { attributes: true, attributeFilter: ['data-motion-paused'] });
-  main.addEventListener('focusin', event => event.target.closest('[data-privacy-reveal]')?.classList.add('is-visible'));
   const printClosed = [];
   window.addEventListener('beforeprint', () => {
     revealAll();

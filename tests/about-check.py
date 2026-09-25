@@ -28,7 +28,11 @@ with sync_playwright() as p:
         assert 'Espaço reservado' not in page.locator('main').inner_text()
         assert page.locator('.about-contact-button').get_attribute('href') == 'contato.html'
         page.locator('.about-photo-frame img').evaluate('(img) => img.decode()')
-        assert page.locator('.about-photo-frame img').evaluate('(img) => img.naturalWidth') == 1672
+        photo = page.locator('.about-photo-frame img')
+        photo.evaluate('(img) => img.decode()')
+        assert photo.evaluate('(img) => img.naturalWidth > 0 && img.currentSrc.endsWith(".webp")')
+        assert photo.get_attribute('width') == '1672'
+        assert '640w' in photo.get_attribute('srcset') and '1672w' in photo.get_attribute('srcset')
         for width in [1440, 1280, 1024, 900, 820, 768, 700, 560, 390, 320]:
             page.set_viewport_size({'width': width, 'height': 1000})
             page.evaluate('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))')

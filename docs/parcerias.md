@@ -188,7 +188,7 @@ Quando `items` está vazio, o mesmo ponto da página renderiza um painel claro c
 | `content/partners.json` | Instituições, logos locais, dimensões e destinos confirmados |
 | `src/components/partners.js` | Cards, URLs seguras e estado vazio |
 | `assets/css/pages/partners.css` | Layout, estados, responsividade e animação |
-| `assets/js/pages/partners.js` | Entradas progressivas e foco da âncora |
+| `assets/js/components/reveal.js` | Entradas progressivas e foco da âncora, configurados no template |
 | `assets/images/partners/` | 17 imagens originais, sem alterações |
 | `tests/partners-check.py` | Verificação no navegador e cenários de crescimento |
 

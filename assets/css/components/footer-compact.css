@@ -1,0 +1,13 @@
+/* Compact variant of the existing editorial footer; page-specific dimensions only. */
+:is(.about-page,.partners-page) .editorial-footer { padding: var(--compact-footer-padding); background: var(--compact-footer-background, transparent); }
+:is(.about-page,.partners-page) .editorial-footer .editorial-shell { display: flex; align-items: center; gap: 32px; }
+:is(.about-page,.partners-page) .editorial-footer-brand { display: flex; }
+:is(.about-page,.partners-page) .editorial-footer-brand img { width: var(--compact-logo-width); height: var(--compact-logo-height); object-fit: contain; }
+:is(.about-page,.partners-page) .editorial-footer p { margin: 0; font-size: var(--compact-footer-size); line-height: var(--compact-footer-line); }
+:is(.about-page,.partners-page) .editorial-footer p span { color: var(--green); }
+:is(.about-page,.partners-page) .editorial-footer nav { margin-left: auto; display: flex; align-items: center; gap: 28px; }
+:is(.about-page,.partners-page) .editorial-footer nav a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; color: var(--green); font-size: 12px; }
+:is(.about-page,.partners-page) .editorial-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.about-page { --compact-footer-padding: 32px 0 46px; --compact-logo-width: 110px; --compact-logo-height: 56px; --compact-footer-size: 13px; --compact-footer-line: 1.65; }
+.partners-page { --compact-footer-padding: 30px 0; --compact-footer-background: var(--cream-deep); --compact-logo-width: 100px; --compact-logo-height: 52px; --compact-footer-size: 12px; --compact-footer-line: 1.7; }
+.about-page .editorial-footer a:active { background: var(--cream-deep); }

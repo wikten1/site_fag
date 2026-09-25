@@ -6,10 +6,10 @@
 <body class="online-page">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 {{header}}
-  <main id="conteudo" tabindex="-1">
+  <main data-reveal-options='{"selector":"[data-online-reveal]","readyClass":"online-reveal-ready","threshold":0.04,"delayProperty":"--online-delay","batch":3,"step":80}' id="conteudo" tabindex="-1">
     <div class="online-opening">
       <div class="online-shell">
-        <nav class="editorial-breadcrumb online-breadcrumb" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><span aria-current="page">Conteúdo Online</span></li></ol></nav>
+        {{breadcrumb}}
         <section class="online-hero" aria-labelledby="online-title" data-page-search>
           <div class="online-hero-copy">
             <p class="online-label online-hero-enter">Recursos digitais</p>

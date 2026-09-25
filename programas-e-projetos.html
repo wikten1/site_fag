@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="assets/css/pages/programs.css">
 <link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/header.js" defer></script>
-<script src="assets/js/pages/programs.js" defer></script>
+<script src="assets/js/components/reveal.js" defer></script>
 
 </head>
 <body class="editorial-page programs-page">
@@ -96,7 +96,7 @@
     </div>
   </nav>
 
-  <main id="conteudo" tabindex="-1">
+  <main data-reveal-options='{"selector":"[data-program-reveal]","readyClass":"programs-reveal-ready","threshold":0.06,"delayProperty":"--program-delay"}' id="conteudo" tabindex="-1">
     <div class="editorial-shell">
       <nav class="editorial-breadcrumb" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><span aria-current="page">Programas e Projetos</span></li></ol></nav>
       <section class="initiatives-hero" aria-labelledby="initiatives-title" data-page-search>
@@ -104,7 +104,7 @@
           <p class="editorial-label">Atuação institucional</p>
           <h1 id="initiatives-title">Programas <span>e Projetos</span></h1>
           <p class="initiatives-lead">Educação, conhecimento e colaboração que se transformam em oportunidades para pessoas e comunidades.</p>
-          <a class="initiatives-text-link" href="#iniciativas"><span>Explore as iniciativas</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+          <a class="initiatives-text-link" href="#iniciativas" data-anchor-focus><span>Explore as iniciativas</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
         </div>
         <figure class="initiatives-hero-image">
           <img src="assets/images/institutional/about-640.webp" srcset="assets/images/institutional/about-640.webp 640w, assets/images/institutional/about-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 520px" width="1672" height="941" alt="Pessoas reunidas em uma mesa de estudo, compartilhando uma atividade com um notebook." fetchpriority="high" decoding="async">

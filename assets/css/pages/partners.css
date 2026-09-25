@@ -83,15 +83,6 @@
 .partners-related nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 20px; }
 .partners-related a { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding-block: 12px; color: var(--text-soft); font-size: 14px; border-bottom: 1px solid var(--line); transition: color 180ms ease, border-color 180ms ease; }
 .partners-related a svg { width: 17px; color: var(--green); transition: transform 220ms var(--reveal-ease); }
-.partners-page .editorial-footer { background: var(--cream-deep); padding-block: 30px; }
-.partners-page .editorial-footer .editorial-shell { display: flex; align-items: center; gap: 32px; }
-.partners-page .editorial-footer-brand { display: flex; }
-.partners-page .editorial-footer-brand img { width: 100px; height: 52px; object-fit: contain; }
-.partners-page .editorial-footer p { margin: 0; font-size: 12px; line-height: 1.7; }
-.partners-page .editorial-footer p span { color: var(--green); }
-.partners-page .editorial-footer nav { margin-left: auto; display: flex; align-items: center; gap: 28px; }
-.partners-page .editorial-footer nav a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; color: var(--green); font-size: 12px; }
-.partners-page .editorial-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) {
   .partner-card.has-link:hover { transform: translateY(-4px); border-color: var(--line); background: var(--surface-raised); box-shadow: 0 8px 20px rgba(var(--shadow-rgb),0.031); }
   .partner-card.has-link:hover img { transform: scale(1.02); }

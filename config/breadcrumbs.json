@@ -1,0 +1,145 @@
+{
+  "contato.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Contato e Atendimento"
+      }
+    ],
+    "className": "contact-breadcrumb",
+    "label": "Você está aqui",
+    "currentOnItem": false,
+    "chevrons": false
+  },
+  "conteudo-online.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Conteúdo Online"
+      }
+    ],
+    "className": "editorial-breadcrumb online-breadcrumb",
+    "label": "Navegação contextual",
+    "currentOnItem": false,
+    "chevrons": false
+  },
+  "cursos.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Cursos e Oportunidades",
+        "href": "index.html#cursos-e-oportunidades"
+      },
+      {
+        "label": "Cursos"
+      }
+    ],
+    "className": "catalog-breadcrumb",
+    "label": "Caminho de navegação",
+    "currentOnItem": true,
+    "chevrons": false
+  },
+  "inscricoes-e-selecoes.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Inscrições e Seleções"
+      }
+    ],
+    "className": "editorial-breadcrumb aura-view-reveal",
+    "label": "Navegação contextual",
+    "currentOnItem": false,
+    "chevrons": false
+  },
+  "parcerias.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Institucional",
+        "href": "sobre.html"
+      },
+      {
+        "label": "Parcerias"
+      }
+    ],
+    "className": "partners-breadcrumb",
+    "label": "Navegação contextual",
+    "currentOnItem": false,
+    "chevrons": true
+  },
+  "politica-de-privacidade.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "LGPD e Política de Privacidade"
+      }
+    ],
+    "className": "editorial-breadcrumb",
+    "label": "Navegação contextual",
+    "currentOnItem": false,
+    "chevrons": false
+  },
+  "programas-e-projetos.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Programas e Projetos"
+      }
+    ],
+    "className": "editorial-breadcrumb",
+    "label": "Navegação contextual",
+    "currentOnItem": false,
+    "chevrons": false
+  },
+  "sobre.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Sobre a FAG"
+      }
+    ],
+    "className": "about-breadcrumb",
+    "label": "Navegação contextual",
+    "currentOnItem": true,
+    "chevrons": false
+  },
+  "transparencia.html": {
+    "items": [
+      {
+        "label": "Início",
+        "href": "index.html"
+      },
+      {
+        "label": "Transparência"
+      }
+    ],
+    "className": "editorial-breadcrumb",
+    "label": "Navegação contextual",
+    "currentOnItem": false,
+    "chevrons": false
+  }
+}

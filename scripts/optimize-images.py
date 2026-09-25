@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [
     ('background_hero.png', 'institutional/hero', [640, 1200, 1672]),
     ('sobre a FAG.png', 'institutional/about', [640, 1200]),
+    ('sobre-fag.png', 'institutional/sobre-fag', [640, 1200, 1672]),
     ('programa_mulheres_mil.png', 'programs/mulheres-mil', [640, 1200]),
     ('pronatec.png', 'programs/pronatec', [640, 1200]),
     ('Logo.png', 'brand/logo', [480]),

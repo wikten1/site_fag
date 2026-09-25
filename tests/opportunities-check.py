@@ -21,6 +21,7 @@ for(const count of [1,3,18]) {
   const items=Array.from({length:count},(_,i)=>({...examples[i%3],slug:'demo-'+i,...(i>2?{status:'finished',year:i%2?2031:2030}:{})}));
   const data={items};
   fixtures[count]=template('pages/inscricoes-e-selecoes.html',{
+    breadcrumb:require('./src/components/breadcrumb')(require('./config/breadcrumbs.json')[config.route]),
     head:require('./src/components/head')({...config,styles:config.styles.map(x=>'assets/css/'+x+'.css'),scripts:config.scripts.map(x=>'assets/js/'+x+'.js')}),
     header:require('./src/components/header')({active:'opportunities'}),footer:require('./src/components/footer')({variant:'editorial'}),...render(data)
   });

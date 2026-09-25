@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="assets/css/pages/online.css">
 <link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/header.js" defer></script>
-<script src="assets/js/pages/online.js" defer></script>
+<script src="assets/js/components/reveal.js" defer></script>
 
 </head>
 <body class="online-page">
@@ -95,7 +95,7 @@
     </div>
   </nav>
 
-  <main id="conteudo" tabindex="-1">
+  <main data-reveal-options='{"selector":"[data-online-reveal]","readyClass":"online-reveal-ready","threshold":0.04,"delayProperty":"--online-delay","batch":3,"step":80}' id="conteudo" tabindex="-1">
     <div class="online-opening">
       <div class="online-shell">
         <nav class="editorial-breadcrumb online-breadcrumb" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><span aria-current="page">Conteúdo Online</span></li></ol></nav>

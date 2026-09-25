@@ -24,10 +24,11 @@
 <script src="assets/js/theme.js"></script>
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components/header.css">
+<link rel="stylesheet" href="assets/css/components/footer-compact.css">
 <link rel="stylesheet" href="assets/css/pages/partners.css">
 <link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/header.js" defer></script>
-<script src="assets/js/pages/partners.js" defer></script>
+<script src="assets/js/components/reveal.js" defer></script>
 
 </head>
 <body class="partners-page">
@@ -94,18 +95,16 @@
     </div>
   </nav>
 
-  <main id="conteudo" tabindex="-1">
+  <main data-reveal-options='{"selector":"[data-partner-reveal]","readyClass":"partners-reveal-ready","threshold":0.06,"delayProperty":"--partner-delay","staggerSelector":".partner-item"}' id="conteudo" tabindex="-1">
     <div class="partners-shell">
-      <nav class="partners-breadcrumb" aria-label="Navegação contextual">
-        <ol><li><a href="index.html">Início</a></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg><a href="sobre.html">Institucional</a></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg><span aria-current="page">Parcerias</span></li></ol>
-      </nav>
+      <nav class="partners-breadcrumb" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg><a href="sobre.html">Institucional</a></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg><span aria-current="page">Parcerias</span></li></ol></nav>
 
       <section class="partners-hero" aria-labelledby="partners-title" data-page-search>
         <div class="partners-hero-copy">
           <p class="partners-eyebrow" data-partner-reveal>Institucional · Parcerias</p>
           <h1 id="partners-title" data-partner-reveal>Parcerias<span aria-hidden="true">.</span></h1>
           <p class="partners-lead" data-partner-reveal>A FAG estabelece parcerias institucionais para fortalecer a educação, a formação profissional, a ciência, a tecnologia e o desenvolvimento social.</p>
-          <a class="partners-discover" href="#instituicoes"><span>Conheça as instituições</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+          <a class="partners-discover" data-anchor-focus href="#instituicoes"><span>Conheça as instituições</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
         </div>
         <div class="partners-hero-art" aria-hidden="true" data-partner-reveal>
           <svg class="partners-network" viewBox="0 0 480 320">
@@ -127,27 +126,27 @@
       <section class="partners-directory" id="instituicoes" aria-labelledby="institutions-title">
         <div class="partners-directory-heading" data-partner-reveal><div><p class="partners-eyebrow">Nossa rede</p><h2 id="institutions-title">Instituições parceiras</h2></div><p>Organizações que integram a rede de<br class="partners-desktop-break"> colaboração institucional da FAG.</p></div>
         <ul class="partners-grid" aria-label="Instituições parceiras" role="list"><li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-uenf" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/assinatura-horizontal-Cor-1-1024x279.png" alt="" width="1024" height="279" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/uenf.png" alt="" width="1024" height="279" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-uenf">Universidade Estadual do Norte Fluminense Darcy Ribeiro</h3><a class="partner-link" href="https://uenf.br/portal/" aria-label="Visitar instituição: Universidade Estadual do Norte Fluminense Darcy Ribeiro (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-sindpanific" data-page-search>
-      <div class="partner-logo partner-logo-dark"><img src="assets/images/partners/Sindpanific-logo-350PX-1.png" alt="" width="350" height="82" loading="lazy" decoding="async"></div>
+      <div class="partner-logo partner-logo-dark"><img src="assets/images/partners/sindpanific.png" alt="" width="350" height="82" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-sindpanific">Sindicato das Indústrias de Panificação e Confeitaria de Niterói e São Gonçalo</h3><a class="partner-link" href="https://sindpanific.associativismo-firjan.com.br/" aria-label="Visitar instituição: Sindicato das Indústrias de Panificação e Confeitaria de Niterói e São Gonçalo (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-mast" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/MAST_Cor-1-890x1024.png" alt="" width="890" height="1024" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/mast.png" alt="" width="890" height="1024" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-mast">Museu de Astronomia e Ciências Afins</h3><a class="partner-link" href="https://www.gov.br/mast/pt-br" aria-label="Visitar instituição: Museu de Astronomia e Ciências Afins (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-seeduc" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/images-1-1.png" alt="" width="511" height="98" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/seeduc.png" alt="" width="511" height="98" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-seeduc">Secretaria de Estado de Educação do Rio de Janeiro</h3><a class="partner-link" href="https://www.seeduc.rj.gov.br/" aria-label="Visitar instituição: Secretaria de Estado de Educação do Rio de Janeiro (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-pesagro" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/images-2.png" alt="" width="515" height="98" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/pesagro.png" alt="" width="515" height="98" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-pesagro">Pesagro-Rio</h3><a class="partner-link" href="https://www.rj.gov.br/pesagro/" aria-label="Visitar instituição: Pesagro-Rio (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card" aria-labelledby="partner-sindicato-rural" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/SIND-ITB-RURAL-1.png" alt="" width="182" height="51" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/sindicato-rural.png" alt="" width="182" height="51" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-sindicato-rural">Sindicato Rural de Itaboraí</h3></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-mec" data-page-search>
@@ -155,11 +154,11 @@
       <div class="partner-info"><h3 id="partner-mec">Ministério da Educação</h3><a class="partner-link" href="https://www.gov.br/mec/pt-br" aria-label="Visitar instituição: Ministério da Educação (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-firjan-senai" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/FirjanSENAI-01.png" alt="" width="360" height="360" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/firjan-senai.png" alt="" width="360" height="360" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-firjan-senai">Firjan SENAI</h3><a class="partner-link" href="https://www.firjansenai.com.br/" aria-label="Visitar instituição: Firjan SENAI (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-faetec" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/faetc-1024x289.jpg" alt="" width="1024" height="289" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/faetec.jpg" alt="" width="1024" height="289" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-faetec">Fundação de Apoio à Escola Técnica do Estado do Rio de Janeiro</h3><a class="partner-link" href="https://www.faetec.rj.gov.br/" aria-label="Visitar instituição: Fundação de Apoio à Escola Técnica do Estado do Rio de Janeiro (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card" aria-labelledby="partner-biohope" data-page-search>
@@ -167,7 +166,7 @@
       <div class="partner-info"><h3 id="partner-biohope">Biohope</h3></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-cecierj" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/cecierk.jpeg" alt="" width="252" height="148" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/cecierj.jpeg" alt="" width="252" height="148" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-cecierj">Fundação CECIERJ</h3><a class="partner-link" href="https://cecierj.edu.br/" aria-label="Visitar instituição: Fundação CECIERJ (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-cetene" data-page-search>
@@ -187,7 +186,7 @@
       <div class="partner-info"><h3 id="partner-mcti">Ministério da Ciência, Tecnologia e Inovação</h3><a class="partner-link" href="https://www.gov.br/mcti/pt-br" aria-label="Visitar instituição: Ministério da Ciência, Tecnologia e Inovação (site externo)"><span>Visitar instituição</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card" aria-labelledby="partner-rio-metropole" data-page-search>
-      <div class="partner-logo"><img src="assets/images/partners/riometropoce.jpeg" alt="" width="960" height="679" loading="lazy" decoding="async"></div>
+      <div class="partner-logo"><img src="assets/images/partners/rio-metropole.jpeg" alt="" width="960" height="679" loading="lazy" decoding="async"></div>
       <div class="partner-info"><h3 id="partner-rio-metropole">Instituto Rio Metrópole</h3></div>
     </article></li>
 <li class="partner-item" data-partner-reveal><article class="partner-card has-link" aria-labelledby="partner-setrab" data-page-search>

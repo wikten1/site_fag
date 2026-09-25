@@ -6,6 +6,8 @@ const { writeOutputs } = require('./lib/outputs');
 const head = require('../src/components/head');
 const header = require('../src/components/header');
 const footer = require('../src/components/footer');
+const breadcrumb = require('../src/components/breadcrumb');
+const breadcrumbs = require('../config/breadcrumbs.json');
 const C = require('../src/components/courses');
 const E = require('../assets/js/shared/news-model');
 const news = require('../content/news.json');
@@ -37,6 +39,7 @@ function build() {
       header: header({ prefix, active: page.active, variant: page.header }),
       footer: page.footer ? footer({ prefix, variant: page.footer, home: page.active === 'home' }) : '',
       scripts: '', newsFeed,
+      breadcrumb: breadcrumbs[page.route] ? breadcrumb(breadcrumbs[page.route], prefix) : '',
       partnerGrid: page.active === 'partners' ? renderPartners(partners.items, prefix) : '',
       ...(page.active === 'programs' ? renderPrograms(programs, prefix) : {}),
       ...(page.active === 'opportunities' ? renderOpportunities(opportunities) : {}),

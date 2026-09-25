@@ -9,6 +9,17 @@ const { createApp } = require('../server/contact-server');
 const pages = [...require('../config/pages').map(page => page.route), '404.html', 'noticias.html', ...fs.readdirSync(path.join(root, 'noticias')).map(file => 'noticias/' + file)];
 const documents = new Map(pages.map(file => [file, fs.readFileSync(path.join(root, file), 'utf8').replace(/<!--[\s\S]*?-->/g, '')]));
 const decode = value => value.replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'");
+test('shared breadcrumbs escape content and preserve nested-page paths and variants', () => {
+  const breadcrumb = require('../src/components/breadcrumb');
+  const items = [{ label: 'Início', href: 'index.html' }, { label: '<Projeto & pesquisa>' }];
+  const output = breadcrumb({ items }, '../');
+  assert.match(output, /href="\.\.\/index.html"/);
+  assert.match(output, /<span aria-current="page">&lt;Projeto &amp; pesquisa&gt;<\/span>/);
+  assert.equal((output.match(/aria-current=/g) || []).length, 1);
+  const compact = breadcrumb({ items, currentOnItem: true, chevrons: true });
+  assert.match(compact, /<li aria-current="page"><svg/);
+  assert.match(compact, /aria-hidden="true"/);
+});
 function localURL(value, from) {
   const url = new URL(decode(value), 'https://site.test/' + from);
   return url.origin === 'https://site.test' ? url : null;

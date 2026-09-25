@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="assets/css/pages/opportunities.css">
 <link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/header.js" defer></script>
+<script src="assets/js/components/reveal.js" defer></script>
 <script src="assets/js/shared/opportunities-model.js" defer></script>
 <script src="assets/js/pages/opportunities.js" defer></script>
 
@@ -96,7 +97,7 @@
     </div>
   </nav>
 
-  <main id="conteudo" tabindex="-1">
+  <main data-reveal-options='{"selector":".aura-view-reveal","readyClass":"op-reveal-ready","threshold":0.05,"delayProperty":"--op-delay","batch":3}' id="conteudo" tabindex="-1">
     <div class="editorial-shell">
       <nav class="editorial-breadcrumb aura-view-reveal" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li><span aria-current="page">Inscrições e Seleções</span></li></ol></nav>
       <section class="op-hero" aria-labelledby="op-title" data-page-search>

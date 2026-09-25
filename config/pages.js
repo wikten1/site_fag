@@ -6,7 +6,7 @@ module.exports = [
     title: 'LGPD e Política de Privacidade — FAG',
     description: 'Conheça a Política de Privacidade da FAG, o tratamento de dados pessoais, seus direitos e os canais para dúvidas e requisições.',
     styles: ['components/header', 'pages/editorial', 'pages/privacy'],
-    scripts: ['components/header', 'pages/privacy']
+    scripts: ['components/header', 'components/reveal', 'pages/privacy']
   },
   {
     route: 'transparencia.html', template: 'transparencia.html', active: 'transparency', footer: 'editorial',
@@ -20,7 +20,7 @@ module.exports = [
     title: 'Conteúdo Online — FAG',
     description: 'Biblioteca Digital, Plataforma EAD e recursos de apoio à aprendizagem. Conheça os caminhos para estudar, pesquisar e ampliar seu conhecimento com a FAG.',
     styles: ['components/header', 'pages/editorial', 'pages/online'],
-    scripts: ['components/header', 'pages/online']
+    scripts: ['components/header', 'components/reveal']
   },
   {
     route: 'index.html', template: 'index.html', active: 'home', footer: 'institutional',
@@ -34,16 +34,16 @@ module.exports = [
     route: 'sobre.html', template: 'sobre.html', active: 'about', footer: 'editorial',
     title: 'Sobre a FAG — Educação, conhecimento e desenvolvimento',
     description: 'Conheça a FAG, Fundação de Educação Profissional e Tecnológica, Amparo à Pesquisa, Políticas Sociais e Desenvolvimento Socioeconômico de Tanguá.',
-    image: 'assets/images/institutional/sobre-fag.png',
-    styles: ['components/header', 'pages/about'],
-    scripts: ['components/header', 'pages/about']
+    image: 'assets/images/institutional/sobre-fag-1200.webp',
+    styles: ['components/header', 'components/footer-compact', 'pages/about'],
+    scripts: ['components/header', 'components/reveal']
   },
   {
     route: 'parcerias.html', template: 'parcerias.html', active: 'partners', footer: 'editorial',
     title: 'Parcerias — FAG',
     description: 'Conheça as instituições parceiras da FAG: uma rede de colaboração pela educação, ciência, tecnologia e desenvolvimento social em Tanguá.',
-    styles: ['components/header', 'pages/partners'],
-    scripts: ['components/header', 'pages/partners']
+    styles: ['components/header', 'components/footer-compact', 'pages/partners'],
+    scripts: ['components/header', 'components/reveal']
   },
   {
     route: 'programas-e-projetos.html', template: 'programas-e-projetos.html', active: 'programs', footer: 'editorial',
@@ -51,14 +51,14 @@ module.exports = [
     description: 'Conheça os programas e projetos da FAG: iniciativas de educação profissional, inclusão e desenvolvimento social, com destaque para o Mulheres Mil.',
     image: 'assets/images/programs/mulheres-mil-1200.webp',
     styles: ['components/header', 'pages/editorial', 'components/programs', 'pages/programs'],
-    scripts: ['components/header', 'pages/programs']
+    scripts: ['components/header', 'components/reveal']
   },
   {
     route: 'inscricoes-e-selecoes.html', template: 'inscricoes-e-selecoes.html', active: 'opportunities', footer: 'editorial',
     title: 'Inscrições e Seleções — FAG',
     description: 'Acompanhe inscrições, processos seletivos, prazos, documentos e resultados da FAG. Consulte oportunidades e orientações para participar.',
     styles: ['components/header', 'pages/editorial', 'pages/opportunities'],
-    scripts: ['components/header', 'shared/opportunities-model', 'pages/opportunities']
+    scripts: ['components/header', 'components/reveal', 'shared/opportunities-model', 'pages/opportunities']
   },
   {
     route: 'cursos.html', template: 'cursos.html', header: 'catalog', footer: 'editorial',

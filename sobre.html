@@ -15,7 +15,7 @@
 <meta property="og:title" content="Sobre a FAG — Educação, conhecimento e desenvolvimento">
 <meta property="og:description" content="Conheça a FAG, Fundação de Educação Profissional e Tecnológica, Amparo à Pesquisa, Políticas Sociais e Desenvolvimento Socioeconômico de Tanguá.">
 <meta property="og:url" content="https://fag.tangua.rj.gov.br/sobre.html">
-<meta property="og:image" content="https://fag.tangua.rj.gov.br/assets/images/institutional/sobre-fag.png">
+<meta property="og:image" content="https://fag.tangua.rj.gov.br/assets/images/institutional/sobre-fag-1200.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +24,11 @@
 <script src="assets/js/theme.js"></script>
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components/header.css">
+<link rel="stylesheet" href="assets/css/components/footer-compact.css">
 <link rel="stylesheet" href="assets/css/pages/about.css">
 <link rel="stylesheet" href="assets/css/theme-controls.css">
 <script src="assets/js/components/header.js" defer></script>
-<script src="assets/js/pages/about.js" defer></script>
+<script src="assets/js/components/reveal.js" defer></script>
 
 </head>
 <body class="about-page">
@@ -94,22 +95,20 @@
     </div>
   </nav>
 
-  <main id="conteudo" tabindex="-1">
+  <main data-reveal-options='{"selector":"[data-about-reveal]","readyClass":"about-reveal-ready","threshold":0.08}' id="conteudo" tabindex="-1">
     <div class="about-shell">
-      <nav class="about-breadcrumb" aria-label="Navegação contextual">
-        <ol><li><a href="index.html">Início</a></li><li aria-current="page">Sobre a FAG</li></ol>
-      </nav>
+      <nav class="about-breadcrumb" aria-label="Navegação contextual"><ol><li><a href="index.html">Início</a></li><li aria-current="page">Sobre a FAG</li></ol></nav>
 
       <section class="about-hero" aria-labelledby="about-title" data-page-search>
         <div class="about-hero-copy">
           <p class="about-eyebrow" data-about-reveal>Institucional</p>
           <h1 id="about-title" data-about-reveal style="--reveal-delay: 80ms">Sobre a <span>FAG<span class="about-title-dot">.</span></span></h1>
           <p class="about-hero-intro" data-about-reveal style="--reveal-delay: 160ms">Conectamos pessoas à educação profissional, à tecnologia e à pesquisa para fortalecer o desenvolvimento social e econômico de Tanguá.</p>
-          <a class="about-discover" href="#quem-somos" data-about-reveal style="--reveal-delay: 240ms"><span class="about-discover-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span>Conheça a nossa atuação</a>
+          <a class="about-discover" data-anchor-focus href="#quem-somos" data-about-reveal style="--reveal-delay: 240ms"><span class="about-discover-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span>Conheça a nossa atuação</a>
         </div>
         <figure class="about-hero-figure" data-about-reveal style="--reveal-delay: 240ms">
           <div class="about-photo-decoration" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="about-photo-frame"><img src="assets/images/institutional/sobre-fag.png" alt="Educadora conversa com estudantes reunidos ao redor de uma mesa, com cadernos e um notebook, em um ambiente de aprendizagem." width="1672" height="941" fetchpriority="high"></div>
+          <div class="about-photo-frame"><img src="assets/images/institutional/sobre-fag-1200.webp" srcset="assets/images/institutional/sobre-fag-640.webp 640w, assets/images/institutional/sobre-fag-1200.webp 1200w, assets/images/institutional/sobre-fag-1672.webp 1672w" sizes="(max-width: 900px) calc(100vw - 40px), 640px" alt="Educadora conversa com estudantes reunidos ao redor de uma mesa, com cadernos e um notebook, em um ambiente de aprendizagem." width="1672" height="941" fetchpriority="high"></div>
           <figcaption><span class="about-caption-line" aria-hidden="true"></span>Conhecimento que aproxima pessoas.<span class="about-photo-mark" aria-hidden="true">FAG / TANGUÁ</span></figcaption>
         </figure>
       </section>

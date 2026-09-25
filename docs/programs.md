@@ -1,6 +1,6 @@
 # Programas e Projetos
 
-A página `programas-e-projetos.html` reutiliza o cabeçalho e o rodapé editorial, os tokens, o container, o breadcrumb e os estilos dos cards de programas existentes. O template fica em `src/pages/programas-e-projetos.html`; CSS e movimento específicos ficam em `assets/css/pages/programs.css` e `assets/js/pages/programs.js`.
+A página `programas-e-projetos.html` reutiliza o cabeçalho e o rodapé editorial, os tokens, o container, o breadcrumb e os estilos dos cards de programas existentes. O template fica em `src/pages/programas-e-projetos.html`; o CSS fica em `assets/css/pages/programs.css`. O movimento usa `assets/js/components/reveal.js`, configurado no template.
 
 ## Conteúdo
 
